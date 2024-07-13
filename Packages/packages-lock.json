@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "cdf88c6a6ac8c9b7e6e5d3c0a360a4af29641c24"
+    },
     "com.deltation.toon-rp": {
       "version": "https://github.com/Delt06/toon-rp.git?path=Packages/com.deltation.toon-rp",
       "depth": 0,
@@ -14,12 +21,33 @@
       },
       "hash": "f27d6ac0942a74aa33806a700e57c8698b9ece61"
     },
+    "com.qw1nt.configs": {
+      "version": "https://github.com/Qw1nt/unity.configs.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5f4c8e86329e0b7cc85ee5829631bcf1c45c08c9"
+    },
     "com.qw1nt.projectstructure.initializer": {
       "version": "https://github.com/Qw1nt/unity.project-structure.initializer.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "7bf9decf6a6c9b3c148e379f5087518795858c32"
+    },
+    "com.unity.addressables": {
+      "version": "1.21.21",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.scriptablebuildpipeline": "1.21.23",
+        "com.unity.modules.assetbundle": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
       "version": "1.8.12",
@@ -133,6 +161,13 @@
         "com.unity.modules.terrain": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       }
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.21.23",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
     },
     "com.unity.searcher": {
       "version": "4.9.2",
