@@ -1,30 +1,32 @@
 using System;
 using Cysharp.Threading.Tasks;
 using GameCore.Controllers.Services;
-using Modules.Infrastructure.Implementation;
 using Modules.Infrastructure.Implementation.DI;
 using Modules.Infrastructure.Interfaces.GameFsm;
+using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
+using Sources.Infrastructure.Api.Services.Providers;
 using VContainer;
 
 namespace GameCore.Controllers.GameFSM.States
 {
     public class GameLoopState : IState
     {
-        private const string s_gameLoopScene = "GameLoop";
-
         private readonly SceneInitializer _sceneInitializer;
+        private readonly IConfigurationProvider _configurationProvider;
         private readonly IObjectResolver _objectResolver;
         private readonly ICurtainService _curtainService;
-        private readonly SceneLoader _sceneLoader;
+        private readonly SceneManipulator _sceneLoader;
 
         public GameLoopState(
             SceneInitializer sceneInitializer,
-            SceneLoader sceneLoader,
+            SceneManipulator sceneLoader,
+            IConfigurationProvider configurationProvider,
             IObjectResolver objectResolver,
             ICurtainService curtainService)
         {
             _sceneInitializer = sceneInitializer;
             _sceneLoader = sceneLoader;
+            _configurationProvider = configurationProvider;
             _objectResolver = objectResolver;
             _curtainService = curtainService;
         }
@@ -32,7 +34,7 @@ namespace GameCore.Controllers.GameFSM.States
         public async void Enter()
         {
             await _curtainService.Show();
-            await _sceneLoader.LoadAsync(s_gameLoopScene);
+            await _sceneLoader.Load(_configurationProvider.GameloopSceneData);
             _sceneInitializer.Initialize(_objectResolver);
             await UniTask.Delay(TimeSpan.FromSeconds(3));
             await _curtainService.Hide();

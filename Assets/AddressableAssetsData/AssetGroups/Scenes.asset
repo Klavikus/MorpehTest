@@ -18,7 +18,19 @@ MonoBehaviour:
   m_GUID: a8d00abdbada4a24db81e6f19c37c32a
   m_SerializeEntries:
   - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
-    m_Address: MainMenu
+    m_Address: Meta
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05ffd65fb0b56484281794e47bbe3685
+    m_Address: Gameplay
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - scene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c7e35670dd1a1843846d0b0852b7bba
+    m_Address: Bootstrap
     m_ReadOnly: 0
     m_SerializedLabels:
     - scene

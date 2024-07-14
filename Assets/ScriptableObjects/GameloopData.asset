@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feee8cd57e934145a0612fedcd7f41c7, type: 3}
-  m_Name: ConfigurationContainer
+  m_Script: {fileID: 11500000, guid: 4efc579d9dcb498f9fc2e1d55b7c2e2b, type: 3}
+  m_Name: GameloopData
   m_EditorClassIdentifier: 
-  <BootstrapSceneName>k__BackingField: 
-  <MainMenuSceneName>k__BackingField: 
-  <GameloopSceneName>k__BackingField: 
-  <LocalizationTablePath>k__BackingField: 
+  _assetReference:
+    m_AssetGUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
+  _loadMode: 0
+  _key: Meta

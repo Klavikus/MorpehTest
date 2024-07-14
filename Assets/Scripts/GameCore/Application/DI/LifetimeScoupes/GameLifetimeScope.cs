@@ -2,9 +2,12 @@
 using GameCore.Controllers.GameFSM.States;
 using GameCore.Controllers.Services;
 using GameCore.Infrastructure.AssetManagement;
-using Modules.Infrastructure.Implementation;
 using Modules.Infrastructure.Implementation.DI;
 using Modules.Infrastructure.Interfaces.GameFsm;
+using Qw1nt.Runtime.AddressablesContentController.Common;
+using Qw1nt.Runtime.AddressablesContentController.Core;
+using Qw1nt.Runtime.Shared.AddressablesContentController.Interfaces;
+using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
 using Sources.Infrastructure.Api.Services.Providers;
 using Sources.Infrastructure.Core.Services.Providers;
 using VContainer;
@@ -16,13 +19,15 @@ namespace GameCore.Application.DI.LifetimeScoupes
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<SceneLoader>(Lifetime.Singleton);
+            builder.Register<IOperationsTracker, OperationsTracker>(Lifetime.Transient);
+            builder.Register<SceneManipulator>(Lifetime.Singleton);
 
             RegisterAssetManagementServices(builder);
             RegisterGameStateMachine(builder);
 
             builder.Register<ICurtainService, CurtainService>(Lifetime.Scoped);
-
+            builder.Register<ContentController>(Lifetime.Singleton);
+            
             builder.Register<IConfigurationProvider, ConfigurationProvider>(Lifetime.Scoped);
 
             builder.Register<SceneInitializer>(Lifetime.Singleton);

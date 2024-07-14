@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "UniTask",
-        "VContainer"
+        "VContainer",
+        "AddressablesContentController"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,22 +1,21 @@
 ﻿using GameCore.Controllers.Services;
-using Modules.Infrastructure.Implementation;
 using Modules.Infrastructure.Interfaces.GameFsm;
+using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
 using Sources.Infrastructure.Api.Services.Providers;
+using UnityEngine.SceneManagement;
 
 namespace GameCore.Controllers.GameFSM.States
 {
     public class BootstrapState : IState
     {
-        private const string s_bootstrapScene = "Bootstrap";
-
         private readonly IGameStateMachine _gameStateMachine;
-        private readonly SceneLoader _sceneLoader;
+        private readonly SceneManipulator _sceneLoader;
         private readonly ICurtainService _curtainService;
         private readonly IConfigurationProvider _configurationProvider;
 
         public BootstrapState(
             IGameStateMachine gameStateMachine,
-            SceneLoader sceneLoader,
+            SceneManipulator sceneLoader,
             ICurtainService curtainService,
             IConfigurationProvider configurationProvider)
         {
@@ -28,8 +27,8 @@ namespace GameCore.Controllers.GameFSM.States
 
         public async void Enter()
         {
-            await _sceneLoader.LoadAsync(s_bootstrapScene);
             await _configurationProvider.Initialize();
+            // await _sceneLoader.Load(_configurationProvider.BootstrapSceneData);
             await _curtainService.Initialize();
             await _curtainService.Show();
 

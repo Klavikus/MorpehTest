@@ -1,11 +1,13 @@
 ﻿
+using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
+
 namespace Sources.Infrastructure.Api.Services.Providers
 {
     public interface IConfigurationProvider : IAsyncInitializable
     {
-        string BootstrapSceneName { get; }
-        string MainMenuSceneName { get; }
-        string GameloopSceneName { get; }
+        SceneData BootstrapSceneData { get; }
+        SceneData MainMenuSceneData { get; }
+        SceneData GameloopSceneData { get; }
         string LocalizationTablePath { get; }
     }
 }

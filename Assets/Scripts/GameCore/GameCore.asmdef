@@ -12,7 +12,8 @@
         "UniTask.Addressables",
         "Unity.ResourceManager",
         "LastSynapse.Modules.Common",
-        "DAL.Runtime"
+        "DAL.Runtime",
+        "AddressablesContentController"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
