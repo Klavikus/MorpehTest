@@ -1,0 +1,17 @@
+{
+    "name": "LastSynapse.Modules.FocusHandleSystem",
+    "rootNamespace": "",
+    "references": [
+        "Agava.WebUtility",
+        "LastSynapse.GamePauseSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

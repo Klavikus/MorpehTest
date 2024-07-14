@@ -1,0 +1,17 @@
+{
+    "name": "LastSynapse.Modules.MVPPassiveView.Samples",
+    "rootNamespace": "",
+    "references": [
+        "Unity.TextMeshPro",
+        "LastSynapse.Modules.MVPPassiveView.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

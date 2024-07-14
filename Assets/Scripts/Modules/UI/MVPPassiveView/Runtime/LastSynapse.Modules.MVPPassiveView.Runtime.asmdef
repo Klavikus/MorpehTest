@@ -1,0 +1,17 @@
+{
+    "name": "LastSynapse.Modules.MVPPassiveView.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "LastSynapse.Modules.Common",
+        "LastSynapse.Modules.Common.WindowFsm.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
