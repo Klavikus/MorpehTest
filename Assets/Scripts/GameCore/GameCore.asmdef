@@ -1,0 +1,26 @@
+{
+    "name": "GameCore",
+    "rootNamespace": "",
+    "references": [
+        "Agava.WebUtility",
+        "LastSynapse.Modules.Infrastructure",
+        "UniTask",
+        "VContainer",
+        "LastSynapse.Modules.MVPPassiveView.Runtime",
+        "LastSynapse.Modules.Common.WindowFsm.Runtime",
+        "Unity.Addressables",
+        "UniTask.Addressables",
+        "Unity.ResourceManager",
+        "LastSynapse.Modules.Common",
+        "DAL.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
