@@ -1,11 +1,12 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using GameCore.Infrastructure.AssetManagement;
 using Qw1nt.Runtime.AddressablesContentController.Common;
 using Qw1nt.Runtime.AddressablesContentController.Core;
 using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
-using Sources.Infrastructure.Api.Services.Providers;
+using UnityEngine.AddressableAssets;
 
-namespace Sources.Infrastructure.Core.Services.Providers
+namespace GameCore.Infrastructure
 {
     public class ConfigurationProvider : IConfigurationProvider
     {
@@ -22,13 +23,25 @@ namespace Sources.Infrastructure.Core.Services.Providers
         public SceneData MainMenuSceneData => _configurationContainer.MainMenuSceneData;
         public SceneData GameloopSceneData => _configurationContainer.GameloopSceneData;
         public string LocalizationTablePath => _configurationContainer.LocalizationTablePath;
+        public AssetReference LoadingScreenViewReference => _configurationContainer.LoadingScreenViewReference;
 
         public async UniTask Initialize()
         {
             ContentOperation<ConfigurationContainer> operation =
                 await _contentController.LoadAsync<ConfigurationContainer>(
                     AssetKeys.KeyByType[typeof(ConfigurationContainer)]);
-          
+
+            _configurationContainer = operation.GetResult();
+        }
+
+        public async UniTask Initialize(IProgress<float> progress)
+        {
+            progress.Report(0);
+            ContentOperation<ConfigurationContainer> operation =
+                await _contentController.LoadAsync<ConfigurationContainer>(
+                    AssetKeys.KeyByType[typeof(ConfigurationContainer)]);
+            progress.Report(1f);
+
             _configurationContainer = operation.GetResult();
         }
     }

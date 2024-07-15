@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 
-namespace Sources.Infrastructure.Api.Services.Providers
+namespace GameCore.Infrastructure
 {
     public interface IAsyncInitializable
     {

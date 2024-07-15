@@ -28,10 +28,9 @@ namespace GameCore.Controllers.Presenters
             _resourceService = resourceService;
         }
 
-        protected override async void OnAfterEnable()
+        protected override void OnAfterEnable()
         {
             _view.ToGameloop.onClick.AddListener(Call);
-            await _resourceService.CreateAsync<Background>("Background");
         }
 
         protected override void OnAfterDisable()
@@ -41,7 +40,7 @@ namespace GameCore.Controllers.Presenters
 
         private void Call()
         {
-            _gameStateMachine.Enter<GameLoopState>();
+            // _gameStateMachine.Enter<GameLoopState>();
         }
     }
 }

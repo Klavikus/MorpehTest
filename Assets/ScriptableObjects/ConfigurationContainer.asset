@@ -16,3 +16,8 @@ MonoBehaviour:
   <MainMenuSceneData>k__BackingField: {fileID: 11400000, guid: 3c1eda8d81b486a439b103e963d67be1, type: 2}
   <GameloopSceneData>k__BackingField: {fileID: 11400000, guid: 62c2ed9c2dcbe1549ae20efc58b83899, type: 2}
   <LocalizationTablePath>k__BackingField: 
+  <LoadingScreenViewReference>k__BackingField:
+    m_AssetGUID: 442e33d7e1a1fcc4eaadbfd823d3bf9e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1

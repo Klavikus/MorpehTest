@@ -1,7 +1,7 @@
-﻿
-using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
+﻿using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
+using UnityEngine.AddressableAssets;
 
-namespace Sources.Infrastructure.Api.Services.Providers
+namespace GameCore.Infrastructure
 {
     public interface IConfigurationProvider : IAsyncInitializable
     {
@@ -9,5 +9,6 @@ namespace Sources.Infrastructure.Api.Services.Providers
         SceneData MainMenuSceneData { get; }
         SceneData GameloopSceneData { get; }
         string LocalizationTablePath { get; }
+        AssetReference LoadingScreenViewReference { get; }
     }
 }

@@ -1,10 +1,9 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using GameCore.Controllers.Services;
+using GameCore.Infrastructure;
 using Modules.Infrastructure.Implementation.DI;
 using Modules.Infrastructure.Interfaces.GameFsm;
 using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
-using Sources.Infrastructure.Api.Services.Providers;
 using VContainer;
 
 namespace GameCore.Controllers.GameFSM.States
@@ -16,30 +15,27 @@ namespace GameCore.Controllers.GameFSM.States
         private readonly SceneManipulator _sceneLoader;
         private readonly IConfigurationProvider _configurationProvider;
         private readonly IObjectResolver _objectResolver;
-        private readonly ICurtainService _curtainService;
 
         public MainMenuState(
             SceneInitializer sceneInitializer,
             SceneManipulator sceneLoader,
             IConfigurationProvider configurationProvider,
-            IObjectResolver objectResolver,
-            ICurtainService curtainService)
+            IObjectResolver objectResolver)
         {
             _sceneInitializer = sceneInitializer;
             _sceneLoader = sceneLoader;
             _configurationProvider = configurationProvider;
             _objectResolver = objectResolver;
-            _curtainService = curtainService;
         }
 
         public async void Enter()
         {
-            await _curtainService.Show();
-            await _sceneLoader.Load(_configurationProvider.GameloopSceneData);
+            // await _curtainService.Show();
+            await _sceneLoader.Load(_configurationProvider.MainMenuSceneData);
 
             _sceneInitializer.Initialize(_objectResolver);
             await UniTask.Delay(TimeSpan.FromSeconds(3));
-            await _curtainService.Hide();
+            // await _curtainService.Hide();
         }
 
         public void Exit()
