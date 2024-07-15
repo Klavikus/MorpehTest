@@ -14,7 +14,8 @@
         "LastSynapse.Modules.Common",
         "DAL.Runtime",
         "AddressablesContentController",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "LastSynapse.Modules.UIComponents"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

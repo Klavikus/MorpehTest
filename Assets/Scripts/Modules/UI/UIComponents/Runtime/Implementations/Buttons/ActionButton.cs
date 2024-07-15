@@ -2,11 +2,12 @@
 using Modules.UI.UIComponents.Runtime.Implementations.Tweens;
 using Modules.UI.UIComponents.Runtime.Interfaces;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
 {
-    public class ActionButton : MonoBehaviour, IActionButton
+    public class ActionButton : MonoBehaviour, IActionButton, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Button _button;
         [SerializeField] private bool _upAndDown;
@@ -70,7 +71,17 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
         public void Unfocus()
         {
             _focusActionComponent?.Cancel();
-            _focusActionComponent?.SetBackwardState();
+            _focusActionComponent?.PlayBackward();
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Focus();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            Unfocus();
         }
     }
 }

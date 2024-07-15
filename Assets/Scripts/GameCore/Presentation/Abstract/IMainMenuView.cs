@@ -6,5 +6,6 @@ namespace GameCore.Presentation.Abstract
     public interface IMainMenuView : IView, IShowHide
     {
         Button ToGameloop { get; }
+        void Initialize();
     }
 }

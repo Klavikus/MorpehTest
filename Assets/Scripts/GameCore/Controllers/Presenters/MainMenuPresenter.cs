@@ -30,6 +30,7 @@ namespace GameCore.Controllers.Presenters
 
         protected override void OnAfterEnable()
         {
+            _view.Initialize();
             _view.ToGameloop.onClick.AddListener(Call);
         }
 
