@@ -48,15 +48,11 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Tweens
 
             _cachedTasks.Clear();
 
-            for (var i = 0; i < _tweenActionComponents.Length; i++)
-            {
-                TweenAction tween = _tweenActionComponents[i];
+            foreach (TweenAction tween in _tweenActionComponents) 
                 _cachedTasks.Add(tween.PlayForward());
-            }
 
-            foreach (var task in _cachedTasks)
-                await task;
-
+            await UniTask.WhenAll(_cachedTasks);
+            
             _inProgress = false;
         }
 
@@ -74,11 +70,7 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Tweens
             foreach (TweenAction tween in _tweenActionComponents)
                 _cachedTasks.Add(tween.PlayBackward());
 
-            for (var i = 0; i < _cachedTasks.Count; i++)
-            {
-                var task = _cachedTasks[i];
-                await task;
-            }
+            await UniTask.WhenAll(_cachedTasks);
 
             _inProgress = false;
         }
