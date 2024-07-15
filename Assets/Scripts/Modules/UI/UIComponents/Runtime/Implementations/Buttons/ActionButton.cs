@@ -2,12 +2,11 @@
 using Modules.UI.UIComponents.Runtime.Implementations.Tweens;
 using Modules.UI.UIComponents.Runtime.Interfaces;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
 {
-    public class ActionButton : MonoBehaviour, IActionButton, IPointerEnterHandler, IPointerExitHandler
+    public class ActionButton : MonoBehaviour, IActionButton
     {
         [SerializeField] private Button _button;
         [SerializeField] private bool _upAndDown;
@@ -19,6 +18,9 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
 
         private bool _isInteractionLocked;
 
+        private bool _clickActionExist;
+        private bool _focusActionExist;
+
         private void OnEnable() =>
             _button.onClick.AddListener(OnButtonClicked);
 
@@ -27,8 +29,17 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
 
         public void Initialize()
         {
-            _actionComponent.Initialize();
-            _focusActionComponent?.Initialize();
+            if (_actionComponent != null)
+            {
+                _clickActionExist = true;
+                _actionComponent.Initialize();
+            }
+
+            if (_focusActionComponent != null)
+            {
+                _focusActionExist = true;
+                _focusActionComponent.Initialize();
+            }
         }
 
         public void SetInteractionLock(bool isLock)
@@ -43,6 +54,13 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
                 return;
 
             _isInteractionLocked = true;
+
+            if (_clickActionExist == false)
+            {
+                Clicked?.Invoke();
+
+                return;
+            }
 
             await _actionComponent.PlayForward();
 
@@ -65,23 +83,19 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
 
         public void Focus()
         {
-            _focusActionComponent?.PlayForward();
+            if (_focusActionExist == false)
+                return;
+
+            _focusActionComponent.PlayForward();
         }
 
         public void Unfocus()
         {
+            if (_focusActionExist == false)
+                return;
+
             _focusActionComponent?.Cancel();
             _focusActionComponent?.PlayBackward();
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            Focus();
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            Unfocus();
         }
     }
 }
