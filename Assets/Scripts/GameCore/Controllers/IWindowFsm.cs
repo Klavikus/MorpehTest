@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Modules.UI.WindowFsm.Runtime.Implementation
+namespace GameCore.Controllers
 {
     public interface IWindowFsm<T> where T : Enum
     {

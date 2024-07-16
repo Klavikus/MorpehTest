@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VerticalVector2TweenData 1
   m_EditorClassIdentifier: 
   <Forward>k__BackingField:
-    Value: {x: 0, y: 100}
+    Value: {x: 0, y: 80}
     Duration: 0.3
     Ease: 0
   <Backward>k__BackingField:

@@ -31,7 +31,7 @@ namespace GameCore.Controllers.GameFSM.States
         {
             // await _curtainService.Show();
             await _sceneLoader.Load(_configurationProvider.GameloopSceneData);
-            _sceneInitializer.Initialize(_objectResolver);
+            await _sceneInitializer.Initialize(_objectResolver);
             await UniTask.Delay(TimeSpan.FromSeconds(3));
             // await _curtainService.Hide();
         }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -11,7 +10,8 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Tweens
         [SerializeField] private bool _lockDoubleInteraction;
         [SerializeField] private bool _initializeByComposition;
 
-        private readonly List<UniTask> _cachedTasks = new();
+        private UniTask[] _cachedForwardTasks;
+        private UniTask[] _cachedBackwardTasks;
 
         private CancellationTokenSource _cancellationTokenSource;
         private bool _inProgress;
@@ -33,7 +33,10 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Tweens
         {
             _cancellationTokenSource = new CancellationTokenSource();
 
-            foreach (TweenAction actionComponent in _tweenActionComponents)
+            _cachedForwardTasks = new UniTask[_tweenActionComponents.Length];
+            _cachedBackwardTasks = new UniTask[_tweenActionComponents.Length];
+
+            foreach (TweenAction actionComponent in _tweenActionComponents) 
                 actionComponent.Initialize();
         }
 
@@ -46,13 +49,11 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Tweens
 
             _inProgress = true;
 
-            _cachedTasks.Clear();
+            for (int i = 0; i < _cachedForwardTasks.Length; i++)
+                _cachedForwardTasks[i] = _tweenActionComponents[i].PlayForward();
 
-            foreach (TweenAction tween in _tweenActionComponents) 
-                _cachedTasks.Add(tween.PlayForward());
+            await UniTask.WhenAll(_cachedForwardTasks);
 
-            await UniTask.WhenAll(_cachedTasks);
-            
             _inProgress = false;
         }
 
@@ -64,13 +65,11 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Tweens
             CancelTweens();
 
             _inProgress = true;
-
-            _cachedTasks.Clear();
-
-            foreach (TweenAction tween in _tweenActionComponents)
-                _cachedTasks.Add(tween.PlayBackward());
-
-            await UniTask.WhenAll(_cachedTasks);
+            
+            for (int i = 0; i < _cachedBackwardTasks.Length; i++)
+                _cachedBackwardTasks[i] = _tweenActionComponents[i].PlayBackward();
+            
+            await UniTask.WhenAll(_cachedBackwardTasks);
 
             _inProgress = false;
         }
@@ -102,12 +101,6 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Tweens
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource?.Dispose();
             _cancellationTokenSource = new CancellationTokenSource();
-        }
-
-        public async void TestPlay()
-        {
-            await PlayForward();
-            await PlayBackward();
         }
     }
 }

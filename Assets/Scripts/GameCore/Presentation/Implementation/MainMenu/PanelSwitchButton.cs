@@ -1,4 +1,5 @@
 ﻿using System;
+using GameCore.Controllers;
 using GameCore.Presentation.Abstract;
 using Modules.UI.UIComponents.Runtime.Implementations.Buttons;
 using TMPro;
@@ -11,9 +12,10 @@ namespace GameCore.Presentation.Implementation.MainMenu
         [SerializeField] private TMP_Text _label;
         [SerializeField] private ActionButton _actionButton;
 
+        private bool _inFocus;
         public event Action<IPanelSwitchButton> Clicked;
 
-        private bool _inFocus;
+        [field: SerializeField] public WindowType WindowType { get; private set; }
 
         public void Initialize()
         {
@@ -45,7 +47,7 @@ namespace GameCore.Presentation.Implementation.MainMenu
                 return;
 
             _inFocus = false;
-            
+
             _actionButton.Unfocus();
         }
 

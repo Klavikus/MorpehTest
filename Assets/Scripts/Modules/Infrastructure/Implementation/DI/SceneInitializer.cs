@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using VContainer;
 using Object = UnityEngine.Object;
 
@@ -7,7 +8,7 @@ namespace Modules.Infrastructure.Implementation.DI
 {
     public class SceneInitializer
     {
-        public void Initialize(IObjectResolver objectResolver)
+        public UniTask Initialize(IObjectResolver objectResolver)
         {
             SceneCompositionRoot[] compositionRoots = Object.FindObjectsOfType<SceneCompositionRoot>();
 
@@ -18,7 +19,7 @@ namespace Modules.Infrastructure.Implementation.DI
                                     $" roots:{string.Join(",", compositionRoots.Select(root => root.name))}");
             }
 
-            compositionRoots[0].Initialize(objectResolver);
+            return compositionRoots[0].Initialize(objectResolver);
         }
     }
 }

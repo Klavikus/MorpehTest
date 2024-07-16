@@ -26,24 +26,26 @@ namespace GameCore.Controllers.GameFSM.States
         public async void Enter()
         {
             _loadingService.Purge();
-            _loadingService.AddToQueue( async (progress) =>
-            {
-                progress.Report(0);
-                await new TestLoading().Load(3);
-                progress.Report(1);
-            }, 
-                "Load configs 1");            _loadingService.AddToQueue( async (progress) =>
-            {
-                progress.Report(0);
-                await new TestLoading().Load(3);
-                progress.Report(1);
-            }, 
-                "Load configs 2");            _loadingService.AddToQueue( async (progress) =>
-            {
-                progress.Report(0);
-                await new TestLoading().Load(3);
-                progress.Report(1);
-            }, 
+            _loadingService.AddToQueue(async (progress) =>
+                {
+                    progress.Report(0);
+                    await new TestLoading().Load(1);
+                    progress.Report(1);
+                },
+                "Load configs 1");
+            _loadingService.AddToQueue(async (progress) =>
+                {
+                    progress.Report(0);
+                    await new TestLoading().Load(1);
+                    progress.Report(1);
+                },
+                "Load configs 2");
+            _loadingService.AddToQueue(async (progress) =>
+                {
+                    progress.Report(0);
+                    await new TestLoading().Load(1);
+                    progress.Report(1);
+                },
                 "Load configs 3");
 
             await _loadingService.Load();
