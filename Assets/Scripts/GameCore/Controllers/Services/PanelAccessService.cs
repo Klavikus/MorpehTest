@@ -14,6 +14,7 @@ namespace GameCore.Controllers.Services
         }
 
         public bool CheckAllowStatus(WindowType windowType) =>
-            _allowedWindows.Contains(windowType);
+            true;
+        // _allowedWindows.Contains(windowType);
     }
 }

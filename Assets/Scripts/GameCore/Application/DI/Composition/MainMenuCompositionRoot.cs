@@ -15,7 +15,10 @@ namespace GameCore.Application.DI.Composition
         [SerializeField] private MainMenuView _mainMenuView;
         [SerializeField] private PanelSwitchView _panelSwitchView;
         [SerializeField] private ShopPanelView _shopPanelView;
+        [SerializeField] private InventoryPanelView _inventoryPanelView;
         [SerializeField] private FightPanelView _fightPanelView;
+        [SerializeField] private TalentsPanelView _talentsPanelView;
+        [SerializeField] private TowerPanelView _towerPanelView;
 
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
@@ -39,7 +42,10 @@ namespace GameCore.Application.DI.Composition
             var panelWindowFsm = sceneResolver.Resolve<IWindowFsm<WindowType>>();
 
             _shopPanelView.Construct(new ShopPanelPresenter(_shopPanelView, panelWindowFsm, WindowType.ShopPanel));
+            _inventoryPanelView.Construct(new InventoryPanelPresenter(_inventoryPanelView, panelWindowFsm, WindowType.InventoryPanel));
             _fightPanelView.Construct(new FightPanelPresenter(_fightPanelView, panelWindowFsm, WindowType.FightPanel));
+            _talentsPanelView.Construct(new TalentsPanelPresenter(_talentsPanelView, panelWindowFsm, WindowType.TalentsPanel));
+            _towerPanelView.Construct(new TowerPanelPresenter(_towerPanelView, panelWindowFsm, WindowType.TowerPanel));
         }
 
         private void RegisterWindowFsm(IContainerBuilder builder)
