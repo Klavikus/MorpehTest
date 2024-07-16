@@ -6,7 +6,7 @@ namespace GameCore.Presentation.Abstract
     public interface IPanelSwitchButton
     {
         event Action<IPanelSwitchButton> Clicked;
-        WindowType WindowType { get; }
+        PanelType PanelType { get; }
         void Initialize();
         void SetLabelText(string text);
         void Focus();

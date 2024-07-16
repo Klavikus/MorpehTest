@@ -15,10 +15,15 @@ namespace GameCore.Presentation.Implementation.MainMenu
         private bool _inFocus;
         public event Action<IPanelSwitchButton> Clicked;
 
-        [field: SerializeField] public WindowType WindowType { get; private set; }
+        [field: SerializeField] public PanelType PanelType { get; private set; }
 
         public void Initialize()
         {
+#if DEBUG
+            if (PanelType == PanelType.None)
+                throw new Exception($"{nameof(PanelType)} can't be {PanelType.None}, select another type!");
+#endif
+
             _actionButton.Initialize();
             _actionButton.Clicked += OnActionButtonClicked;
         }

@@ -9,19 +9,19 @@ namespace GameCore.Controllers.Presenters.Panels
         private readonly Action _onClosedBaseAction;
 
         protected PanelPresenterBase(
-            IWindowFsm<WindowType> windowFsm,
-            WindowType windowType,
+            IWindowFsm<PanelType> windowFsm,
+            PanelType panelType,
             Action onOpenedBaseAction = null,
             Action onClosedBaseAction = null)
         {
             WindowFsm = windowFsm ?? throw new ArgumentNullException(nameof(windowFsm));
-            WindowType = windowType;
+            PanelType = panelType;
             _onOpenedBaseAction = onOpenedBaseAction;
             _onClosedBaseAction = onClosedBaseAction;
         }
 
-        protected IWindowFsm<WindowType> WindowFsm { get; }
-        protected WindowType WindowType { get; }
+        protected IWindowFsm<PanelType> WindowFsm { get; }
+        protected PanelType PanelType { get; }
 
         public void Enable()
         {
@@ -57,9 +57,9 @@ namespace GameCore.Controllers.Presenters.Panels
         {
         }
 
-        private void OnOpened(WindowType window)
+        private void OnOpened(PanelType panel)
         {
-            if (window != WindowType)
+            if (panel != PanelType)
                 return;
 
             _onOpenedBaseAction?.Invoke();
@@ -67,9 +67,9 @@ namespace GameCore.Controllers.Presenters.Panels
             OnAfterOpened();
         }
 
-        private void OnClosed(WindowType window)
+        private void OnClosed(PanelType panel)
         {
-            if (window != WindowType)
+            if (panel != PanelType)
                 return;
 
             _onClosedBaseAction?.Invoke();
@@ -79,7 +79,7 @@ namespace GameCore.Controllers.Presenters.Panels
 
         private void InitialCheck()
         {
-            if (WindowFsm.CurrentWindow == WindowType)
+            if (WindowFsm.CurrentWindow == PanelType)
                 _onOpenedBaseAction?.Invoke();
             else
                 _onClosedBaseAction?.Invoke();

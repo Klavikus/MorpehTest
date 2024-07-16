@@ -7,12 +7,12 @@ namespace GameCore.Controllers.Presenters.Panels
     public class EnumPanelSwitchPresenter : IPresenter
     {
         private readonly IPanelSwitchView _view;
-        private readonly IWindowFsm<WindowType> _windowFsm;
+        private readonly IWindowFsm<PanelType> _windowFsm;
         private readonly IPanelAccessService _panelAccessService;
 
         public EnumPanelSwitchPresenter(
             IPanelSwitchView view,
-            IWindowFsm<WindowType> windowFsm,
+            IWindowFsm<PanelType> windowFsm,
             IPanelAccessService panelAccessService)
         {
             _view = view;
@@ -28,7 +28,7 @@ namespace GameCore.Controllers.Presenters.Panels
             {
                 button.Clicked += OnClicked;
 
-                if (button.WindowType == _windowFsm.CurrentWindow)
+                if (button.PanelType == _windowFsm.CurrentWindow)
                     button.Focus();
             }
         }
@@ -43,10 +43,10 @@ namespace GameCore.Controllers.Presenters.Panels
 
         private void OnClicked(IPanelSwitchButton button)
         {
-            if (_panelAccessService.CheckAllowStatus(button.WindowType) == false)
+            if (_panelAccessService.CheckAllowStatus(button.PanelType) == false)
                 return;
 
-            _windowFsm.OpenWindow(button.WindowType);
+            _windowFsm.OpenWindow(button.PanelType);
 
             foreach (IPanelSwitchButton switchButton in _view.SwitchButtons)
             {

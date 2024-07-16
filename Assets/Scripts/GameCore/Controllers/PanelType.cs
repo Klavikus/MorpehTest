@@ -1,6 +1,6 @@
 ﻿namespace GameCore.Controllers
 {
-    public enum WindowType
+    public enum PanelType
     {
         None = 0,
         ShopPanel = 1,

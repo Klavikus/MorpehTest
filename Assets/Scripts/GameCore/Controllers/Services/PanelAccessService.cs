@@ -4,16 +4,16 @@ namespace GameCore.Controllers.Services
 {
     public class PanelAccessService : IPanelAccessService
     {
-        private readonly Stack<WindowType> _allowedWindows;
+        private readonly Stack<PanelType> _allowedWindows;
 
         public PanelAccessService()
         {
-            _allowedWindows = new Stack<WindowType>();
-            _allowedWindows.Push(WindowType.FightPanel);
-            _allowedWindows.Push(WindowType.ShopPanel);
+            _allowedWindows = new Stack<PanelType>();
+            _allowedWindows.Push(PanelType.FightPanel);
+            _allowedWindows.Push(PanelType.ShopPanel);
         }
 
-        public bool CheckAllowStatus(WindowType windowType) =>
+        public bool CheckAllowStatus(PanelType panelType) =>
             true;
         // _allowedWindows.Contains(windowType);
     }

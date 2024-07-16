@@ -39,19 +39,19 @@ namespace GameCore.Application.DI.Composition
             // sceneResolver.ConstructView<IShopPanelView, ShopPanelPresenter>();
             // sceneResolver.ConstructView<IFightPanelView, FightPanelPresenter>();
 
-            var panelWindowFsm = sceneResolver.Resolve<IWindowFsm<WindowType>>();
+            var panelFsm = sceneResolver.Resolve<IWindowFsm<PanelType>>();
 
-            _shopPanelView.Construct(new ShopPanelPresenter(_shopPanelView, panelWindowFsm, WindowType.ShopPanel));
-            _inventoryPanelView.Construct(new InventoryPanelPresenter(_inventoryPanelView, panelWindowFsm, WindowType.InventoryPanel));
-            _fightPanelView.Construct(new FightPanelPresenter(_fightPanelView, panelWindowFsm, WindowType.FightPanel));
-            _talentsPanelView.Construct(new TalentsPanelPresenter(_talentsPanelView, panelWindowFsm, WindowType.TalentsPanel));
-            _towerPanelView.Construct(new TowerPanelPresenter(_towerPanelView, panelWindowFsm, WindowType.TowerPanel));
+            _shopPanelView.Construct(new ShopPanelPresenter(_shopPanelView, panelFsm, PanelType.ShopPanel));
+            _inventoryPanelView.Construct(new InventoryPanelPresenter(_inventoryPanelView, panelFsm, PanelType.InventoryPanel));
+            _fightPanelView.Construct(new FightPanelPresenter(_fightPanelView, panelFsm, PanelType.FightPanel));
+            _talentsPanelView.Construct(new TalentsPanelPresenter(_talentsPanelView, panelFsm, PanelType.TalentsPanel));
+            _towerPanelView.Construct(new TowerPanelPresenter(_towerPanelView, panelFsm, PanelType.TowerPanel));
         }
 
         private void RegisterWindowFsm(IContainerBuilder builder)
         {
-            builder.Register<IWindowFsm<WindowType>>(
-                _ => new EnumWindowFsm<WindowType>(WindowType.FightPanel),
+            builder.Register<IWindowFsm<PanelType>>(
+                _ => new EnumWindowFsm<PanelType>(PanelType.FightPanel),
                 Lifetime.Singleton);
         }
     }

@@ -1515,7 +1515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 157887276}
   _actionButton: {fileID: 661940777}
-  <WindowType>k__BackingField: 2
+  <PanelType>k__BackingField: 2
 --- !u!114 &661940774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1860,7 +1860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1617546073}
   _actionButton: {fileID: 820022078}
-  <WindowType>k__BackingField: 3
+  <PanelType>k__BackingField: 3
 --- !u!114 &820022075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2161,7 +2161,7 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2579,7 +2579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1504050964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2640,7 +2640,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504050963}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2737,7 +2737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 437646600}
   _actionButton: {fileID: 1516612891}
-  <WindowType>k__BackingField: 1
+  <PanelType>k__BackingField: 1
 --- !u!114 &1516612888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3413,7 +3413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1160949113}
   _actionButton: {fileID: 1749642044}
-  <WindowType>k__BackingField: 4
+  <PanelType>k__BackingField: 4
 --- !u!114 &1749642041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3855,7 +3855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 106258561}
   _actionButton: {fileID: 1833769960}
-  <WindowType>k__BackingField: 5
+  <PanelType>k__BackingField: 5
 --- !u!114 &1833769957
 MonoBehaviour:
   m_ObjectHideFlags: 0

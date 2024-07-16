@@ -8,9 +8,9 @@ namespace GameCore.Controllers.Presenters.Panels
 
         public TalentsPanelPresenter(
             ITalentsPanelView view,
-            IWindowFsm<WindowType> windowFsm,
-            WindowType windowType)
-            : base(windowFsm, windowType, view.Show, view.Hide)
+            IWindowFsm<PanelType> windowFsm,
+            PanelType panelType)
+            : base(windowFsm, panelType, view.Show, view.Hide)
         {
             _view = view;
         }
