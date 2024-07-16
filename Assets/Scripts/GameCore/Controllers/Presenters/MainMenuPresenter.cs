@@ -1,12 +1,9 @@
-using GameCore.Controllers.GameFSM.States;
 using GameCore.Domain.Windows;
 using GameCore.Infrastructure.AssetManagement;
 using GameCore.Presentation.Abstract;
-using GameCore.Presentation.Implementation.Components;
 using Modules.Infrastructure.Interfaces.GameFsm;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
 using Modules.UI.WindowFsm.Runtime.Abstract;
-using UnityEngine;
 
 namespace GameCore.Controllers.Presenters
 {

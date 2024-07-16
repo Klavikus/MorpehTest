@@ -6,7 +6,6 @@
         "LastSynapse.Modules.Infrastructure",
         "UniTask",
         "VContainer",
-        "LastSynapse.Modules.MVPPassiveView.Runtime",
         "LastSynapse.Modules.Common.WindowFsm.Runtime",
         "Unity.Addressables",
         "UniTask.Addressables",
@@ -15,6 +14,7 @@
         "DAL.Runtime",
         "AddressablesContentController",
         "Unity.TextMeshPro",
+        "LastSynapse.Modules.MVPPassiveView.Runtime",
         "LastSynapse.Modules.UIComponents"
     ],
     "includePlatforms": [],

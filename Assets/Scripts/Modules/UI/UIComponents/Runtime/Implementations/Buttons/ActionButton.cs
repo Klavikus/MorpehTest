@@ -58,6 +58,7 @@ namespace Modules.UI.UIComponents.Runtime.Implementations.Buttons
             if (_clickActionExist == false)
             {
                 Clicked?.Invoke();
+                _isInteractionLocked = false;
 
                 return;
             }

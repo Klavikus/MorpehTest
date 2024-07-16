@@ -1,11 +1,10 @@
 using GameCore.Presentation.Abstract;
 using Modules.UI.MVPPassiveView.Runtime.Views;
-using Modules.UI.UIComponents.Runtime.Implementations;
 using Modules.UI.UIComponents.Runtime.Implementations.Buttons;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameCore.Presentation.Implementation
+namespace GameCore.Presentation.Implementation.MainMenu
 {
     public class MainMenuView : ViewBase, IMainMenuView
     {
