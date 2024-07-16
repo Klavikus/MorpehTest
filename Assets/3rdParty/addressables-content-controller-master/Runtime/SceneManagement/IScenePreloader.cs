@@ -72,9 +72,9 @@ namespace Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement
 
             if (string.IsNullOrEmpty(activeScene.Scene.name) == false)
                 await Addressables.UnloadSceneAsync(activeScene);
-            
+
             _operationsTracker.Purge();
-            operation.Result.ActivateAsync();
+            await operation.Result.ActivateAsync();
         }
 
         public void Dispose()
