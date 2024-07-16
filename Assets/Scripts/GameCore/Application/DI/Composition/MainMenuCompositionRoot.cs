@@ -1,5 +1,6 @@
 ﻿using GameCore.Controllers;
 using GameCore.Controllers.Presenters.Panels;
+using GameCore.Controllers.Services;
 using GameCore.Extensions;
 using GameCore.Presentation.Abstract;
 using GameCore.Presentation.Implementation.MainMenu;
@@ -19,6 +20,8 @@ namespace GameCore.Application.DI.Composition
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
             RegisterWindowFsm(containerBuilder);
+
+            containerBuilder.Register<IPanelAccessService, PanelAccessService>(Lifetime.Singleton);
 
             // containerBuilder.BindViewWithPresenter<IMainMenuView, MainMenuPresenter>(_mainMenuView);
             containerBuilder.BindViewWithPresenter<IPanelSwitchView, EnumPanelSwitchPresenter>(_panelSwitchView);

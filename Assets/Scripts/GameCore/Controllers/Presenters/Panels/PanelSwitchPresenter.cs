@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using GameCore.Controllers.Services;
 using GameCore.Presentation.Abstract;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
 
@@ -8,17 +8,16 @@ namespace GameCore.Controllers.Presenters.Panels
     {
         private readonly IPanelSwitchView _view;
         private readonly IWindowFsm<WindowType> _windowFsm;
+        private readonly IPanelAccessService _panelAccessService;
 
-        private readonly Stack<WindowType> _allowedWindows;
-
-        public EnumPanelSwitchPresenter(IPanelSwitchView view, IWindowFsm<WindowType> windowFsm)
+        public EnumPanelSwitchPresenter(
+            IPanelSwitchView view,
+            IWindowFsm<WindowType> windowFsm,
+            IPanelAccessService panelAccessService)
         {
             _view = view;
             _windowFsm = windowFsm;
-
-            _allowedWindows = new Stack<WindowType>();
-            _allowedWindows.Push(WindowType.FightPanel);
-            _allowedWindows.Push(WindowType.ShopPanel);
+            _panelAccessService = panelAccessService;
         }
 
         public void Enable()
@@ -44,7 +43,7 @@ namespace GameCore.Controllers.Presenters.Panels
 
         private void OnClicked(IPanelSwitchButton button)
         {
-            if (_allowedWindows.Contains(button.WindowType) == false)
+            if (_panelAccessService.CheckAllowStatus(button.WindowType) == false)
                 return;
 
             _windowFsm.OpenWindow(button.WindowType);
