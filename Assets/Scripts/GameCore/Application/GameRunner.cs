@@ -8,6 +8,8 @@ namespace GameCore.Application
 
         private void Start()
         {
+            UnityEngine.Application.targetFrameRate = 120;
+
             if (FindObjectOfType<Bootstrapper>() != null)
                 return;
 
