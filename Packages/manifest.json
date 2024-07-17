@@ -2,6 +2,7 @@
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.deltation.toon-rp": "https://github.com/Delt06/toon-rp.git?path=Packages/com.deltation.toon-rp",
+    "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.qw1nt.configs": "https://github.com/Qw1nt/unity.configs.git",
     "com.qw1nt.projectstructure.initializer": "https://github.com/Qw1nt/unity.project-structure.initializer.git",
     "com.unity.addressables": "1.21.21",

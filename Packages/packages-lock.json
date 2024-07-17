@@ -21,6 +21,13 @@
       },
       "hash": "f27d6ac0942a74aa33806a700e57c8698b9ece61"
     },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "698989e1642d269c3c7a015077ad8d2bae7c739a"
+    },
     "com.qw1nt.configs": {
       "version": "https://github.com/Qw1nt/unity.configs.git",
       "depth": 0,
