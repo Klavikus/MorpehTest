@@ -8,9 +8,8 @@ namespace GameCore.Controllers.Presenters.Panels
 
         public ShopPanelPresenter(
             IShopPanelView view,
-            IWindowFsm<PanelType> windowFsm,
-            PanelType panelType)
-            : base(windowFsm, panelType, view.Show, view.Hide)
+            IWindowFsm<PanelType> windowFsm)
+            : base(windowFsm, PanelType.ShopPanel, view.Show, view.Hide)
         {
             _view = view;
         }

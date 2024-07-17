@@ -12,7 +12,6 @@ namespace GameCore.Application.DI.Composition
 {
     public class MainMenuCompositionRoot : SceneCompositionRoot
     {
-        [SerializeField] private MainMenuView _mainMenuView;
         [SerializeField] private PanelSwitchView _panelSwitchView;
         [SerializeField] private ShopPanelView _shopPanelView;
         [SerializeField] private InventoryPanelView _inventoryPanelView;
@@ -26,26 +25,31 @@ namespace GameCore.Application.DI.Composition
 
             containerBuilder.Register<IPanelAccessService, PanelAccessService>(Lifetime.Singleton);
 
-            // containerBuilder.BindViewWithPresenter<IMainMenuView, MainMenuPresenter>(_mainMenuView);
             containerBuilder.BindViewWithPresenter<IPanelSwitchView, EnumPanelSwitchPresenter>(_panelSwitchView);
-            // containerBuilder.BindViewWithPresenter<IShopPanelView, ShopPanelPresenter>(_shopPanelView);
-            // containerBuilder.BindViewWithPresenter<IFightPanelView, FightPanelPresenter>(_fightPanelView);
+
+            containerBuilder.BindViewWithPresenter<IShopPanelView, ShopPanelPresenter>(_shopPanelView);
+            containerBuilder.BindViewWithPresenter<IInventoryPanelView, InventoryPanelPresenter>(_inventoryPanelView);
+            containerBuilder.BindViewWithPresenter<IFightPanelView, FightPanelPresenter>(_fightPanelView);
+            containerBuilder.BindViewWithPresenter<ITalentsPanelView, TalentsPanelPresenter>(_talentsPanelView);
+            containerBuilder.BindViewWithPresenter<ITowerPanelView, TowerPanelPresenter>(_towerPanelView);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)
         {
-            // sceneResolver.ConstructView<IMainMenuView, MainMenuPresenter>();
             sceneResolver.ConstructView<IPanelSwitchView, EnumPanelSwitchPresenter>();
-            // sceneResolver.ConstructView<IShopPanelView, ShopPanelPresenter>();
-            // sceneResolver.ConstructView<IFightPanelView, FightPanelPresenter>();
 
-            var panelFsm = sceneResolver.Resolve<IWindowFsm<PanelType>>();
+            sceneResolver.ConstructView<IShopPanelView, ShopPanelPresenter>();
+            sceneResolver.ConstructView<IInventoryPanelView, InventoryPanelPresenter>();
+            sceneResolver.ConstructView<IFightPanelView, FightPanelPresenter>();
+            sceneResolver.ConstructView<ITalentsPanelView, TalentsPanelPresenter>();
+            sceneResolver.ConstructView<ITowerPanelView, TowerPanelPresenter>();
 
-            _shopPanelView.Construct(new ShopPanelPresenter(_shopPanelView, panelFsm, PanelType.ShopPanel));
-            _inventoryPanelView.Construct(new InventoryPanelPresenter(_inventoryPanelView, panelFsm, PanelType.InventoryPanel));
-            _fightPanelView.Construct(new FightPanelPresenter(_fightPanelView, panelFsm, PanelType.FightPanel));
-            _talentsPanelView.Construct(new TalentsPanelPresenter(_talentsPanelView, panelFsm, PanelType.TalentsPanel));
-            _towerPanelView.Construct(new TowerPanelPresenter(_towerPanelView, panelFsm, PanelType.TowerPanel));
+
+            // _shopPanelView.Construct(new ShopPanelPresenter(_shopPanelView, panelFsm));
+            // _inventoryPanelView.Construct(new InventoryPanelPresenter(_inventoryPanelView, panelFsm));
+            // _fightPanelView.Construct(new FightPanelPresenter(_fightPanelView, panelFsm));
+            // _talentsPanelView.Construct(new TalentsPanelPresenter(_talentsPanelView, panelFsm));
+            // _towerPanelView.Construct(new TowerPanelPresenter(_towerPanelView, panelFsm));
         }
 
         private void RegisterWindowFsm(IContainerBuilder builder)

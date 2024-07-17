@@ -8,9 +8,8 @@ namespace GameCore.Controllers.Presenters.Panels
 
         public FightPanelPresenter(
             IFightPanelView view,
-            IWindowFsm<PanelType> windowFsm,
-            PanelType panelType)
-            : base(windowFsm, panelType, view.Show, view.Hide)
+            IWindowFsm<PanelType> windowFsm)
+            : base(windowFsm, PanelType.FightPanel, view.Show, view.Hide)
         {
             _view = view;
         }
