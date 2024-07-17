@@ -1,22 +1,13 @@
 using Modules.UI.MVPPassiveView.Runtime.Views;
+using UnityEngine;
 
 namespace GameCore.Presentation.Implementation.MainMenu
 {
     public class MetaMainHeaderView : ViewBase
     {
-    }
-
-    public class LevelupUseCase : IUseCase<int>
-    {
-        
-        public void Execute(int levelsAmount)
-        {
-        }
-    }
-
-    public interface IUseCase<in TRequest>
-        where TRequest : struct
-    {
-        void Execute(TRequest request);
+        [field: SerializeField] public BarView LevelBar { get; private set; }
+        [field: SerializeField] public IntCounterView LevelCounter { get; private set; }
+        [field: SerializeField] public IntCounterView SoftCurrency { get; private set; }
+        [field: SerializeField] public IntCounterView HardCurrency { get; private set; }
     }
 }

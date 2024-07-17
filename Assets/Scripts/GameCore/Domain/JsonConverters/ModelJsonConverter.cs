@@ -1,7 +1,8 @@
 ﻿using System;
+using GameCore.Domain.Models;
 using Newtonsoft.Json;
 
-namespace GameCore.Domain.Models
+namespace GameCore.Domain.JsonConverters
 {
     public class ModelJsonConverter<T> : JsonConverter<ISerializable<T>>
         where T : struct

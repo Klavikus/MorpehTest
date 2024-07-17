@@ -1,4 +1,6 @@
 ﻿using System;
+using GameCore.Domain.Dto;
+using GameCore.Domain.JsonConverters;
 using Newtonsoft.Json;
 using R3;
 
@@ -14,7 +16,7 @@ namespace GameCore.Domain.Models
         {
             CurrentLevel = new ReactiveProperty<int>(1);
             MaxLevel = new ReactiveProperty<int>(100);
-            CurrentExp = new ReactiveProperty<int>(0);
+            CurrentExp = new ReactiveProperty<int>(33);
             ExpToLevelup = new ReactiveProperty<int>(100);
         }
 
@@ -42,7 +44,7 @@ namespace GameCore.Domain.Models
             if (CurrentExp.Value < ExpToLevelup.Value)
                 return;
 
-            for (int i = 0; i < CurrentExp.Value % ExpToLevelup.Value; i++)
+            for (int i = 0; i < CurrentExp.Value / ExpToLevelup.Value; i++)
             {
                 CurrentExp.Value -= ExpToLevelup.Value;
                 LevelUp();

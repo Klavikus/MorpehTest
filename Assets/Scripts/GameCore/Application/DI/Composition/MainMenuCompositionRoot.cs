@@ -1,8 +1,11 @@
 ﻿using GameCore.Controllers;
+using GameCore.Controllers.Presenters;
 using GameCore.Controllers.Presenters.Panels;
 using GameCore.Controllers.Services;
 using GameCore.Extensions;
+using GameCore.Infrastructure.Factories;
 using GameCore.Presentation.Abstract;
+using GameCore.Presentation.Implementation;
 using GameCore.Presentation.Implementation.MainMenu;
 using Modules.Infrastructure.Implementation;
 using UnityEngine;
@@ -18,12 +21,17 @@ namespace GameCore.Application.DI.Composition
         [SerializeField] private FightPanelView _fightPanelView;
         [SerializeField] private TalentsPanelView _talentsPanelView;
         [SerializeField] private TowerPanelView _towerPanelView;
+        [SerializeField] private MetaMainHeaderView _metaMainHeaderView;
+        [SerializeField] private BarView _levelBarView;
+
+        private ViewBuilder _viewBuilder;
 
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
             RegisterWindowFsm(containerBuilder);
 
             containerBuilder.Register<IPanelAccessService, PanelAccessService>(Lifetime.Singleton);
+            containerBuilder.Register<ViewBuilder>(Lifetime.Singleton);
 
             containerBuilder.BindViewWithPresenter<IPanelSwitchView, EnumPanelSwitchPresenter>(_panelSwitchView);
 
@@ -32,6 +40,7 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.BindViewWithPresenter<IFightPanelView, FightPanelPresenter>(_fightPanelView);
             containerBuilder.BindViewWithPresenter<ITalentsPanelView, TalentsPanelPresenter>(_talentsPanelView);
             containerBuilder.BindViewWithPresenter<ITowerPanelView, TowerPanelPresenter>(_towerPanelView);
+            containerBuilder.BindViewWithPresenter<MetaMainHeaderView, MetaMainHeaderPresenter>(_metaMainHeaderView);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)
@@ -43,7 +52,9 @@ namespace GameCore.Application.DI.Composition
             sceneResolver.ConstructView<IFightPanelView, FightPanelPresenter>();
             sceneResolver.ConstructView<ITalentsPanelView, TalentsPanelPresenter>();
             sceneResolver.ConstructView<ITowerPanelView, TowerPanelPresenter>();
+            sceneResolver.ConstructView<MetaMainHeaderView, MetaMainHeaderPresenter>();
 
+            _viewBuilder = sceneResolver.Resolve<ViewBuilder>();
 
             // _shopPanelView.Construct(new ShopPanelPresenter(_shopPanelView, panelFsm));
             // _inventoryPanelView.Construct(new InventoryPanelPresenter(_inventoryPanelView, panelFsm));

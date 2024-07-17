@@ -10,7 +10,7 @@ namespace Modules.DAL.Runtime.Implementation.DataContexts
     {
         protected IData Data;
 
-        protected SimpleRuntimeDataContext(IData data) : base(data)
+        public SimpleRuntimeDataContext(IData data) : base(data)
         {
             Data = data;
         }

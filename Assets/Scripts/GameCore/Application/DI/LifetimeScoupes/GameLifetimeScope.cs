@@ -1,9 +1,19 @@
-﻿using GameCore.Controllers.GameFSM;
+﻿using System;
+using GameCore.Controllers.GameFSM;
 using GameCore.Controllers.GameFSM.States;
 using GameCore.Controllers.Services.Loading;
+using GameCore.Domain.Models;
 using GameCore.Infrastructure;
 using GameCore.Infrastructure.AssetManagement;
 using GameCore.Infrastructure.Factories;
+using GameCore.UseCases;
+using Modules.DAL.Runtime.Abstract.Data;
+using Modules.DAL.Runtime.Abstract.DataContexts;
+using Modules.DAL.Runtime.Abstract.Repositories;
+using Modules.DAL.Runtime.Implementation.Data;
+using Modules.DAL.Runtime.Implementation.Data.Entities;
+using Modules.DAL.Runtime.Implementation.DataContexts;
+using Modules.DAL.Runtime.Implementation.Repositories;
 using Modules.Infrastructure.Implementation.DI;
 using Modules.Infrastructure.Interfaces.GameFsm;
 using Qw1nt.Runtime.AddressablesContentController.Common;
@@ -34,6 +44,12 @@ namespace GameCore.Application.DI.LifetimeScoupes
 
             builder.Register<SceneInitializer>(Lifetime.Singleton);
 
+            builder.Register<GetPlayerLevelUseCase>(Lifetime.Singleton);
+            builder.Register<GetPlayerCurrencyUseCase>(Lifetime.Singleton);
+            builder.Register<AddPlayerExpUseCase>(Lifetime.Singleton);
+
+            RegisterProgressRepository(builder);
+
             builder.RegisterEntryPoint<Game>();
         }
 
@@ -50,6 +66,19 @@ namespace GameCore.Application.DI.LifetimeScoupes
         {
             builder.Register<IAssetProvider, AssetProvider>(Lifetime.Singleton);
             builder.Register<IResourceService, ResourceService>(Lifetime.Singleton);
+        }
+
+        private void RegisterProgressRepository(IContainerBuilder builder)
+        {
+            builder.Register<ICompositeRepository>(_ =>
+                {
+                    Type[] dataTypes = {typeof(SyncData), typeof(PlayerLevel), typeof(PlayerCurrency)};
+                    IData gameData = new GameData(dataTypes);
+                    IDataContext dataContext = new SimpleRuntimeDataContext(gameData);
+
+                    return new CompositeRepository(dataContext, dataTypes);
+                },
+                Lifetime.Singleton);
         }
     }
 }

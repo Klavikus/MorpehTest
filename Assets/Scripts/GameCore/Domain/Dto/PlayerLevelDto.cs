@@ -1,6 +1,6 @@
 using System;
 
-namespace GameCore.Domain.Models
+namespace GameCore.Domain.Dto
 {
     [Serializable]
     public struct PlayerLevelDto
