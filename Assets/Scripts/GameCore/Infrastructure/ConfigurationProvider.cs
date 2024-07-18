@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using GameCore.Infrastructure.AssetManagement;
 using Qw1nt.Runtime.AddressablesContentController.Common;
@@ -13,7 +15,8 @@ namespace GameCore.Infrastructure
         private readonly ContentController _contentController;
 
         private ConfigurationContainer _configurationContainer;
-
+        private Dictionary<int, SceneData> _sceneDataById;
+        
         public ConfigurationProvider(ContentController contentController)
         {
             _contentController = contentController;
@@ -24,6 +27,8 @@ namespace GameCore.Infrastructure
         public SceneData GameloopSceneData => _configurationContainer.GameloopSceneData;
         public string LocalizationTablePath => _configurationContainer.LocalizationTablePath;
         public AssetReference LoadingScreenViewReference => _configurationContainer.LoadingScreenViewReference;
+        public SceneData GetLevelConfig(int selectedLevelId) =>
+            _sceneDataById[selectedLevelId];
 
         public async UniTask Initialize()
         {
@@ -32,17 +37,9 @@ namespace GameCore.Infrastructure
                     AssetKeys.KeyByType[typeof(ConfigurationContainer)]);
 
             _configurationContainer = operation.GetResult();
-        }
-
-        public async UniTask Initialize(IProgress<float> progress)
-        {
-            progress.Report(0);
-            ContentOperation<ConfigurationContainer> operation =
-                await _contentController.LoadAsync<ConfigurationContainer>(
-                    AssetKeys.KeyByType[typeof(ConfigurationContainer)]);
-            progress.Report(1f);
-
-            _configurationContainer = operation.GetResult();
+            _sceneDataById = Enumerable
+                .Range(0, _configurationContainer.LevelsSceneData.Count())
+                .ToDictionary(i => i, i => _configurationContainer.LevelsSceneData[i]);
         }
     }
 }

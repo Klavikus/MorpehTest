@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Modules.Infrastructure.Interfaces.GameFsm;
+using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
 
 namespace GameCore.Controllers.GameFSM
 {
@@ -27,6 +28,20 @@ namespace GameCore.Controllers.GameFSM
             ChangeState(targetState);
         }
 
+        public void Enter<TState, TPayload>(TPayload payload)
+            where TState : class, IPayloadState<TPayload>
+            where TPayload : SceneData
+        {
+            TState targetState = GetState<TState>();
+
+            if (_activeState == targetState || _nextState == targetState)
+                return;
+
+            _nextState = targetState;
+
+            ChangeState(targetState, payload);
+        }
+
         public void Update() =>
             _activeState.Update();
 
@@ -37,6 +52,16 @@ namespace GameCore.Controllers.GameFSM
 
             _activeState = state;
             state.Enter();
+        }
+
+        private void ChangeState<TPayload>(IPayloadState<TPayload> state, TPayload payload)
+            where TPayload : SceneData
+        {
+            if (_activeState != null)
+                _activeState.Exit();
+
+            _activeState = state;
+            state.Enter(payload);
         }
 
         private TState GetState<TState>()

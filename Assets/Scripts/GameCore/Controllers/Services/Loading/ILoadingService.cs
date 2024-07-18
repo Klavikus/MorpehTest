@@ -1,5 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
+using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
+using VContainer;
 
 namespace GameCore.Controllers.Services.Loading
 {
@@ -14,5 +16,6 @@ namespace GameCore.Controllers.Services.Loading
         void AddToQueue(Func<IProgress<float>, UniTask> operation, string description, float weight = 1f);
         UniTask Load();
         void Purge();
+        void LoadScene(SceneData sceneData, IObjectResolver objectResolver);
     }
 }

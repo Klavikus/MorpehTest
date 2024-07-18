@@ -12,5 +12,6 @@ namespace GameCore.Infrastructure
         [field: SerializeField] public SceneData GameloopSceneData { get; private set; }
         [field: SerializeField] public string LocalizationTablePath { get; private set; }
         [field: SerializeField] public AssetReference LoadingScreenViewReference { get; private set; }
+        [field: SerializeField] public SceneData[] LevelsSceneData { get; private set; }
     }
 }

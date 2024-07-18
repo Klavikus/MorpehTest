@@ -19,13 +19,13 @@ namespace GameCore.Application.DI.Composition
 
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
-            RegisterWindowFsm(containerBuilder);
-            containerBuilder.BindViewWithPresenter<IGameloopView, GameloopPresenter>(_gameloopView);
+            // RegisterWindowFsm(containerBuilder);
+            // containerBuilder.BindViewWithPresenter<IGameloopView, GameloopPresenter>(_gameloopView);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)
         {
-            sceneResolver.ConstructView<IGameloopView, GameloopPresenter>();
+            // sceneResolver.ConstructView<IGameloopView, GameloopPresenter>();
         }
 
         private void RegisterWindowFsm(IContainerBuilder builder)

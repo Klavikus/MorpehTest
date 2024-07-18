@@ -1,6 +1,7 @@
 ﻿using System;
 using GameCore.Controllers.GameFSM;
 using GameCore.Controllers.GameFSM.States;
+using GameCore.Controllers.Services;
 using GameCore.Controllers.Services.Loading;
 using GameCore.Domain.Models;
 using GameCore.Infrastructure;
@@ -34,6 +35,7 @@ namespace GameCore.Application.DI.LifetimeScoupes
 
             builder.Register<ILoadingService, LoadingService>(Lifetime.Singleton);
             builder.Register<ILoadingScreenFactory, LoadingScreenFactory>(Lifetime.Singleton);
+            builder.Register<LevelLoadingService>(Lifetime.Singleton);
 
             RegisterAssetManagementServices(builder);
             RegisterGameStateMachine(builder);
@@ -47,6 +49,7 @@ namespace GameCore.Application.DI.LifetimeScoupes
             builder.Register<GetPlayerLevelUseCase>(Lifetime.Singleton);
             builder.Register<GetPlayerCurrencyUseCase>(Lifetime.Singleton);
             builder.Register<AddPlayerExpUseCase>(Lifetime.Singleton);
+            builder.Register<GetLevelSelectionUseCase>(Lifetime.Singleton);
 
             RegisterProgressRepository(builder);
 
@@ -72,7 +75,13 @@ namespace GameCore.Application.DI.LifetimeScoupes
         {
             builder.Register<ICompositeRepository>(_ =>
                 {
-                    Type[] dataTypes = {typeof(SyncData), typeof(PlayerLevel), typeof(PlayerCurrency)};
+                    Type[] dataTypes =
+                    {
+                        typeof(SyncData),
+                        typeof(PlayerLevel),
+                        typeof(PlayerCurrency),
+                        typeof(LevelSelection),
+                    };
                     IData gameData = new GameData(dataTypes);
                     IDataContext dataContext = new SimpleRuntimeDataContext(gameData);
 
