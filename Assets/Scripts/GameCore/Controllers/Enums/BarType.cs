@@ -1,4 +1,4 @@
-namespace GameCore.Infrastructure.Factories
+namespace GameCore.Controllers.Enums
 {
     public enum BarType
     {

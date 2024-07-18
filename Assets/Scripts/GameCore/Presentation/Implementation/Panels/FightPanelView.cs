@@ -1,9 +1,9 @@
-using GameCore.Presentation.Abstract;
+using GameCore.Presentation.Abstract.Panels;
 using Modules.UI.MVPPassiveView.Runtime.Views;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameCore.Presentation.Implementation.MainMenu
+namespace GameCore.Presentation.Implementation.Panels
 {
     public class FightPanelView : ViewBase, IFightPanelView
     {

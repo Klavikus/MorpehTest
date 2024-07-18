@@ -1,11 +1,9 @@
 ﻿using System;
 using GameCore.Domain.Models;
 using GameCore.Infrastructure.Factories;
-using GameCore.Presentation.Implementation.MainMenu;
+using GameCore.Presentation.Implementation;
 using GameCore.UseCases;
-using JetBrains.Annotations;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
-using UnityEngine;
 
 namespace GameCore.Controllers.Presenters
 {

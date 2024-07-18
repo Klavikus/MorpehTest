@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameCore.Controllers.Presenters;
 using GameCore.Domain.Windows;
-using GameCore.Extensions;
-using GameCore.Presentation.Abstract;
 using GameCore.Presentation.Implementation;
 using Modules.Infrastructure.Implementation;
 using Modules.UI.WindowFsm.Runtime.Abstract;

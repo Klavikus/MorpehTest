@@ -1,4 +1,5 @@
-using GameCore.Presentation.Abstract;
+using GameCore.Controllers.Enums;
+using GameCore.Presentation.Abstract.Panels;
 
 namespace GameCore.Controllers.Presenters.Panels
 {

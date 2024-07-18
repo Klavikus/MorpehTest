@@ -1,4 +1,4 @@
-﻿namespace GameCore.Controllers
+﻿namespace GameCore.Controllers.Enums
 {
     public enum PanelType
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using GameCore.Controllers;
+using GameCore.Controllers.Enums;
 
-namespace GameCore.Presentation.Abstract
+namespace GameCore.Presentation.Abstract.Panels
 {
     public interface IPanelSwitchButton
     {

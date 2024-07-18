@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using GameCore.Controllers.Services.Loading;
 using GameCore.Infrastructure;
 using Modules.Infrastructure.Interfaces.GameFsm;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace GameCore.Controllers.GameFSM.States
 {

@@ -1,11 +1,11 @@
 ﻿using System;
-using GameCore.Controllers;
-using GameCore.Presentation.Abstract;
+using GameCore.Controllers.Enums;
+using GameCore.Presentation.Abstract.Panels;
 using Modules.UI.UIComponents.Runtime.Implementations.Buttons;
 using TMPro;
 using UnityEngine;
 
-namespace GameCore.Presentation.Implementation.MainMenu
+namespace GameCore.Presentation.Implementation.Panels
 {
     public class PanelSwitchButton : MonoBehaviour, IPanelSwitchButton
     {

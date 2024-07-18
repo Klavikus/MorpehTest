@@ -2,7 +2,6 @@
 using GameCore.Controllers.Presenters;
 using GameCore.Presentation.Implementation;
 using GameCore.UseCases;
-using Modules.UI.MVPPassiveView.Runtime.Presenters;
 using R3;
 using VContainer;
 

@@ -1,5 +1,6 @@
-﻿using GameCore.Controllers.Services;
-using GameCore.Presentation.Abstract;
+﻿using GameCore.Controllers.Enums;
+using GameCore.Controllers.Services;
+using GameCore.Presentation.Abstract.Panels;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
 
 namespace GameCore.Controllers.Presenters.Panels

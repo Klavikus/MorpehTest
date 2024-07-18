@@ -1,12 +1,13 @@
 ﻿using GameCore.Controllers;
+using GameCore.Controllers.Enums;
 using GameCore.Controllers.Presenters;
 using GameCore.Controllers.Presenters.Panels;
 using GameCore.Controllers.Services;
 using GameCore.Extensions;
 using GameCore.Infrastructure.Factories;
-using GameCore.Presentation.Abstract;
+using GameCore.Presentation.Abstract.Panels;
 using GameCore.Presentation.Implementation;
-using GameCore.Presentation.Implementation.MainMenu;
+using GameCore.Presentation.Implementation.Panels;
 using Modules.Infrastructure.Implementation;
 using UnityEngine;
 using VContainer;
@@ -23,8 +24,6 @@ namespace GameCore.Application.DI.Composition
         [SerializeField] private TowerPanelView _towerPanelView;
         [SerializeField] private MetaMainHeaderView _metaMainHeaderView;
         [SerializeField] private BarView _levelBarView;
-
-        private ViewBuilder _viewBuilder;
 
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
@@ -53,14 +52,6 @@ namespace GameCore.Application.DI.Composition
             sceneResolver.ConstructView<ITalentsPanelView, TalentsPanelPresenter>();
             sceneResolver.ConstructView<ITowerPanelView, TowerPanelPresenter>();
             sceneResolver.ConstructView<MetaMainHeaderView, MetaMainHeaderPresenter>();
-
-            _viewBuilder = sceneResolver.Resolve<ViewBuilder>();
-
-            // _shopPanelView.Construct(new ShopPanelPresenter(_shopPanelView, panelFsm));
-            // _inventoryPanelView.Construct(new InventoryPanelPresenter(_inventoryPanelView, panelFsm));
-            // _fightPanelView.Construct(new FightPanelPresenter(_fightPanelView, panelFsm));
-            // _talentsPanelView.Construct(new TalentsPanelPresenter(_talentsPanelView, panelFsm));
-            // _towerPanelView.Construct(new TowerPanelPresenter(_towerPanelView, panelFsm));
         }
 
         private void RegisterWindowFsm(IContainerBuilder builder)

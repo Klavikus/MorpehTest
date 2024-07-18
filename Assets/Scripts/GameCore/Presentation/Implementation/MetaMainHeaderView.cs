@@ -1,7 +1,7 @@
 using Modules.UI.MVPPassiveView.Runtime.Views;
 using UnityEngine;
 
-namespace GameCore.Presentation.Implementation.MainMenu
+namespace GameCore.Presentation.Implementation
 {
     public class MetaMainHeaderView : ViewBase
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using GameCore.Controllers.Enums;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
 
 namespace GameCore.Controllers.Presenters.Panels
