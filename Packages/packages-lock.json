@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.codewriter.triinspector": {
+      "version": "https://github.com/codewriter-packages/Tri-Inspector.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.localization": "1.0.0"
+      },
+      "hash": "6c844f0b69b2843808a0d30aec46cdd3486cce0f"
+    },
     "com.cysharp.r3": {
       "version": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity",
       "depth": 0,
