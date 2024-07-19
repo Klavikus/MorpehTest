@@ -2,7 +2,6 @@
     "name": "GameCore",
     "rootNamespace": "",
     "references": [
-        "Agava.WebUtility",
         "LastSynapse.Modules.Infrastructure",
         "UniTask",
         "VContainer",
@@ -15,7 +14,8 @@
         "AddressablesContentController",
         "Unity.TextMeshPro",
         "LastSynapse.Modules.MVPPassiveView.Runtime",
-        "LastSynapse.Modules.UIComponents"
+        "LastSynapse.Modules.UIComponents",
+        "Scellecs.Morpeh"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

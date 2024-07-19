@@ -26,6 +26,8 @@ namespace GameCore.Infrastructure
         public SceneData GameloopSceneData => _configurationContainer.GameloopSceneData;
         public string LocalizationTablePath => _configurationContainer.LocalizationTablePath;
         public AssetReference LoadingScreenViewReference => _configurationContainer.LoadingScreenViewReference;
+        public AssetReference PlayerRegistrar  => _configurationContainer.PlayerRegistrar;
+
         public SceneData GetLevelConfig(int selectedLevelId) =>
             _sceneDataById[selectedLevelId];
 

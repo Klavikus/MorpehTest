@@ -42,7 +42,7 @@ namespace GameCore.Application.DI.LifetimeScoupes
 
             builder.Register<ContentController>(Lifetime.Singleton);
 
-            builder.Register<IConfigurationProvider, ConfigurationProvider>(Lifetime.Scoped);
+            builder.Register<IConfigurationProvider, ConfigurationProvider>(Lifetime.Singleton);
 
             builder.Register<SceneInitializer>(Lifetime.Singleton);
 
