@@ -15,7 +15,8 @@
         "Unity.TextMeshPro",
         "LastSynapse.Modules.MVPPassiveView.Runtime",
         "LastSynapse.Modules.UIComponents",
-        "Scellecs.Morpeh"
+        "Scellecs.Morpeh",
+        "Cinemachine"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
