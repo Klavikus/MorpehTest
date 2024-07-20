@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: EntityViews
+  m_EditorClassIdentifier: 
+  m_GroupName: Registrars
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a7176753806523e429e36d0ff6a8f5db
+  m_SerializeEntries:
+  - m_GUID: 5f280f77ca1ed7c48a5b39650f5c25b1
+    m_Address: Character_Tormented_Soul
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 463e4a7f3e34a4d4883d99444ed41bdd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2df30c63d44a6f54cbe98a5b1bd26af7, type: 2}
+    - {fileID: 11400000, guid: 67c3e095253f368478b2b1319c6a0f48, type: 2}

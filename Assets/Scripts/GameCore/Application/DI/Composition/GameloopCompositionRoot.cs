@@ -1,9 +1,17 @@
-﻿using GameCore.Gameplay.Common.Collisions;
+﻿using System;
+using Code.Infrastructure.Systems;
+using GameCore.Gameplay.Common.Collisions;
+using GameCore.Gameplay.Features;
+using GameCore.Gameplay.Features.Common;
+using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.InputFeature.Systems;
+using GameCore.Gameplay.Features.MovingFeature;
 using GameCore.Gameplay.Features.MovingFeature.Systems;
 using GameCore.Gameplay.Features.PlayerFeature;
-using GameCore.Gameplay.Features.Views.Factory;
-using GameCore.Gameplay.Features.Views.Systems;
+using GameCore.Gameplay.Features.PlayerFeature.Systems;
+using GameCore.Gameplay.Features.ViewFeature;
+using GameCore.Gameplay.Features.ViewFeature.Factory;
+using GameCore.Gameplay.Features.ViewFeature.Systems;
 using GameCore.Gameplay.Services;
 using Modules.Infrastructure.Implementation;
 using Scellecs.Morpeh;
@@ -25,6 +33,7 @@ namespace GameCore.Application.DI.Composition
 
             containerBuilder.Register<ICollisionRegistry, CollisionRegistry>(Lifetime.Singleton);
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);
+            containerBuilder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
 
             containerBuilder.Register<PlayerInitSystem>(Lifetime.Singleton);
             containerBuilder.Register<MoveSystem>(Lifetime.Singleton);
@@ -33,6 +42,11 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.Register<CleanupInputSystem>(Lifetime.Singleton);
             containerBuilder.Register<BindEntityViewFromPathSystem>(Lifetime.Singleton);
             containerBuilder.Register<BindEntityViewFromPrefabSystem>(Lifetime.Singleton);
+
+            containerBuilder.Register<ViewFeature>(Lifetime.Singleton);
+            containerBuilder.Register<InputFeature>(Lifetime.Singleton);
+            containerBuilder.Register<PlayerFeature>(Lifetime.Singleton);
+            containerBuilder.Register<MoveFeature>(Lifetime.Singleton);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)
@@ -40,22 +54,21 @@ namespace GameCore.Application.DI.Composition
             _world = World.Create();
             _world.UpdateByUnity = true;
 
-            var systemsGroup = _world.CreateSystemsGroup();
 
-            systemsGroup.AddInitializer(sceneResolver.Resolve<PlayerInitSystem>());
+            _world.AddFeature<ViewFeature>(sceneResolver);
+            _world.AddFeature<InputFeature>(sceneResolver);
+            _world.AddFeature<PlayerFeature>(sceneResolver);
+            _world.AddFeature<MoveFeature>(sceneResolver);
+            
+            // systemsGroup.AddInitializer(sceneResolver.Resolve<PlayerInitSystem>());
 
-            systemsGroup.AddSystem(sceneResolver.Resolve<BindEntityViewFromPathSystem>());
-            systemsGroup.AddSystem(sceneResolver.Resolve<BindEntityViewFromPrefabSystem>());
-
-            systemsGroup.AddSystem(sceneResolver.Resolve<InputSystem>());
-
-            systemsGroup.AddSystem(sceneResolver.Resolve<InputToMoveSystem>());
-
-            systemsGroup.AddSystem(sceneResolver.Resolve<MoveSystem>());
-
-            systemsGroup.AddSystem(sceneResolver.Resolve<CleanupInputSystem>());
-
-            _world.AddSystemsGroup(order: 0, systemsGroup);
+            // systemsGroup.AddSystem(sceneResolver.Resolve<BindEntityViewFromPathSystem>());
+            // systemsGroup.AddSystem(sceneResolver.Resolve<BindEntityViewFromPrefabSystem>());
+ 
+            // systemsGroup.AddSystem(sceneResolver.Resolve<InputSystem>());
+            // systemsGroup.AddSystem(sceneResolver.Resolve<InputToMoveSystem>());
+            // systemsGroup.AddSystem(sceneResolver.Resolve<MoveSystem>());
+            // systemsGroup.AddSystem(sceneResolver.Resolve<CleanupInputSystem>());
         }
 
         private void OnDestroy()
