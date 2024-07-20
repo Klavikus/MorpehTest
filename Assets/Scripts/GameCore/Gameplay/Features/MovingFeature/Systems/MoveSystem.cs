@@ -1,4 +1,5 @@
-﻿using Scellecs.Morpeh;
+﻿using GameCore.Gameplay.Features.MovingFeature.Components;
+using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
@@ -31,7 +32,7 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
                     continue;
 
                 var transform = entity.GetComponent<TransformComponent>().Transform;
-                transform.Translate(moveComponent.Direction * (moveComponent.Speed * Time.deltaTime));
+                transform.Translate(moveComponent.Direction * (moveComponent.Speed * deltaTime));
             }
         }
 

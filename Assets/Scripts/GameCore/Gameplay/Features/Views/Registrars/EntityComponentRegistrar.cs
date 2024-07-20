@@ -1,7 +1,7 @@
 ﻿using Scellecs.Morpeh;
 using UnityEngine;
 
-namespace Code.Infrastructure.Views.Registrars
+namespace GameCore.Gameplay.Features.Views.Registrars
 {
     public abstract class EntityComponentRegistrar : MonoBehaviour, IEntityComponentRegistrar
     {

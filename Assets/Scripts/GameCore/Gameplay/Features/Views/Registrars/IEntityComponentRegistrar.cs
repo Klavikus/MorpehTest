@@ -1,6 +1,6 @@
 ﻿using Scellecs.Morpeh;
 
-namespace Code.Infrastructure.Views.Registrars
+namespace GameCore.Gameplay.Features.Views.Registrars
 {
     public interface IEntityComponentRegistrar
     {

@@ -1,7 +1,8 @@
-using Code.Infrastructure.Views.Registrars;
+using GameCore.Gameplay.Features.MovingFeature.Components;
+using GameCore.Gameplay.Features.Views.Registrars;
 using Scellecs.Morpeh;
 
-namespace GameCore.Gameplay.Features.MovingFeature.Systems
+namespace GameCore.Gameplay.Features.PlayerFeature
 {
     public class PlayerRegistrar : EntityComponentRegistrar
     {
