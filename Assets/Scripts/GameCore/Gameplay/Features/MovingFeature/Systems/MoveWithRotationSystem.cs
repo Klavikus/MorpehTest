@@ -7,7 +7,7 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public class MoveSystem : ISystem
+    public class MoveWithRotationSystem : ISystem
     {
         private Filter _movers;
 
@@ -17,7 +17,8 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
                 .With<TransformComponent>()
                 .With<MoveDirectionComponent>()
                 .With<MoveSpeedComponent>()
-                .Without<MoveWithRotationTag>()
+                .With<RotationComponent>()
+                .With<MoveWithRotationTag>()
                 .Build();
         }
 
@@ -29,12 +30,12 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
             {
                 ref var direction = ref entity.GetComponent<MoveDirectionComponent>();
                 ref var speed = ref entity.GetComponent<MoveSpeedComponent>();
-
-                if (speed.Value == 0)
-                    continue;
+                ref var rotation = ref entity.GetComponent<RotationComponent>();
 
                 var transform = entity.GetComponent<TransformComponent>().Transform;
-                transform.position += direction.Value * (speed.Value * deltaTime);
+
+                var newPosition = transform.position + direction.Value * (speed.Value * deltaTime);
+                transform.SetPositionAndRotation(newPosition, rotation.Value);
             }
         }
 

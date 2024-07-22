@@ -30,9 +30,11 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Systems
 
                 foreach (Entity player in _players)
                 {
-                    ref var moveComponent = ref player.GetComponent<MoveComponent>();
-                    moveComponent.Direction = new Vector3(inputComponent.Horizontal, 0, inputComponent.Vertical);
-                    moveComponent.Speed = 1;
+                    ref var direction = ref player.GetComponent<MoveDirectionComponent>();
+                    direction.Value = new Vector3(inputComponent.Horizontal, 0, inputComponent.Vertical).normalized;
+
+                    ref var speed = ref player.GetComponent<MoveSpeedComponent>();
+                    speed.Value = 1;
                 }
             }
         }

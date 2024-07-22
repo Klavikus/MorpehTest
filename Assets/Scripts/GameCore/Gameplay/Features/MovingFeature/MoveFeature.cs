@@ -8,7 +8,10 @@ namespace GameCore.Gameplay.Features.MovingFeature
     {
         public MoveFeature(ISystemFactory systemFactory)
         {
+            AddSystem(systemFactory.Create<AlignRotationWithMoveDirectionSystem>());
             AddSystem(systemFactory.Create<MoveSystem>());
+            AddSystem(systemFactory.Create<RotationSystem>());
+            AddSystem(systemFactory.Create<MoveWithRotationSystem>());
         }
     }
 }

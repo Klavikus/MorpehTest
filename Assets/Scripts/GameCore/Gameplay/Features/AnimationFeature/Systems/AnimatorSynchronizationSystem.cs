@@ -18,7 +18,7 @@ namespace GameCore.Gameplay.Features.AnimationFeature.Systems
         {
             _entities = World.Filter
                 .With<AnimatorComponent>()
-                .With<MoveComponent>()
+                .With<MoveDirectionComponent>()
                 .Build();
         }
 
@@ -32,7 +32,7 @@ namespace GameCore.Gameplay.Features.AnimationFeature.Systems
             {
                 ref var request = ref World.CreateEntity().AddComponent<BasicMotionSyncRequest>();
                 request.Target = entity;
-                request.IsRunning = entity.GetComponent<MoveComponent>().Direction != Vector3.zero;
+                request.IsRunning = entity.GetComponent<MoveDirectionComponent>().Value != Vector3.zero;
             }
         }
     }

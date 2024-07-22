@@ -38,7 +38,12 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.Register<ISystemFactory, SystemFactory>(Lifetime.Singleton);
 
             containerBuilder.Register<PlayerInitSystem>(Lifetime.Singleton);
+            
+            containerBuilder.Register<AlignRotationWithMoveDirectionSystem>(Lifetime.Singleton);
             containerBuilder.Register<MoveSystem>(Lifetime.Singleton);
+            containerBuilder.Register<RotationSystem>(Lifetime.Singleton);
+            containerBuilder.Register<MoveWithRotationSystem>(Lifetime.Singleton);
+
             containerBuilder.Register<InputSystem>(Lifetime.Singleton);
             containerBuilder.Register<InputToMoveSystem>(Lifetime.Singleton);
             containerBuilder.Register<CleanupInputSystem>(Lifetime.Singleton);

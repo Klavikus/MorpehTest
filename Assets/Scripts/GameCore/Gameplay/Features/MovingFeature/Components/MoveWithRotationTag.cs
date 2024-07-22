@@ -1,6 +1,5 @@
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
-using UnityEngine;
 
 namespace GameCore.Gameplay.Features.MovingFeature.Components
 {
@@ -8,8 +7,7 @@ namespace GameCore.Gameplay.Features.MovingFeature.Components
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     [System.Serializable]
-    public struct MoveDirectionComponent : IComponent
+    public struct MoveWithRotationTag : IComponent
     {
-        public Vector3 Value;
     }
 }

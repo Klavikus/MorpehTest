@@ -16,7 +16,11 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Registrars
             gameEntity.AddComponent<PlayerTagComponent>();
             ref var transformComponent = ref gameEntity.AddComponent<TransformComponent>();
             transformComponent.Transform = transform;
-            gameEntity.AddComponent<MoveComponent>();
+            gameEntity.AddComponent<MoveDirectionComponent>();
+            gameEntity.AddComponent<MoveSpeedComponent>();
+            gameEntity.AddComponent<AlignRotationWithMoveDirectionTag>();
+            gameEntity.AddComponent<MoveWithRotationTag>();
+            gameEntity.AddComponent<RotationComponent>();
             ref var animatorComponent = ref gameEntity.AddComponent<AnimatorComponent>();
             animatorComponent.Value = _animator;
         }
@@ -25,12 +29,24 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Registrars
         {
             if (gameEntity.Has<PlayerTagComponent>())
                 gameEntity.RemoveComponent<PlayerTagComponent>();
+
             if (gameEntity.Has<TransformComponent>())
                 gameEntity.RemoveComponent<TransformComponent>();
-            if (gameEntity.Has<MoveComponent>())
-                gameEntity.RemoveComponent<MoveComponent>(); 
+
+            if (gameEntity.Has<MoveDirectionComponent>())
+                gameEntity.RemoveComponent<MoveDirectionComponent>();
+            if (gameEntity.Has<MoveSpeedComponent>())
+                gameEntity.RemoveComponent<MoveSpeedComponent>();
+
+            if (gameEntity.Has<MoveWithRotationTag>())
+                gameEntity.RemoveComponent<MoveWithRotationTag>();
+            if (gameEntity.Has<AlignRotationWithMoveDirectionTag>())
+                gameEntity.RemoveComponent<AlignRotationWithMoveDirectionTag>();
+
             if (gameEntity.Has<AnimatorComponent>())
                 gameEntity.RemoveComponent<AnimatorComponent>();
+            if (gameEntity.Has<RotationComponent>())
+                gameEntity.RemoveComponent<RotationComponent>();
         }
     }
 }

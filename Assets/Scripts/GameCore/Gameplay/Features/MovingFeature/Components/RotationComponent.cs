@@ -8,8 +8,8 @@ namespace GameCore.Gameplay.Features.MovingFeature.Components
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     [System.Serializable]
-    public struct MoveDirectionComponent : IComponent
+    public struct RotationComponent : IComponent
     {
-        public Vector3 Value;
+        public Quaternion Value;
     }
 }
