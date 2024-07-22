@@ -20,9 +20,6 @@ namespace GameCore.Gameplay.Features.ViewFeature
         {
             Entity entity = _world.CreateEntity();
 
-            // Entity entity = CreateEntity.Empty()
-            // .AddId(_identifierService.Next());
-
             _entityView.SetEntity(entity);
         }
     }

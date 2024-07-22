@@ -2,6 +2,8 @@
 using Code.Infrastructure.Systems;
 using GameCore.Gameplay.Common.Collisions;
 using GameCore.Gameplay.Features;
+using GameCore.Gameplay.Features.AnimationFeature;
+using GameCore.Gameplay.Features.AnimationFeature.Systems;
 using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.InputFeature.Systems;
@@ -42,11 +44,14 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.Register<CleanupInputSystem>(Lifetime.Singleton);
             containerBuilder.Register<BindEntityViewFromPathSystem>(Lifetime.Singleton);
             containerBuilder.Register<BindEntityViewFromPrefabSystem>(Lifetime.Singleton);
+            containerBuilder.Register<AnimatorSynchronizationSystem>(Lifetime.Singleton);
+            containerBuilder.Register<ChangeAnimationProcessSystem>(Lifetime.Singleton);
 
             containerBuilder.Register<ViewFeature>(Lifetime.Singleton);
             containerBuilder.Register<InputFeature>(Lifetime.Singleton);
             containerBuilder.Register<PlayerFeature>(Lifetime.Singleton);
             containerBuilder.Register<MoveFeature>(Lifetime.Singleton);
+            containerBuilder.Register<AnimationFeature>(Lifetime.Singleton);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)
@@ -54,21 +59,11 @@ namespace GameCore.Application.DI.Composition
             _world = World.Create();
             _world.UpdateByUnity = true;
 
-
             _world.AddFeature<ViewFeature>(sceneResolver);
             _world.AddFeature<InputFeature>(sceneResolver);
             _world.AddFeature<PlayerFeature>(sceneResolver);
             _world.AddFeature<MoveFeature>(sceneResolver);
-            
-            // systemsGroup.AddInitializer(sceneResolver.Resolve<PlayerInitSystem>());
-
-            // systemsGroup.AddSystem(sceneResolver.Resolve<BindEntityViewFromPathSystem>());
-            // systemsGroup.AddSystem(sceneResolver.Resolve<BindEntityViewFromPrefabSystem>());
- 
-            // systemsGroup.AddSystem(sceneResolver.Resolve<InputSystem>());
-            // systemsGroup.AddSystem(sceneResolver.Resolve<InputToMoveSystem>());
-            // systemsGroup.AddSystem(sceneResolver.Resolve<MoveSystem>());
-            // systemsGroup.AddSystem(sceneResolver.Resolve<CleanupInputSystem>());
+            _world.AddFeature<AnimationFeature>(sceneResolver);
         }
 
         private void OnDestroy()
