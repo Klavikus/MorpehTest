@@ -1,5 +1,6 @@
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
+using UnityEngine;
 
 namespace GameCore.Gameplay.Features.AnimationFeature.Systems
 {
@@ -8,20 +9,23 @@ namespace GameCore.Gameplay.Features.AnimationFeature.Systems
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     public class ChangeAnimationProcessSystem : ISystem
     {
+        private readonly int _runHash = Animator.StringToHash("Run");
+
         private Filter _boolRequests;
-        private Stash<ChangeBoolAnimationRequest> _boolRequestStash;
+        private Stash<BasicMotionSyncRequest> _boolRequestStash;
         private Stash<AnimatorComponent> _animatorStash;
+
         public World World { get; set; }
 
         public void OnAwake()
         {
             _boolRequests = World
                 .Filter
-                .With<ChangeBoolAnimationRequest>()
+                .With<BasicMotionSyncRequest>()
                 .Build();
 
             _animatorStash = World.GetStash<AnimatorComponent>();
-            _boolRequestStash = World.GetStash<ChangeBoolAnimationRequest>();
+            _boolRequestStash = World.GetStash<BasicMotionSyncRequest>();
         }
 
         public void Dispose()
@@ -35,7 +39,7 @@ namespace GameCore.Gameplay.Features.AnimationFeature.Systems
                 var request = _boolRequestStash.Get(entity);
                 var target = _animatorStash.Get(request.Target);
 
-                target.Value.SetBool(request.AnimationHash, request.Value);
+                target.Value.SetBool(_runHash, request.IsRunning);
             }
 
             _boolRequestStash.RemoveAll();

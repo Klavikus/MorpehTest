@@ -10,6 +10,7 @@ namespace GameCore.Gameplay.Features.AnimationFeature.Systems
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     public class AnimatorSynchronizationSystem : ISystem
     {
+        
         private Filter _entities;
         public World World { get; set; }
 
@@ -29,10 +30,9 @@ namespace GameCore.Gameplay.Features.AnimationFeature.Systems
         {
             foreach (Entity entity in _entities)
             {
-                ref var request = ref World.CreateEntity().AddComponent<ChangeBoolAnimationRequest>();
+                ref var request = ref World.CreateEntity().AddComponent<BasicMotionSyncRequest>();
                 request.Target = entity;
-                request.Value = entity.GetComponent<MoveComponent>().Speed != 0;
-                request.AnimationHash = Animator.StringToHash("Run");
+                request.IsRunning = entity.GetComponent<MoveComponent>().Direction != Vector3.zero;
             }
         }
     }
