@@ -15,7 +15,8 @@
         "VContainer",
         "Scellecs.Morpeh",
         "DAL.Runtime",
-        "LastSynapse.Modules.MVPPassiveView.Runtime"
+        "LastSynapse.Modules.MVPPassiveView.Runtime",
+        "Gameplay.Features.UnitFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -7,5 +7,6 @@ namespace GameCore.Domain.Configs
     public class GameplaySceneConfig : ScriptableObject
     {
         [field: SerializeField] public Point StartPoint { get; private set; }
+        [field: SerializeField] public Point EnemyPoint { get; private set; }
     }
 }

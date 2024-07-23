@@ -11,6 +11,7 @@ namespace GameCore.Infrastructure
         string LocalizationTablePath { get; }
         AssetReference LoadingScreenViewReference { get; }
         AssetReference PlayerRegistrar { get; }
+        AssetReference EnemyRegistrar { get; }
         SceneData GetLevelConfig(int selectedLevelId);
     }
 }

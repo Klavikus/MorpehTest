@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0972c65d45004806be30c36522369f44, type: 3}
   m_Name: GameplaySceneConfig
   m_EditorClassIdentifier: 
+  <StartPoint>k__BackingField:
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  <EnemyPoint>k__BackingField:
+    Position: {x: 11.3, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}

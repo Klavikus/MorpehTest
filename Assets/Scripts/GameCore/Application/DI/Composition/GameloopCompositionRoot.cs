@@ -5,6 +5,7 @@ using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.MovingFeature;
 using GameCore.Gameplay.Features.PlayerFeature;
+using GameCore.Gameplay.Features.UnitFeature;
 using GameCore.Gameplay.Features.ViewFeature;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Gameplay.Services;
@@ -40,6 +41,7 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<ViewFeature>(sceneResolver);
             _world.AddFeature<InputFeature>(sceneResolver);
             _world.AddFeature<PlayerFeature>(sceneResolver);
+            _world.AddFeature<UnitFeature>(sceneResolver);
             _world.AddFeature<MoveFeature>(sceneResolver);
             _world.AddFeature<AnimationFeature>(sceneResolver);
         }
