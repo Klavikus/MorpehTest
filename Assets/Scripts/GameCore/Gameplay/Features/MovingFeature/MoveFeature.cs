@@ -7,8 +7,6 @@ namespace GameCore.Gameplay.Features.MovingFeature
     {
         public MoveFeature()
         {
-            AddSystem<SetSpeedFromStatsSystem>();
-            
             AddSystem<AlignRotationWithMoveDirectionSystem>();
             AddSystem<MoveSystem>();
             AddSystem<RotationSystem>();

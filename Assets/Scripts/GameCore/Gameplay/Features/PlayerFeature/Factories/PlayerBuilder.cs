@@ -4,7 +4,7 @@ using Scellecs.Morpeh;
 
 namespace GameCore.Gameplay.Features.PlayerFeature.Factories
 {
-    public class PlayerFactory
+    public class PlayerBuilder
     {
         public Entity Build(World world)
         {

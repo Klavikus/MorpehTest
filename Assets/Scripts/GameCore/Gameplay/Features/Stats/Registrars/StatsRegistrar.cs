@@ -23,7 +23,7 @@ namespace GameCore.Gameplay.Features.Stats.Registrars
             stats.Base.Set(
                 BaseStatType.Speed,
                 _statsConfig.BaseStats.First(x => x.Type == BaseStatType.Speed).Value);
-            
+
             stats.Current.Set(
                 BaseStatType.Speed,
                 _statsConfig.BaseStats.First(x => x.Type == BaseStatType.Speed).Value);

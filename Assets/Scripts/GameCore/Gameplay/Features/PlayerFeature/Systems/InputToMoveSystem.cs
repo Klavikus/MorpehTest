@@ -32,9 +32,6 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Systems
                 {
                     ref var direction = ref player.GetComponent<MoveDirectionComponent>();
                     direction.Value = new Vector3(inputComponent.Horizontal, 0, inputComponent.Vertical).normalized;
-
-                    ref var speed = ref player.GetComponent<MoveSpeedComponent>();
-                    speed.Value = 1;
                 }
             }
         }

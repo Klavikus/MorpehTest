@@ -1,19 +1,14 @@
 {
-    "name": "Gameplay.Features.UnitFeature",
+    "name": "Gameplay.Features.StatsApplierFeature",
     "rootNamespace": "",
     "references": [
         "VContainer",
         "Scellecs.Morpeh",
-        "Gameplay.Features.MovingFeature",
         "Gameplay.Features.Common",
-        "Gameplay.Features.PlayerFeature",
-        "Gameplay.Features.ViewFeature",
-        "UniTask",
-        "Unity.Addressables",
-        "Gameplay.Features.AnimationFeature",
+        "Gameplaye.Features.StatsFeature",
+        "Gameplay.Features.MovingFeature",
         "Domain",
-        "GameCore",
-        "Gameplaye.Features.StatsFeature"
+        "Gameplay.Common"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

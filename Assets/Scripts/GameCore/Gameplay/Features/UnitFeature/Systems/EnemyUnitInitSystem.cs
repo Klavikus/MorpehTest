@@ -2,6 +2,7 @@
 using GameCore.Domain.Configs;
 using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.PlayerFeature.Factories;
+using GameCore.Gameplay.Features.Stats.Components;
 using GameCore.Gameplay.Features.UnitFeature.Factories;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Infrastructure;
@@ -36,12 +37,14 @@ namespace GameCore.Gameplay.Features.UnitFeature.Systems
         public async void OnAwake()
         {
             var entity = _unitFactory.Build(World);
-            
+
             var view = await _entityViewFactory.CreateForEntityAsync(
                 entity,
                 _configurationProvider.EnemyRegistrar.AssetGUID,
                 _spawnPoint.Position,
                 _spawnPoint.Rotation);
+
+            entity.AddComponent<ApplyStatsRequest>();
         }
 
         public void Dispose()

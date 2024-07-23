@@ -7,6 +7,7 @@ using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.MovingFeature;
 using GameCore.Gameplay.Features.PlayerFeature;
 using GameCore.Gameplay.Features.PlayerFeature.Factories;
+using GameCore.Gameplay.Features.StatsApplierFeature;
 using GameCore.Gameplay.Features.UnitFeature;
 using GameCore.Gameplay.Features.UnitFeature.Factories;
 using GameCore.Gameplay.Features.ViewFeature;
@@ -33,7 +34,7 @@ namespace GameCore.Application.DI.Composition
 
             containerBuilder.Register<ICollisionRegistry, CollisionRegistry>(Lifetime.Singleton);
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);
-            containerBuilder.Register<PlayerFactory>(Lifetime.Singleton);
+            containerBuilder.Register<PlayerBuilder>(Lifetime.Singleton);
             containerBuilder.Register<UnitFactory>(Lifetime.Singleton);
         }
 
@@ -42,10 +43,11 @@ namespace GameCore.Application.DI.Composition
             _world = World.Create();
             _world.UpdateByUnity = true;
 
-            _world.AddFeature<ViewFeature>(sceneResolver);
             _world.AddFeature<InputFeature>(sceneResolver);
             _world.AddFeature<PlayerFeature>(sceneResolver);
             _world.AddFeature<UnitFeature>(sceneResolver);
+            _world.AddFeature<ViewFeature>(sceneResolver);
+            _world.AddFeature<StatsApplierFeature>(sceneResolver);
             _world.AddFeature<MoveFeature>(sceneResolver);
             _world.AddFeature<AnimationFeature>(sceneResolver);
         }

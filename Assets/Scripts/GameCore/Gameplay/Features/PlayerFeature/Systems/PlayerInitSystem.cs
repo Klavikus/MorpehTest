@@ -3,6 +3,7 @@ using GameCore.Domain.Configs;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.PlayerFeature.Factories;
+using GameCore.Gameplay.Features.Stats.Components;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Infrastructure;
 using Scellecs.Morpeh;
@@ -20,7 +21,7 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Systems
         private IConfigurationProvider _configurationProvider;
         private GameplayCamera _gameplayCamera;
         private Point _spawnPoint;
-        private PlayerFactory _playerFactory;
+        private PlayerBuilder _playerBuilder;
 
         public World World { get; set; }
 
@@ -30,18 +31,20 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Systems
             _configurationProvider = objectResolver.Resolve<IConfigurationProvider>();
             _gameplayCamera = objectResolver.Resolve<GameplayCamera>();
             _spawnPoint = objectResolver.Resolve<GameplaySceneConfig>().StartPoint;
-            _playerFactory = objectResolver.Resolve<PlayerFactory>();
+            _playerBuilder = objectResolver.Resolve<PlayerBuilder>();
         }
 
         public async void OnAwake()
         {
-            var entity = _playerFactory.Build(World);
-            
+            var entity = _playerBuilder.Build(World);
+
             var view = await _entityViewFactory.CreateForEntityAsync(
                 entity,
                 _configurationProvider.PlayerRegistrar.AssetGUID,
                 _spawnPoint.Position,
                 _spawnPoint.Rotation);
+
+            entity.AddComponent<ApplyStatsRequest>();
 
             _gameplayCamera.FocusTo(view.transform);
         }

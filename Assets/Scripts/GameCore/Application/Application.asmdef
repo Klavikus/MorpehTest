@@ -18,7 +18,8 @@
         "LastSynapse.Modules.MVPPassiveView.Runtime",
         "Gameplay.Features.UnitFeature",
         "Domain",
-        "Extensions"
+        "Extensions",
+        "Gameplay.Features.StatsApplierFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
