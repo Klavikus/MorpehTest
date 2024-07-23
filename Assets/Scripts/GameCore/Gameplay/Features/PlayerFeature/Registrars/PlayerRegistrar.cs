@@ -1,4 +1,5 @@
 using GameCore.Gameplay.Features.AnimationFeature;
+using GameCore.Gameplay.Features.AnimationFeature.Components;
 using GameCore.Gameplay.Features.MovingFeature.Components;
 using GameCore.Gameplay.Features.PlayerFeature.Components;
 using GameCore.Gameplay.Features.ViewFeature.Registrars;

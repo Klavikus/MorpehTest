@@ -16,7 +16,13 @@
         "LastSynapse.Modules.MVPPassiveView.Runtime",
         "LastSynapse.Modules.UIComponents",
         "Scellecs.Morpeh",
-        "Cinemachine"
+        "Cinemachine",
+        "Gameplay.Common",
+        "Gameplay.Features.ViewFeature",
+        "Gameplay.Features.Common",
+        "Gameplay.Features.InputFeature",
+        "Gameplay.Features.MovingFeature",
+        "Gameplay.Features.AnimationFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

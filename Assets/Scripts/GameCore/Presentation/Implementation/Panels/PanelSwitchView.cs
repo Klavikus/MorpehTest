@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GameCore.Presentation.Implementation.Panels
 {
-    class PanelSwitchView : ViewBase, IPanelSwitchView
+    public class PanelSwitchView : ViewBase, IPanelSwitchView
     {
         [SerializeField] private PanelSwitchButton[] _switchButtons;
         public IPanelSwitchButton[] SwitchButtons { get; private set; }
@@ -17,7 +17,7 @@ namespace GameCore.Presentation.Implementation.Panels
             if (_switchButtons == null)
                 throw new Exception();
 
-            foreach (IPanelSwitchButton switchButton in _switchButtons) 
+            foreach (IPanelSwitchButton switchButton in _switchButtons)
                 switchButton.Initialize();
 
             SwitchButtons = _switchButtons.Cast<IPanelSwitchButton>().ToArray();

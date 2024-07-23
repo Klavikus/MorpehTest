@@ -2,7 +2,7 @@
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Features.AnimationFeature
+namespace GameCore.Gameplay.Features.AnimationFeature.Components
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

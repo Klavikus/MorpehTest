@@ -1,0 +1,22 @@
+{
+    "name": "Gameplay.Features.ViewFeature",
+    "rootNamespace": "",
+    "references": [
+        "VContainer",
+        "Scellecs.Morpeh",
+        "UniTask",
+        "AddressablesContentController",
+        "Gameplay.Common",
+        "Gameplay.Features.Common",
+        "Unity.Addressables"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,6 +1,6 @@
 ﻿using Scellecs.Morpeh;
 
-namespace GameCore.Gameplay
+namespace GameCore.Gameplay.Features.ViewFeature.Components
 {
     public struct ViewPathComponent : IComponent
     {

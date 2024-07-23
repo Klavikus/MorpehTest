@@ -24,7 +24,7 @@ namespace GameCore.Application.DI.Composition
         [SerializeField] private TowerPanelView _towerPanelView;
         [SerializeField] private MetaMainHeaderView _metaMainHeaderView;
         [SerializeField] private BarView _levelBarView;
-
+        
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
             RegisterWindowFsm(containerBuilder);

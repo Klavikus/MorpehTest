@@ -1,0 +1,29 @@
+{
+    "name": "Application",
+    "rootNamespace": "",
+    "references": [
+        "Gameplay.Features.ViewFeature",
+        "Gameplay.Features.InputFeature",
+        "Gameplay.Features.PlayerFeature",
+        "Gameplay.Features.MovingFeature",
+        "Gameplay.Features.AnimationFeature",
+        "Gameplay.Features.Common",
+        "LastSynapse.Modules.Infrastructure",
+        "Gameplay.Common",
+        "GameCore",
+        "AddressablesContentController",
+        "VContainer",
+        "Scellecs.Morpeh",
+        "DAL.Runtime",
+        "LastSynapse.Modules.MVPPassiveView.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

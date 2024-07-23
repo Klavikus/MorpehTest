@@ -1,0 +1,18 @@
+{
+    "name": "Gameplay.Features.MovingFeature",
+    "rootNamespace": "",
+    "references": [
+        "VContainer",
+        "Scellecs.Morpeh",
+        "Gameplay.Features.Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

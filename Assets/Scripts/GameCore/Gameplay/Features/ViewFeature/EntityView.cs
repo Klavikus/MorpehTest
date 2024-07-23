@@ -1,4 +1,5 @@
 ﻿using GameCore.Gameplay.Common.Collisions;
+using GameCore.Gameplay.Features.ViewFeature.Components;
 using GameCore.Gameplay.Features.ViewFeature.Registrars;
 using Scellecs.Morpeh;
 using UnityEngine;

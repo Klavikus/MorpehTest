@@ -1,0 +1,26 @@
+{
+    "name": "Gameplay.Features.PlayerFeature",
+    "rootNamespace": "",
+    "references": [
+        "VContainer",
+        "Scellecs.Morpeh",
+        "Gameplay.Features.Common",
+        "Gameplay.Features.InputFeature",
+        "Gameplay.Features.MovingFeature",
+        "Gameplay.Features.ViewFeature",
+        "GameCore",
+        "Gameplay.Common",
+        "UniTask",
+        "Unity.Addressables",
+        "Gameplay.Features.AnimationFeature"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
