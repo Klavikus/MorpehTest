@@ -1,4 +1,5 @@
-﻿using GameCore.Gameplay.Common.Collisions;
+﻿using GameCore.Domain.Configs;
+using GameCore.Gameplay.Common.Collisions;
 using GameCore.Gameplay.Features.AnimationFeature;
 using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.InputFeature;
@@ -18,12 +19,14 @@ namespace GameCore.Application.DI.Composition
     public class GameloopCompositionRoot : SceneCompositionRoot
     {
         [SerializeField] private GameplayCamera _gameplayCamera;
+        [SerializeField] private GameplaySceneConfig _gameplaySceneConfig;
 
         private World _world;
 
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterComponent(_gameplayCamera);
+            containerBuilder.RegisterComponent(_gameplaySceneConfig);
 
             containerBuilder.Register<ICollisionRegistry, CollisionRegistry>(Lifetime.Singleton);
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);

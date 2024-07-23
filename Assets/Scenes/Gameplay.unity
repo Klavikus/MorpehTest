@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameplayCamera: {fileID: 343379583}
+  _gameplaySceneConfig: {fileID: 11400000, guid: b97c69e766fec19408d77aaf57dfa762, type: 2}
 --- !u!4 &313928284
 Transform:
   m_ObjectHideFlags: 0
