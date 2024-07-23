@@ -25,7 +25,6 @@ namespace GameCore.Gameplay.Features.ViewFeature
         {
             _entity = gameEntity;
             _entity.SetComponent(new ViewComponent {View = this});
-            // _entity.Retain(this);
 
             foreach (EntityComponentRegistrar registrar in GetComponentsInChildren<EntityComponentRegistrar>())
                 registrar.RegisterComponents(Entity);
@@ -42,7 +41,6 @@ namespace GameCore.Gameplay.Features.ViewFeature
             foreach (Collider collider3d in GetComponentsInChildren<Collider>(true))
                 _collisionRegistry.Unregister(collider3d.GetInstanceID());
 
-            // _entity.Release(this);
             _entity = null;
         }
     }

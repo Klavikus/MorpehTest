@@ -25,7 +25,6 @@ namespace GameCore.Gameplay.Features.ViewFeature.Factory
             entity.AddComponent<CreateInProgress>();
 
             var asset = await _contentController.LoadAsync<GameObject>(assetPath);
-            // var asset = await Addressables.LoadAssetAsync<EntityView>(assetPath);
 
             var view = Object
                 .Instantiate(asset.GetResult(), FarAway, Quaternion.identity)
@@ -50,7 +49,6 @@ namespace GameCore.Gameplay.Features.ViewFeature.Factory
             entity.AddComponent<CreateInProgress>();
 
             var asset = await _contentController.LoadAsync<GameObject>(assetPath);
-            // var asset = await Addressables.LoadAssetAsync<EntityView>(assetPath);
 
             var view = Object
                 .Instantiate(asset.GetResult(), position, Quaternion.Euler(rotation))
@@ -69,6 +67,8 @@ namespace GameCore.Gameplay.Features.ViewFeature.Factory
         public EntityView CreateForEntityFromPrefab(Entity entity, EntityView entityViewPrefab)
         {
             var view = Object.Instantiate(entityViewPrefab, FarAway, Quaternion.identity);
+         
+            _objectResolver.Inject(view);
 
             view.SetEntity(entity);
 
