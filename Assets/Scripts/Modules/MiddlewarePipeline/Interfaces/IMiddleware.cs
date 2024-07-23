@@ -1,6 +1,6 @@
 ﻿using VContainer;
 
-namespace Runtime.Features.MiddlewarePipeline.Interfaces
+namespace Modules.MiddlewarePipeline.Interfaces
 {
     public interface IMiddleware
     {

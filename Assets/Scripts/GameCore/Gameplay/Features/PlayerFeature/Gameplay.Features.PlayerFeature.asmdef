@@ -12,7 +12,9 @@
         "Gameplay.Common",
         "UniTask",
         "Unity.Addressables",
-        "Gameplay.Features.AnimationFeature"
+        "Gameplay.Features.AnimationFeature",
+        "Domain",
+        "Gameplaye.Features.StatsFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

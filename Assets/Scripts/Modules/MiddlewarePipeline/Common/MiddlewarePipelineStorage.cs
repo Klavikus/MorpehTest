@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Runtime.Features.MiddlewarePipeline.Interfaces;
+using Modules.MiddlewarePipeline.Interfaces;
 
-namespace Runtime.Features.MiddlewarePipeline.Common
+namespace Modules.MiddlewarePipeline.Common
 {
     public class MiddlewarePipelineStorage
     {

@@ -1,8 +1,9 @@
 ﻿using GameCore.Gameplay.Features.AnimationFeature.Components;
+using GameCore.Gameplay.Features.ViewFeature.Registrars;
 using Scellecs.Morpeh;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Features.ViewFeature.Registrars
+namespace GameCore.Gameplay.Features.AnimationFeature.Registrars
 {
     public class AnimatorRegistrar : EntityComponentRegistrar
     {

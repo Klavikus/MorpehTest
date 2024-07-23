@@ -1,14 +1,13 @@
 {
-    "name": "Gameplay.Features.ViewFeature",
+    "name": "Gameplaye.Features.StatsFeature",
     "rootNamespace": "",
     "references": [
         "VContainer",
         "Scellecs.Morpeh",
-        "UniTask",
-        "AddressablesContentController",
-        "Gameplay.Common",
         "Gameplay.Features.Common",
-        "Unity.Addressables"
+        "Domain",
+        "Extensions",
+        "Gameplay.Features.ViewFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

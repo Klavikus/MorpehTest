@@ -5,7 +5,8 @@
         "Gameplay.Features.Common",
         "VContainer",
         "Scellecs.Morpeh",
-        "Gameplay.Features.MovingFeature"
+        "Gameplay.Features.MovingFeature",
+        "Gameplay.Features.ViewFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

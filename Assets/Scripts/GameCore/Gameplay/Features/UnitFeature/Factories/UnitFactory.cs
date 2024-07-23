@@ -14,7 +14,7 @@ namespace GameCore.Gameplay.Features.UnitFeature.Factories
             entity.AddComponent<RotationComponent>();
             entity.AddComponent<MoveWithRotationTag>();
             entity.AddComponent<AlignRotationWithMoveDirectionTag>();
-            entity.SetComponent(new MoveSpeedComponent {Value = 1f});
+            entity.AddComponent<MoveSpeedComponent>();
 
             return entity;
         }

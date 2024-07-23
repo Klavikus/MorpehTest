@@ -16,7 +16,9 @@
         "Scellecs.Morpeh",
         "DAL.Runtime",
         "LastSynapse.Modules.MVPPassiveView.Runtime",
-        "Gameplay.Features.UnitFeature"
+        "Gameplay.Features.UnitFeature",
+        "Domain",
+        "Extensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

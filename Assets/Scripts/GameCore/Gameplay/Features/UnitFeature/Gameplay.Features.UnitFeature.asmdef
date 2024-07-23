@@ -8,10 +8,11 @@
         "Gameplay.Features.Common",
         "Gameplay.Features.PlayerFeature",
         "Gameplay.Features.ViewFeature",
-        "GameCore",
         "UniTask",
         "Unity.Addressables",
-        "Gameplay.Features.AnimationFeature"
+        "Gameplay.Features.AnimationFeature",
+        "Domain",
+        "GameCore"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

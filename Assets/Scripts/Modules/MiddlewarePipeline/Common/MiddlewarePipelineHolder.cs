@@ -1,7 +1,7 @@
 ﻿using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace Runtime.Features.MiddlewarePipeline.Common
+namespace Modules.MiddlewarePipeline.Common
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

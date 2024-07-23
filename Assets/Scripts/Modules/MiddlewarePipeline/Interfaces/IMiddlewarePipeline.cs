@@ -1,4 +1,4 @@
-﻿namespace Runtime.Features.MiddlewarePipeline.Interfaces
+﻿namespace Modules.MiddlewarePipeline.Interfaces
 {
     public interface IMiddlewarePipeline<TOutValue, TProcessor> : IMiddlewareCollection<IMiddleware<TOutValue>>
         where TProcessor : struct, IMiddlewareProcessor<TOutValue>

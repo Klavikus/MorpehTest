@@ -4164,6 +4164,7 @@ GameObject:
   - component: {fileID: -3739706295212197048}
   - component: {fileID: -5953812049190428034}
   - component: {fileID: -7788608072149868521}
+  - component: {fileID: -4401072371706433838}
   m_Layer: 0
   m_Name: Character_Tormented_Soul
   m_TagString: Untagged
@@ -4261,6 +4262,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8334724294923447068}
+--- !u!114 &-4401072371706433838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363088945664425545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3c40a3e64474aa3c629c68f2aa1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statsConfig: {fileID: 11400000, guid: f6706354011fb3a479cf6521eecf2156, type: 2}
 --- !u!1 &8521466527088473751
 GameObject:
   m_ObjectHideFlags: 0

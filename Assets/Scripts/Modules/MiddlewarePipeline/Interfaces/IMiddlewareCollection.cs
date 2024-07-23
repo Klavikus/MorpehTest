@@ -1,4 +1,4 @@
-﻿namespace Runtime.Features.MiddlewarePipeline.Interfaces
+﻿namespace Modules.MiddlewarePipeline.Interfaces
 {
     public interface IMiddlewareCollection<TMiddleware> 
         where TMiddleware : IMiddleware

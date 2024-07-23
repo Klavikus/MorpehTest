@@ -1,14 +1,9 @@
 {
-    "name": "Gameplay.Features.ViewFeature",
+    "name": "Extensions",
     "rootNamespace": "",
     "references": [
-        "VContainer",
-        "Scellecs.Morpeh",
-        "UniTask",
-        "AddressablesContentController",
-        "Gameplay.Common",
-        "Gameplay.Features.Common",
-        "Unity.Addressables"
+        "GUID:0f51ff9ca83946e19b806e5043af4993",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

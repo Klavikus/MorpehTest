@@ -1,6 +1,6 @@
-﻿using Runtime.Features.MiddlewarePipeline.Common;
+﻿using Modules.MiddlewarePipeline.Common;
 
-namespace Runtime.Features.MiddlewarePipeline.Interfaces
+namespace Modules.MiddlewarePipeline.Interfaces
 {
     public interface IMiddlewareProcessor<TOutValue>
     {
