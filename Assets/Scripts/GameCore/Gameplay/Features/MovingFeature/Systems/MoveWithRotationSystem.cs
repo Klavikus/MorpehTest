@@ -1,4 +1,5 @@
-﻿using GameCore.Gameplay.Features.MovingFeature.Components;
+﻿using GameCore.Gameplay.Features.Common.Components;
+using GameCore.Gameplay.Features.MovingFeature.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 

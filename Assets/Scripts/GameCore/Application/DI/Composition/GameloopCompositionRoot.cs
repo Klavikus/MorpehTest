@@ -1,14 +1,16 @@
 ﻿using GameCore.Domain.Configs;
+using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Collisions;
 using GameCore.Gameplay.Features.AnimationFeature;
 using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.MovingFeature;
 using GameCore.Gameplay.Features.PlayerFeature;
+using GameCore.Gameplay.Features.PlayerFeature.Factories;
 using GameCore.Gameplay.Features.UnitFeature;
+using GameCore.Gameplay.Features.UnitFeature.Factories;
 using GameCore.Gameplay.Features.ViewFeature;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
-using GameCore.Gameplay.Services;
 using Modules.Infrastructure.Implementation;
 using Scellecs.Morpeh;
 using UnityEngine;
@@ -31,6 +33,8 @@ namespace GameCore.Application.DI.Composition
 
             containerBuilder.Register<ICollisionRegistry, CollisionRegistry>(Lifetime.Singleton);
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);
+            containerBuilder.Register<PlayerFactory>(Lifetime.Singleton);
+            containerBuilder.Register<UnitFactory>(Lifetime.Singleton);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)

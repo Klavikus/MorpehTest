@@ -1,6 +1,6 @@
 ﻿using VContainer;
 
-namespace Code.Infrastructure.Systems
+namespace GameCore.Infrastructure.Systems
 {
     public class SystemFactory : ISystemFactory
     {

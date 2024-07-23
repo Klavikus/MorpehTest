@@ -4161,8 +4161,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8504546052888900309}
   - component: {fileID: 8334724294923447068}
-  - component: {fileID: 344514753720880640}
   - component: {fileID: -3739706295212197048}
+  - component: {fileID: -5953812049190428034}
+  - component: {fileID: -7788608072149868521}
   m_Layer: 0
   m_Name: Character_Tormented_Soul
   m_TagString: Untagged
@@ -4223,19 +4224,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &344514753720880640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8363088945664425545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f051bafe90ca41268052f52d73f2ecac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 8334724294923447068}
 --- !u!114 &-3739706295212197048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4248,6 +4236,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fd321296f74d768c0c6179956bbfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5953812049190428034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363088945664425545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f393e51e68a64e09b60cb4ac9efeadda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7788608072149868521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363088945664425545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0675d1300dda4de8b28d690e87dc45c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8334724294923447068}
 --- !u!1 &8521466527088473751
 GameObject:
   m_ObjectHideFlags: 0

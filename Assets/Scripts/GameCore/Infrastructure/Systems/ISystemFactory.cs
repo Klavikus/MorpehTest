@@ -1,4 +1,4 @@
-﻿namespace Code.Infrastructure.Systems
+﻿namespace GameCore.Infrastructure.Systems
 {
     public interface ISystemFactory
     {

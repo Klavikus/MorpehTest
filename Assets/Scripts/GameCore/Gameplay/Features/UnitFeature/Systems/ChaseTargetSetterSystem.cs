@@ -1,4 +1,5 @@
-﻿using GameCore.Gameplay.Features.MovingFeature.Components;
+﻿using GameCore.Gameplay.Features.Common.Components;
+using GameCore.Gameplay.Features.MovingFeature.Components;
 using GameCore.Gameplay.Features.PlayerFeature.Components;
 using GameCore.Gameplay.Features.UnitFeature.Components;
 using Scellecs.Morpeh;

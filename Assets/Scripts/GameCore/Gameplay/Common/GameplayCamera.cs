@@ -1,7 +1,7 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Services
+namespace GameCore.Gameplay.Common
 {
     public class GameplayCamera : MonoBehaviour
     {

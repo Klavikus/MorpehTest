@@ -1,9 +1,8 @@
 ﻿using GameCore.Domain.Common;
 using GameCore.Domain.Configs;
 using GameCore.Gameplay.Features.Common;
-using GameCore.Gameplay.Features.MovingFeature.Components;
-using GameCore.Gameplay.Features.PlayerFeature.Components;
-using GameCore.Gameplay.Features.UnitFeature.Components;
+using GameCore.Gameplay.Features.PlayerFeature.Factories;
+using GameCore.Gameplay.Features.UnitFeature.Factories;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Infrastructure;
 using Scellecs.Morpeh;
@@ -23,6 +22,7 @@ namespace GameCore.Gameplay.Features.UnitFeature.Systems
         private IEntityViewFactory _entityViewFactory;
         private IConfigurationProvider _configurationProvider;
         private Point _spawnPoint;
+        private UnitFactory _unitFactory;
         public World World { get; set; }
 
         public void Inject(IObjectResolver objectResolver)
@@ -30,12 +30,13 @@ namespace GameCore.Gameplay.Features.UnitFeature.Systems
             _entityViewFactory = objectResolver.Resolve<IEntityViewFactory>();
             _configurationProvider = objectResolver.Resolve<IConfigurationProvider>();
             _spawnPoint = objectResolver.Resolve<GameplaySceneConfig>().EnemyPoint;
+            _unitFactory = objectResolver.Resolve<UnitFactory>();
         }
 
         public async void OnAwake()
         {
-            var entity = World.CreateEntity();
-
+            var entity = _unitFactory.Build(World);
+            
             var view = await _entityViewFactory.CreateForEntityAsync(
                 entity,
                 _configurationProvider.EnemyRegistrar.AssetGUID,

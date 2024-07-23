@@ -8,7 +8,9 @@
         "AddressablesContentController",
         "Gameplay.Common",
         "Gameplay.Features.Common",
-        "Unity.Addressables"
+        "Unity.Addressables",
+        "Gameplay.Features.AnimationFeature",
+        "Gameplay.Features.MovingFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
