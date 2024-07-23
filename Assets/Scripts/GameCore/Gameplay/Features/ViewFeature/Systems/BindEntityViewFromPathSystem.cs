@@ -1,26 +1,27 @@
 ﻿using Cysharp.Threading.Tasks;
 using GameCore.Gameplay.Common.Components;
+using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
+using VContainer;
 
 namespace GameCore.Gameplay.Features.ViewFeature.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public class BindEntityViewFromPathSystem : ISystem
+    public class BindEntityViewFromPathSystem : ISystem, IInjectable
     {
-        private readonly IEntityViewFactory _entityViewFactory;
-
+        private IEntityViewFactory _entityViewFactory;
         private Filter _entities;
 
-        public BindEntityViewFromPathSystem(IEntityViewFactory entityViewFactory)
-        {
-            _entityViewFactory = entityViewFactory;
-        }
-
         public World World { get; set; }
+
+        public void Inject(IObjectResolver objectResolver)
+        {
+            _entityViewFactory = objectResolver.Resolve<IEntityViewFactory>();
+        }
 
         public void OnAwake()
         {

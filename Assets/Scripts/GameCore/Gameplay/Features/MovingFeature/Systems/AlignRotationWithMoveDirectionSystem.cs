@@ -1,8 +1,10 @@
 ﻿using GameCore.Gameplay.Features.AnimationFeature;
+using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.MovingFeature.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
+using VContainer;
 
 namespace GameCore.Gameplay.Features.MovingFeature.Systems
 {

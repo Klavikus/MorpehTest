@@ -6,7 +6,7 @@ namespace GameCore.Gameplay.Features.Common
     public static class FeatureExtensions
     {
         public static void AddFeature<T>(this World world, IObjectResolver objectResolver)
-            where T : Feature =>
-            objectResolver.Resolve<T>().Initialize(world);
+            where T : Feature, new() =>
+            new T().Initialize(world, objectResolver);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Scellecs.Morpeh;
+using VContainer;
 
 namespace GameCore.Gameplay.Features.Common
 {
@@ -8,19 +9,16 @@ namespace GameCore.Gameplay.Features.Common
         private readonly List<IInitializer> _initializers = new();
         private readonly List<ISystem> _systems = new();
         private readonly List<ICleanupSystem> _cleanupSystems = new();
+        private readonly HashSet<IInjectable> _injectables = new();
 
-        protected void AddInitializer(IInitializer initializer) =>
-            _initializers.Add(initializer);
-
-        protected void AddSystem(ISystem system) =>
-            _systems.Add(system);
-
-        protected void AddCleanupSystem(ICleanupSystem cleanupSystem) =>
-            _cleanupSystems.Add(cleanupSystem);
-
-        public void Initialize(World world)
+        public void Initialize(World world, IObjectResolver objectResolver)
         {
             SystemsGroup systemsGroup = world.CreateSystemsGroup();
+
+            foreach (IInjectable injectable in _injectables)
+            {
+                injectable.Inject(objectResolver);
+            }
 
             foreach (IInitializer initializer in _initializers)
                 systemsGroup.AddInitializer(initializer);
@@ -32,6 +30,37 @@ namespace GameCore.Gameplay.Features.Common
                 systemsGroup.AddSystem(cleanupSystem);
 
             world.AddPluginSystemsGroup(systemsGroup);
+        }
+
+        protected void AddInitializer<T>()
+            where T : IInitializer, new()
+        {
+            T initializer = new();
+            CheckForInjectable(initializer);
+            _initializers.Add(initializer);
+        }
+
+        protected void AddSystem<T>()
+            where T : ISystem, new()
+        {
+            T system = new();
+            CheckForInjectable(system);
+            _systems.Add(system);
+        }
+
+        protected void AddCleanupSystem<T>()
+            where T : ICleanupSystem, new()
+
+        {
+            T cleanupSystem = new();
+            CheckForInjectable(cleanupSystem);
+            _cleanupSystems.Add(cleanupSystem);
+        }
+
+        private void CheckForInjectable(object @object)
+        {
+            if (@object is IInjectable injectable)
+                _injectables.Add(injectable);
         }
     }
 }
