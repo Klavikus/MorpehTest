@@ -14,7 +14,8 @@
         "Unity.Addressables",
         "Gameplay.Features.AnimationFeature",
         "Domain",
-        "Gameplaye.Features.StatsFeature"
+        "Gameplaye.Features.StatsFeature",
+        "Gameplay.Features.StatsApplierFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

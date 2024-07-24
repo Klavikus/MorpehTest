@@ -13,7 +13,8 @@
         "Gameplay.Features.AnimationFeature",
         "Domain",
         "GameCore",
-        "Gameplaye.Features.StatsFeature"
+        "Gameplaye.Features.StatsFeature",
+        "Gameplay.Features.StatsApplierFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

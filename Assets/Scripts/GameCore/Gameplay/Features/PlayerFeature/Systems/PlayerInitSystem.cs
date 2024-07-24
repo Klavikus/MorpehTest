@@ -3,7 +3,7 @@ using GameCore.Domain.Configs;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.PlayerFeature.Factories;
-using GameCore.Gameplay.Features.Stats.Components;
+using GameCore.Gameplay.Features.StatsApplierFeature.Components;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Infrastructure;
 using Scellecs.Morpeh;
@@ -44,7 +44,7 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Systems
                 _spawnPoint.Position,
                 _spawnPoint.Rotation);
 
-            entity.AddComponent<ApplyStatsRequest>();
+            entity.AddComponent<SpeedApplySelfRequest>();
 
             _gameplayCamera.FocusTo(view.transform);
         }

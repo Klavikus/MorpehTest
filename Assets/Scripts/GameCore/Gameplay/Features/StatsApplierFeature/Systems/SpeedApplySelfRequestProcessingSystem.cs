@@ -1,7 +1,7 @@
 ﻿using GameCore.Domain.Enums;
-using GameCore.Gameplay.Common.Components;
 using GameCore.Gameplay.Features.MovingFeature.Components;
 using GameCore.Gameplay.Features.Stats.Components;
+using GameCore.Gameplay.Features.StatsApplierFeature.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
@@ -10,7 +10,7 @@ namespace GameCore.Gameplay.Features.StatsApplierFeature.Systems
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public class MoveSpeedByStatsSystem : ISystem
+    public class SpeedApplySelfRequestProcessingSystem : ISystem
     {
         private Filter _entities;
 
@@ -21,8 +21,7 @@ namespace GameCore.Gameplay.Features.StatsApplierFeature.Systems
             _entities = World.Filter
                 .With<StatsContainerComponent>()
                 .With<MoveSpeedComponent>()
-                .With<ApplyStatsRequest>()
-                .Without<CreateInProgress>()
+                .With<SpeedApplySelfRequest>()
                 .Build();
         }
 
@@ -34,6 +33,8 @@ namespace GameCore.Gameplay.Features.StatsApplierFeature.Systems
                 ref var statsContainer = ref entity.GetComponent<StatsContainerComponent>();
 
                 moveSpeed.Value = statsContainer.Current.Get(BaseStatType.Speed);
+
+                entity.RemoveComponent<SpeedApplySelfRequest>();
             }
         }
 

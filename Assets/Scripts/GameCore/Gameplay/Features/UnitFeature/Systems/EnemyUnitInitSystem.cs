@@ -1,8 +1,7 @@
 ﻿using GameCore.Domain.Common;
 using GameCore.Domain.Configs;
 using GameCore.Gameplay.Features.Common;
-using GameCore.Gameplay.Features.PlayerFeature.Factories;
-using GameCore.Gameplay.Features.Stats.Components;
+using GameCore.Gameplay.Features.StatsApplierFeature.Components;
 using GameCore.Gameplay.Features.UnitFeature.Factories;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Infrastructure;
@@ -43,8 +42,8 @@ namespace GameCore.Gameplay.Features.UnitFeature.Systems
                 _configurationProvider.EnemyRegistrar.AssetGUID,
                 _spawnPoint.Position,
                 _spawnPoint.Rotation);
-
-            entity.AddComponent<ApplyStatsRequest>();
+            
+            entity.AddComponent<SpeedApplySelfRequest>();
         }
 
         public void Dispose()

@@ -7,9 +7,7 @@ namespace GameCore.Gameplay.Features.StatsApplierFeature
     {
         public StatsApplierFeature()
         {
-            AddSystem<MoveSpeedByStatsSystem>();
-            AddSystem<ApplyStatsRequestCleanupSystem>();
-            // AddCleanupSystem<ApplyStatsRequestCleanupSystem>();
+            AddSystem<SpeedApplySelfRequestProcessingSystem>();
         }
     }
 }
