@@ -5,6 +5,7 @@ using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Collisions;
 using GameCore.Gameplay.Features.AnimationFeature;
 using GameCore.Gameplay.Features.Common;
+using GameCore.Gameplay.Features.Cooldowns;
 using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.MovingFeature;
 using GameCore.Gameplay.Features.PlayerFeature;
@@ -55,6 +56,7 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<ViewFeature>(sceneResolver);
             _world.AddFeature<StatsApplierFeature>(sceneResolver);
             _world.AddFeature<MoveFeature>(sceneResolver);
+            _world.AddFeature<CooldownFeature>(sceneResolver);
             _world.AddFeature<AnimationFeature>(sceneResolver);
 
             sceneResolver.ConstructView<GameplayMainView, GameplayPresenter>();

@@ -19,7 +19,8 @@
         "Gameplay.Features.UnitFeature",
         "Domain",
         "Extensions",
-        "Gameplay.Features.StatsApplierFeature"
+        "Gameplay.Features.StatsApplierFeature",
+        "Gameplay.Features.Cooldowns"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
