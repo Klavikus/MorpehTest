@@ -1,4 +1,6 @@
-﻿using GameCore.Domain.Configs;
+﻿using GameCore.Controllers.Presenters.Gameplay;
+using GameCore.Domain.Configs;
+using GameCore.Extensions;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Collisions;
 using GameCore.Gameplay.Features.AnimationFeature;
@@ -12,6 +14,7 @@ using GameCore.Gameplay.Features.UnitFeature;
 using GameCore.Gameplay.Features.UnitFeature.Factories;
 using GameCore.Gameplay.Features.ViewFeature;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
+using GameCore.Presentation.Implementation.Gameplay;
 using Modules.Infrastructure.Implementation;
 using Scellecs.Morpeh;
 using UnityEngine;
@@ -24,6 +27,7 @@ namespace GameCore.Application.DI.Composition
     {
         [SerializeField] private GameplayCamera _gameplayCamera;
         [SerializeField] private GameplaySceneConfig _gameplaySceneConfig;
+        [SerializeField] private GameplayMainView _gameplayMainView;
 
         private World _world;
 
@@ -36,6 +40,8 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);
             containerBuilder.Register<PlayerBuilder>(Lifetime.Singleton);
             containerBuilder.Register<UnitFactory>(Lifetime.Singleton);
+
+            containerBuilder.BindViewWithPresenter<GameplayMainView, GameplayPresenter>(_gameplayMainView);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)
@@ -50,6 +56,8 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<StatsApplierFeature>(sceneResolver);
             _world.AddFeature<MoveFeature>(sceneResolver);
             _world.AddFeature<AnimationFeature>(sceneResolver);
+
+            sceneResolver.ConstructView<GameplayMainView, GameplayPresenter>();
         }
 
         private void OnDestroy()
