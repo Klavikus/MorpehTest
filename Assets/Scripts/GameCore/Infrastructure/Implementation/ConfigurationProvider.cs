@@ -18,7 +18,8 @@ namespace GameCore.Infrastructure.Implementation
 
         private ConfigurationContainer _configurationContainer;
         private Dictionary<int, SceneData> _sceneDataById;
-        
+        private Dictionary<AbilityId, AbilityLevel> _abilityLevelById;
+
         public ConfigurationProvider(ContentController contentController)
         {
             _contentController = contentController;
@@ -29,9 +30,9 @@ namespace GameCore.Infrastructure.Implementation
         public SceneData GameloopSceneData => _configurationContainer.GameloopSceneData;
         public string LocalizationTablePath => _configurationContainer.LocalizationTablePath;
         public AssetReference LoadingScreenViewReference => _configurationContainer.LoadingScreenViewReference;
-        public AssetReference PlayerRegistrar  => _configurationContainer.PlayerRegistrar;
-        public AssetReference EnemyRegistrar  => _configurationContainer.EnemyRegistrar;
-        public AbilityLevel[] AbilityLevels  => _configurationContainer.AbilityLevels;
+        public AssetReference PlayerRegistrar => _configurationContainer.PlayerRegistrar;
+        public AssetReference EnemyRegistrar => _configurationContainer.EnemyRegistrar;
+        public AbilityLevel[] AbilityLevels => _configurationContainer.AbilityLevels;
 
         public async UniTask Initialize()
         {
@@ -43,15 +44,16 @@ namespace GameCore.Infrastructure.Implementation
             _sceneDataById = Enumerable
                 .Range(0, _configurationContainer.LevelsSceneData.Count())
                 .ToDictionary(i => i, i => _configurationContainer.LevelsSceneData[i]);
+
+            _abilityLevelById = _configurationContainer
+                .AbilityLevels
+                .ToDictionary(x => x.AbilityId, key => key);
         }
 
         public SceneData GetLevelConfig(int selectedLevelId) =>
             _sceneDataById[selectedLevelId];
 
-        public AbilityLevel GetAbilityLevel(AbilityId fireBolt, int level)
-        {
-            // TODO: Implement 
-            return AbilityLevels[0];
-        }
+        public AbilityLevel GetAbilityLevel(AbilityId abilityId, int level) =>
+            _abilityLevelById[abilityId];
     }
 }

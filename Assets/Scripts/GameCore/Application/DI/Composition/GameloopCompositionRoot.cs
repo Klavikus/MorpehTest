@@ -1,8 +1,12 @@
-﻿using GameCore.Controllers.Implementation.Presenters.Gameplay;
+﻿using Code.Gameplay.Features.Lifetime;
+using Code.Gameplay.Features.TargetCollection;
+using GameCore.Controllers.Implementation.Presenters.Gameplay;
 using GameCore.Domain.Configs;
 using GameCore.Extensions;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Collisions;
+using GameCore.Gameplay.Common.Physic;
+using GameCore.Gameplay.Features.AbilitiesFeature;
 using GameCore.Gameplay.Features.AnimationFeature;
 using GameCore.Gameplay.Features.Common.Destruct;
 using GameCore.Gameplay.Features.Cooldowns;
@@ -38,6 +42,7 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.RegisterComponent(_gameplaySceneConfig);
 
             containerBuilder.Register<ICollisionRegistry, CollisionRegistry>(Lifetime.Singleton);
+            containerBuilder.Register<IPhysicsService, PhysicsService>(Lifetime.Singleton);
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);
             containerBuilder.Register<PlayerBuilder>(Lifetime.Singleton);
             containerBuilder.Register<UnitFactory>(Lifetime.Singleton);
@@ -52,12 +57,15 @@ namespace GameCore.Application.DI.Composition
 
             _world.AddFeature<InputFeature>(sceneResolver);
             _world.AddFeature<PlayerFeature>(sceneResolver);
+            _world.AddFeature<AbilitiesFeature>(sceneResolver);
             _world.AddFeature<UnitFeature>(sceneResolver);
             _world.AddFeature<ViewFeature>(sceneResolver);
             _world.AddFeature<StatsApplierFeature>(sceneResolver);
             _world.AddFeature<MoveFeature>(sceneResolver);
             _world.AddFeature<CooldownFeature>(sceneResolver);
             _world.AddFeature<AnimationFeature>(sceneResolver);
+            _world.AddFeature<CollectTargetFeature>(sceneResolver);
+            _world.AddFeature<DeathFeature>(sceneResolver);
             _world.AddFeature<ProcessDestructedFeature>(sceneResolver);
 
             sceneResolver.ConstructView<GameplayMainView, GameplayPresenter>();

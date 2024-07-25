@@ -1,20 +1,13 @@
 {
-    "name": "Gameplay.Features.AbilitiesFeature",
+    "name": "Gameplay.Features.TargetCollection",
     "rootNamespace": "",
     "references": [
         "VContainer",
-        "UniTask",
         "Scellecs.Morpeh",
-        "Gameplay.Features.Cooldowns",
-        "Gameplay.Features.PlayerFeature",
-        "Gameplay.Features.Common",
-        "Gameplay.Features.UnitFeature",
         "Gameplay.Common",
-        "Gameplay.Features.ViewFeature",
-        "Infrastructure.Abstraction",
-        "Domain",
-        "AddressablesContentController",
-        "Unity.Addressables"
+        "Gameplay.Features.Common",
+        "Gameplay.Features.AttackFeature",
+        "Gameplay.Features.AbilitiesFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

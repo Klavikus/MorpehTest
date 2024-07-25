@@ -1,4 +1,6 @@
-﻿using GameCore.Gameplay.Features.AbilitiesFeature.Configs;
+﻿using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Components;
+using GameCore.Gameplay.Features.AbilitiesFeature.Configs;
+using GameCore.Gameplay.Features.ViewFeature.Components;
 using GameCore.Infrastructure.Abstraction;
 using Scellecs.Morpeh;
 using UnityEngine;
@@ -19,8 +21,11 @@ namespace GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory
             AbilityLevel abilityLevel = _configurationProvider.GetAbilityLevel(AbilityId.FireBolt, level);
             // ProjectileSetup setup = abilityLevel.ProjectileSetup;
 
+            entity.SetComponent(new ViewPathComponent {Path = abilityLevel.ViewPrefab.AssetGUID});
+            entity.AddComponent<ArmamentTag>();
+
             // entity.AddComponent<>()
-            
+
             return entity;
         }
 

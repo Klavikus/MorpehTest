@@ -25,7 +25,10 @@
         "Controllers.Abstraction",
         "Infrastructure.Implementation",
         "Presentation.Abstraction",
-        "Infrastructure.Abstraction"
+        "Infrastructure.Abstraction",
+        "Gameplay.Feature.Lifetime",
+        "Gameplay.Features.TargetCollection",
+        "Gameplay.Features.AbilitiesFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
