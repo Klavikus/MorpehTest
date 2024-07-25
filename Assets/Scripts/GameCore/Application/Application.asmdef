@@ -28,7 +28,8 @@
         "Infrastructure.Abstraction",
         "Gameplay.Feature.Lifetime",
         "Gameplay.Features.TargetCollection",
-        "Gameplay.Features.AbilitiesFeature"
+        "Gameplay.Features.AbilitiesFeature",
+        "Gameplay.Features"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

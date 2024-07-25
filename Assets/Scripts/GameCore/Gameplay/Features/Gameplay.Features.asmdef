@@ -1,11 +1,17 @@
 {
-    "name": "Gameplay.Features.Common",
+    "name": "Gameplay.Features",
     "rootNamespace": "",
     "references": [
         "VContainer",
         "Scellecs.Morpeh",
-        "Gameplay.Features.ViewFeature",
-        "Gameplay.Common"
+        "Infrastructure.Abstraction",
+        "Domain",
+        "Gameplay.Common",
+        "Unity.Addressables",
+        "AddressablesContentController",
+        "UniTask",
+        "UniTask.Addressables",
+        "Extensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
