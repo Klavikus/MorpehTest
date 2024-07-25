@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using GameCore.Gameplay.Common.Components;
+using GameCore.Gameplay.Features.Common.Components;
 using Qw1nt.Runtime.AddressablesContentController.Core;
 using Scellecs.Morpeh;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace GameCore.Gameplay.Features.ViewFeature.Factory
         public async UniTask<EntityView> CreateForEntityAsync(Entity entity, string assetPath)
         {
             entity.AddComponent<CreateInProgress>();
+            entity.SetComponent(new WorldPosition {Value = FarAway});
 
             var asset = await _contentController.LoadAsync<GameObject>(assetPath);
 
@@ -47,6 +49,7 @@ namespace GameCore.Gameplay.Features.ViewFeature.Factory
             Vector3 rotation)
         {
             entity.AddComponent<CreateInProgress>();
+            entity.SetComponent(new WorldPosition {Value = position});
 
             var asset = await _contentController.LoadAsync<GameObject>(assetPath);
 
@@ -67,10 +70,12 @@ namespace GameCore.Gameplay.Features.ViewFeature.Factory
         public EntityView CreateForEntityFromPrefab(Entity entity, EntityView entityViewPrefab)
         {
             var view = Object.Instantiate(entityViewPrefab, FarAway, Quaternion.identity);
-         
+
             _objectResolver.Inject(view);
 
             view.SetEntity(entity);
+            
+            entity.SetComponent(new WorldPosition {Value = FarAway});
 
             return view;
         }

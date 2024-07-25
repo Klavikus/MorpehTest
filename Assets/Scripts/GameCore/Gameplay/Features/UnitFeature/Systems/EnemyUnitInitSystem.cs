@@ -1,7 +1,10 @@
 ﻿using GameCore.Domain.Common;
 using GameCore.Domain.Configs;
 using GameCore.Gameplay.Common;
+using GameCore.Gameplay.Features.Common.Components;
+using GameCore.Gameplay.Features.Common.Extensions;
 using GameCore.Gameplay.Features.StatsApplierFeature.Components;
+using GameCore.Gameplay.Features.TargetCollection.Components;
 using GameCore.Gameplay.Features.UnitFeature.Factories;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Infrastructure.Abstraction;
@@ -42,7 +45,8 @@ namespace GameCore.Gameplay.Features.UnitFeature.Systems
                 _configurationProvider.EnemyRegistrar.AssetGUID,
                 _spawnPoint.Position,
                 _spawnPoint.Rotation);
-            
+            entity.SetComponent(new LayerMask {Value = CollisionLayer.Enemy.AsMask()});
+
             entity.AddComponent<SpeedApplySelfRequest>();
         }
 

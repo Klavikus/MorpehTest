@@ -8,17 +8,15 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    public class MoveWithRotationSystem : ISystem
+    public class SyncTransformWithWorldPositionSystem : ISystem
     {
-        private Filter _movers;
+        private Filter _entities;
 
         public void OnAwake()
         {
-            _movers = World.Filter
+            _entities = World.Filter
                 .With<TransformComponent>()
                 .With<WorldPosition>()
-                .With<RotationComponent>()
-                .With<MoveWithRotationTag>()
                 .Build();
         }
 
@@ -26,14 +24,10 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
 
         public void OnUpdate(float deltaTime)
         {
-            foreach (var entity in _movers)
+            foreach (var entity in _entities)
             {
-                ref var position = ref entity.GetComponent<WorldPosition>();
-                ref var rotation = ref entity.GetComponent<RotationComponent>();
-
                 var transform = entity.GetComponent<TransformComponent>().Transform;
-
-                transform.SetPositionAndRotation(position.Value, rotation.Value);
+                transform.position = entity.GetComponent<WorldPosition>().Value;
             }
         }
 

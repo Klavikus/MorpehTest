@@ -15,10 +15,9 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
         public void OnAwake()
         {
             _movers = World.Filter
-                .With<TransformComponent>()
+                .With<WorldPosition>()
                 .With<MoveDirectionComponent>()
                 .With<MoveSpeedComponent>()
-                .Without<MoveWithRotationTag>()
                 .Build();
         }
 
@@ -34,8 +33,8 @@ namespace GameCore.Gameplay.Features.MovingFeature.Systems
                 if (speed.Value == 0)
                     continue;
 
-                var transform = entity.GetComponent<TransformComponent>().Transform;
-                transform.position += direction.Value * (speed.Value * deltaTime);
+                ref var worldPosition = ref entity.GetComponent<WorldPosition>();
+                worldPosition.Value += direction.Value * (speed.Value * deltaTime);
             }
         }
 

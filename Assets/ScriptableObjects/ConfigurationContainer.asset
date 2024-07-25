@@ -39,7 +39,16 @@ MonoBehaviour:
     <Icon>k__BackingField: {fileID: 21300000, guid: 0f34aad8522244d85a382fa74483b725, type: 3}
     <Description>k__BackingField: FireBolt
     <ViewPrefab>k__BackingField:
-      m_AssetGUID: 5f280f77ca1ed7c48a5b39650f5c25b1
+      m_AssetGUID: 77cf5e26ee34f674199ce61c182825eb
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    <ProjectileSetup>k__BackingField:
+      <Speed>k__BackingField: 1
+      <Pierce>k__BackingField: 1
+      <ContactRadius>k__BackingField: 0.1
+      <Lifetime>k__BackingField: 3
+      <Amount>k__BackingField: 1
+      <MaxBounceAmount>k__BackingField: 0
+      <ProjectileCount>k__BackingField: 1
+      <OrbitRadius>k__BackingField: 0

@@ -11,6 +11,7 @@ namespace GameCore.Gameplay.Features.MovingFeature
             AddSystem<MoveSystem>();
             AddSystem<RotationSystem>();
             AddSystem<MoveWithRotationSystem>();
+            AddSystem<SyncTransformWithWorldPositionSystem>();
         }
     }
 }

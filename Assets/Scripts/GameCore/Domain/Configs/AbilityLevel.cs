@@ -1,4 +1,5 @@
 ﻿using System;
+using GameCore.Domain.Configs.Setups;
 using GameCore.Domain.Enums;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -14,5 +15,6 @@ namespace GameCore.Domain.Configs
         [field: SerializeField] public string Description { get; private set; }
 
         [field: SerializeField] public AssetReference ViewPrefab { get; private set; }
+        [field: SerializeField] public ProjectileSetup ProjectileSetup { get; private set; }
     }
 }

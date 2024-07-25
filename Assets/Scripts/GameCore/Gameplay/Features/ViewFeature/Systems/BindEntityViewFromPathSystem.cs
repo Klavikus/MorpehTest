@@ -1,10 +1,12 @@
 ﻿using Cysharp.Threading.Tasks;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Components;
+using GameCore.Gameplay.Features.Common.Components;
 using GameCore.Gameplay.Features.ViewFeature.Components;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
+using UnityEngine;
 using VContainer;
 
 namespace GameCore.Gameplay.Features.ViewFeature.Systems
@@ -38,7 +40,20 @@ namespace GameCore.Gameplay.Features.ViewFeature.Systems
             {
                 entity.RemoveComponent<CreateRequest>();
 
-                _entityViewFactory.CreateForEntityAsync(entity, entity.GetComponent<ViewPathComponent>().Path).Forget();
+                if (entity.Has<WorldPosition>())
+                {
+                    _entityViewFactory.CreateForEntityAsync(
+                            entity,
+                            entity.GetComponent<ViewPathComponent>().Path,
+                            entity.GetComponent<WorldPosition>().Value,
+                            Vector3.zero)
+                        .Forget();
+                }
+                else
+                {
+                    _entityViewFactory.CreateForEntityAsync(entity, entity.GetComponent<ViewPathComponent>().Path)
+                        .Forget();
+                }
             }
         }
 

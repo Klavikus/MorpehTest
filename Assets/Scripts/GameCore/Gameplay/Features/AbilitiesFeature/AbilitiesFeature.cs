@@ -1,4 +1,5 @@
 ﻿using GameCore.Gameplay.Common;
+using GameCore.Gameplay.Features.AbilitiesFeature.Systems;
 
 namespace GameCore.Gameplay.Features.AbilitiesFeature
 {
@@ -6,6 +7,7 @@ namespace GameCore.Gameplay.Features.AbilitiesFeature
     {
         public AbilitiesFeature()
         {
+            AddSystem<FireBoltAbilitySystem>();
         }
     }
 }
