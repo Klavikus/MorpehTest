@@ -1,0 +1,20 @@
+{
+    "name": "Presentation.Implementation",
+    "rootNamespace": "",
+    "references": [
+        "LastSynapse.Modules.MVPPassiveView.Runtime",
+        "Presentation.Abstraction",
+        "Unity.TextMeshPro",
+        "Domain",
+        "LastSynapse.Modules.UIComponents"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

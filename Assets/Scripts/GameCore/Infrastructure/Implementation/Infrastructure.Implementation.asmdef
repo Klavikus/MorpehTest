@@ -1,0 +1,30 @@
+{
+    "name": "Infrastructure.Implementation",
+    "rootNamespace": "",
+    "references": [
+        "Gameplay.Features.AbilitiesFeature",
+        "AddressablesContentController",
+        "Unity.Addressables",
+        "UniTask",
+        "UniTask.Addressables",
+        "VContainer",
+        "GameCore",
+        "LastSynapse.Modules.MVPPassiveView.Runtime",
+        "Unity.ResourceManager",
+        "Controllers.Implementation",
+        "Infrastructure.Abstraction",
+        "Presentation.Abstraction",
+        "Presentation.Implementation",
+        "Controllers.Abstraction",
+        "Domain"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

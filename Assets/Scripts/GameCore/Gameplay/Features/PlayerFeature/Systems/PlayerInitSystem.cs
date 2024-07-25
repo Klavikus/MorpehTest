@@ -6,6 +6,7 @@ using GameCore.Gameplay.Features.PlayerFeature.Factories;
 using GameCore.Gameplay.Features.StatsApplierFeature.Components;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using GameCore.Infrastructure;
+using GameCore.Infrastructure.Abstraction;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using VContainer;

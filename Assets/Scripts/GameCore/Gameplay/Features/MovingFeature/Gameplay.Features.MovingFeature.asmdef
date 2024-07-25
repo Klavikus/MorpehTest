@@ -5,7 +5,6 @@
         "VContainer",
         "Scellecs.Morpeh",
         "Gameplay.Features.Common",
-        "Gameplaye.Features.StatsFeature",
         "Domain",
         "Gameplay.Common"
     ],

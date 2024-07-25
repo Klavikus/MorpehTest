@@ -1,5 +1,5 @@
 ﻿using System;
-using GameCore.Controllers.Enums;
+using GameCore.Domain.Enums;
 using GameCore.Presentation.Abstract.Panels;
 using Modules.UI.UIComponents.Runtime.Implementations.Buttons;
 using TMPro;

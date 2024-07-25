@@ -1,11 +1,10 @@
-﻿using Code.Common;
-using GameCore.Controllers.Presenters.Gameplay;
+﻿using GameCore.Controllers.Implementation.Presenters.Gameplay;
 using GameCore.Domain.Configs;
 using GameCore.Extensions;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Collisions;
 using GameCore.Gameplay.Features.AnimationFeature;
-using GameCore.Gameplay.Features.Common;
+using GameCore.Gameplay.Features.Common.Destruct;
 using GameCore.Gameplay.Features.Cooldowns;
 using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.MovingFeature;

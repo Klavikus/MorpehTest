@@ -1,4 +1,4 @@
-using GameCore.Controllers.GameFSM.States;
+using GameCore.Controllers.Implementation.GameFSM.States;
 using Modules.Infrastructure.Interfaces.GameFsm;
 using VContainer;
 using VContainer.Unity;

@@ -1,0 +1,19 @@
+{
+    "name": "Controllers.Abstraction",
+    "rootNamespace": "",
+    "references": [
+        "UniTask",
+        "VContainer",
+        "AddressablesContentController",
+        "Domain"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

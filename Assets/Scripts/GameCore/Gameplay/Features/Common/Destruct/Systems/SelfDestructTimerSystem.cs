@@ -2,7 +2,7 @@
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace Code.Common.Destruct.Systems
+namespace GameCore.Gameplay.Features.Common.Destruct.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

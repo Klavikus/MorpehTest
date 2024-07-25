@@ -1,4 +1,18 @@
 {
-	"name": "Domain",
-	"references":[ "GUID:04309f9dfd2c4f55b7f522a91ed1bdcc", "GUID:0846dd4672af4cb7bb5e667998cab941" ]
+    "name": "Domain",
+    "rootNamespace": "",
+    "references": [
+        "GUID:04309f9dfd2c4f55b7f522a91ed1bdcc",
+        "GUID:0846dd4672af4cb7bb5e667998cab941",
+        "GUID:9e24947de15b9834991c9d8411ea37cf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

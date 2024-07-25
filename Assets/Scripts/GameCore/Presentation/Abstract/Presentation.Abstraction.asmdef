@@ -1,0 +1,4 @@
+{
+	"name": "Presentation.Abstraction",
+	"references":[ "GUID:0f51ff9ca83946e19b806e5043af4993", "GUID:43fbccbf0f5af0548b593efa28763ed5" ]
+}

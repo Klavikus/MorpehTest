@@ -1,0 +1,28 @@
+{
+    "name": "Controllers.Implementation",
+    "rootNamespace": "",
+    "references": [
+        "Controllers.Abstraction",
+        "LastSynapse.Modules.Common",
+        "UniTask",
+        "Domain",
+        "DAL.Runtime",
+        "Presentation.Abstraction",
+        "LastSynapse.Modules.Infrastructure",
+        "LastSynapse.Modules.MVPPassiveView.Runtime",
+        "LastSynapse.Modules.Common.WindowFsm.Runtime",
+        "Infrastructure.Abstraction",
+        "AddressablesContentController",
+        "Presentation.Implementation",
+        "VContainer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

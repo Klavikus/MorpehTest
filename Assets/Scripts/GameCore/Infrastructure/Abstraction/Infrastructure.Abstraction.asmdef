@@ -1,0 +1,22 @@
+{
+    "name": "Infrastructure.Abstraction",
+    "rootNamespace": "",
+    "references": [
+        "AddressablesContentController",
+        "Unity.Addressables",
+        "UniTask",
+        "UniTask.Addressables",
+        "VContainer",
+        "Presentation.Abstraction",
+        "Domain"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

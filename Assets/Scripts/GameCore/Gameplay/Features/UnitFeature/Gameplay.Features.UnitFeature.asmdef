@@ -15,7 +15,9 @@
         "GameCore",
         "Gameplaye.Features.StatsFeature",
         "Gameplay.Features.StatsApplierFeature",
-        "Gameplay.Common"
+        "Gameplay.Common",
+        "Infrastructure",
+        "Infrastructure.Abstraction"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

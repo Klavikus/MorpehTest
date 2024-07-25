@@ -1,8 +1,7 @@
-﻿using Code.Common.Destruct.Systems;
-using GameCore.Gameplay.Common;
+﻿using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Features.Common.Destruct.Systems;
 
-namespace Code.Common
+namespace GameCore.Gameplay.Features.Common.Destruct
 {
     public class ProcessDestructedFeature : Feature
     {

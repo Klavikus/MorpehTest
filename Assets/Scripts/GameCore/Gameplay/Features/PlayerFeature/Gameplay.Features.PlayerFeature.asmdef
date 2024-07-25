@@ -15,7 +15,9 @@
         "Gameplay.Features.AnimationFeature",
         "Domain",
         "Gameplaye.Features.StatsFeature",
-        "Gameplay.Features.StatsApplierFeature"
+        "Gameplay.Features.StatsApplierFeature",
+        "Infrastructure",
+        "Infrastructure.Abstraction"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

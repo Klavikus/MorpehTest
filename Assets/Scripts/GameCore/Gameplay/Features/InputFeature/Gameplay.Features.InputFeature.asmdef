@@ -4,7 +4,6 @@
     "references": [
         "VContainer",
         "Scellecs.Morpeh",
-        "Gameplay.Features.Common",
         "Gameplay.Common"
     ],
     "includePlatforms": [],

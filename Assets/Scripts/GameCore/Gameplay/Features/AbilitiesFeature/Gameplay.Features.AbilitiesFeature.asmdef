@@ -8,7 +8,11 @@
         "Gameplay.Features.PlayerFeature",
         "Gameplay.Features.Common",
         "Gameplay.Features.UnitFeature",
-        "Gameplay.Common"
+        "Gameplay.Common",
+        "GameCore",
+        "Gameplay.Features.ViewFeature",
+        "Infrastructure.Abstraction",
+        "Domain"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

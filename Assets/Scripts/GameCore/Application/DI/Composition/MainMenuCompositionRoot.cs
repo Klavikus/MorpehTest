@@ -1,10 +1,10 @@
-﻿using GameCore.Controllers;
-using GameCore.Controllers.Enums;
-using GameCore.Controllers.Presenters;
-using GameCore.Controllers.Presenters.Panels;
-using GameCore.Controllers.Services;
+﻿using GameCore.Controllers.Implementation;
+using GameCore.Controllers.Implementation.Presenters;
+using GameCore.Controllers.Implementation.Presenters.Panels;
+using GameCore.Controllers.Implementation.Services;
+using GameCore.Domain.Enums;
 using GameCore.Extensions;
-using GameCore.Infrastructure.Factories;
+using GameCore.Infrastructure.Implementation.Factories;
 using GameCore.Presentation.Abstract.Panels;
 using GameCore.Presentation.Implementation;
 using GameCore.Presentation.Implementation.Panels;
@@ -24,13 +24,13 @@ namespace GameCore.Application.DI.Composition
         [SerializeField] private TowerPanelView _towerPanelView;
         [SerializeField] private MetaMainHeaderView _metaMainHeaderView;
         [SerializeField] private BarView _levelBarView;
-        
+
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
             RegisterWindowFsm(containerBuilder);
 
             containerBuilder.Register<IPanelAccessService, PanelAccessService>(Lifetime.Singleton);
-            containerBuilder.Register<ViewBuilder>(Lifetime.Singleton);
+            containerBuilder.Register<IViewBuilder, ViewBuilder>(Lifetime.Singleton);
 
             containerBuilder.BindViewWithPresenter<IPanelSwitchView, EnumPanelSwitchPresenter>(_panelSwitchView);
 

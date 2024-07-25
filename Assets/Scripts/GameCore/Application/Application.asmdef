@@ -10,7 +10,6 @@
         "Gameplay.Features.Common",
         "LastSynapse.Modules.Infrastructure",
         "Gameplay.Common",
-        "GameCore",
         "AddressablesContentController",
         "VContainer",
         "Scellecs.Morpeh",
@@ -20,7 +19,13 @@
         "Domain",
         "Extensions",
         "Gameplay.Features.StatsApplierFeature",
-        "Gameplay.Features.Cooldowns"
+        "Gameplay.Features.Cooldowns",
+        "Controllers.Implementation",
+        "Presentation.Implementation",
+        "Controllers.Abstraction",
+        "Infrastructure.Implementation",
+        "Presentation.Abstraction",
+        "Infrastructure.Abstraction"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
