@@ -6,7 +6,8 @@
         "Scellecs.Morpeh",
         "Gameplay.Features.Common",
         "Gameplaye.Features.StatsFeature",
-        "Domain"
+        "Domain",
+        "Gameplay.Common"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

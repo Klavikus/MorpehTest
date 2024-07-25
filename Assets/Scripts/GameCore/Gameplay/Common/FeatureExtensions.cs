@@ -1,7 +1,7 @@
 ﻿using Scellecs.Morpeh;
 using VContainer;
 
-namespace GameCore.Gameplay.Features.Common
+namespace GameCore.Gameplay.Common
 {
     public static class FeatureExtensions
     {

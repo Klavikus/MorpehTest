@@ -1,4 +1,5 @@
-﻿using GameCore.Controllers.Presenters.Gameplay;
+﻿using Code.Common;
+using GameCore.Controllers.Presenters.Gameplay;
 using GameCore.Domain.Configs;
 using GameCore.Extensions;
 using GameCore.Gameplay.Common;
@@ -58,6 +59,7 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<MoveFeature>(sceneResolver);
             _world.AddFeature<CooldownFeature>(sceneResolver);
             _world.AddFeature<AnimationFeature>(sceneResolver);
+            _world.AddFeature<ProcessDestructedFeature>(sceneResolver);
 
             sceneResolver.ConstructView<GameplayMainView, GameplayPresenter>();
         }

@@ -1,4 +1,4 @@
-﻿using GameCore.Gameplay.Features.Common;
+﻿using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Features.ViewFeature.Systems;
 
 namespace GameCore.Gameplay.Features.ViewFeature

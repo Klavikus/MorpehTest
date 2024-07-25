@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "VContainer",
-        "Scellecs.Morpeh"
+        "Scellecs.Morpeh",
+        "Gameplay.Features.PlayerFeature"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

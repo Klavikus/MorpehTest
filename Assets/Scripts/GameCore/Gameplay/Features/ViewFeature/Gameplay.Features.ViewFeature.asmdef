@@ -7,7 +7,6 @@
         "UniTask",
         "AddressablesContentController",
         "Gameplay.Common",
-        "Gameplay.Features.Common",
         "Unity.Addressables"
     ],
     "includePlatforms": [],

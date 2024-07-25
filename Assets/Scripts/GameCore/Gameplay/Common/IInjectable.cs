@@ -1,6 +1,6 @@
 using VContainer;
 
-namespace GameCore.Gameplay.Features.Common
+namespace GameCore.Gameplay.Common
 {
     public interface IInjectable
     {

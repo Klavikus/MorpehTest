@@ -1,7 +1,8 @@
 ﻿using GameCore.Gameplay.Features.Common.Components;
+using GameCore.Gameplay.Features.ViewFeature.Registrars;
 using Scellecs.Morpeh;
 
-namespace GameCore.Gameplay.Features.ViewFeature.Registrars
+namespace GameCore.Gameplay.Features.Common.Registrars
 {
     public class TransformRegistrar : EntityComponentRegistrar
     {

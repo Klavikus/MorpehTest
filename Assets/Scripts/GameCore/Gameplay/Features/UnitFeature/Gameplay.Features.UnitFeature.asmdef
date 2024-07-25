@@ -14,7 +14,8 @@
         "Domain",
         "GameCore",
         "Gameplaye.Features.StatsFeature",
-        "Gameplay.Features.StatsApplierFeature"
+        "Gameplay.Features.StatsApplierFeature",
+        "Gameplay.Common"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

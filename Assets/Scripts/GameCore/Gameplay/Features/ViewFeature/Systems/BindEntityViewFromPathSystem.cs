@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
+using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Components;
-using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.ViewFeature.Components;
 using GameCore.Gameplay.Features.ViewFeature.Factory;
 using Scellecs.Morpeh;

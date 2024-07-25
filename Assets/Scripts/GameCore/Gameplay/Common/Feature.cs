@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Scellecs.Morpeh;
 using VContainer;
 
-namespace GameCore.Gameplay.Features.Common
+namespace GameCore.Gameplay.Common
 {
     public abstract class Feature
     {

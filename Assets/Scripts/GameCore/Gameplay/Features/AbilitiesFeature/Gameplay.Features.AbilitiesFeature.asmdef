@@ -1,0 +1,22 @@
+{
+    "name": "Gameplay.Features.AbilitiesFeature",
+    "rootNamespace": "",
+    "references": [
+        "VContainer",
+        "Scellecs.Morpeh",
+        "Gameplay.Features.Cooldowns",
+        "Gameplay.Features.PlayerFeature",
+        "Gameplay.Features.Common",
+        "Gameplay.Features.UnitFeature",
+        "Gameplay.Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -22,7 +22,8 @@
         "Gameplay.Features.Common",
         "Gameplay.Features.MovingFeature",
         "Gameplay.Features.AnimationFeature",
-        "Domain"
+        "Domain",
+        "Gameplay.Features.Cooldowns"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,4 +1,5 @@
-﻿using GameCore.Gameplay.Features.Common;
+﻿using GameCore.Gameplay.Common;
+using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.StatsApplierFeature.Systems;
 
 namespace GameCore.Gameplay.Features.StatsApplierFeature
