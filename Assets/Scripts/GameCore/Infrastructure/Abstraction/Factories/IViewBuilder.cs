@@ -1,7 +1,7 @@
-﻿using GameCore.Presentation.Implementation;
+﻿using GameCore.Presentation.Abstract;
 using R3;
 
-namespace GameCore.Infrastructure.Implementation.Factories
+namespace GameCore.Infrastructure.Abstraction.Factories
 {
     public interface IViewBuilder
     {

@@ -1,4 +1,5 @@
-﻿using Scellecs.Morpeh;
+﻿using GameCore.Domain.Enums;
+using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
 namespace GameCore.Gameplay.Features.AbilitiesFeature.Components

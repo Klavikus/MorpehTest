@@ -1,6 +1,6 @@
 using GameCore.Domain.Enums;
 
-namespace GameCore.Controllers.Implementation.Services
+namespace GameCore.Controllers.Abstracion.Services
 {
     public interface IPanelAccessService
     {

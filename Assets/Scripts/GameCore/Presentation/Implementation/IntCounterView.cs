@@ -1,4 +1,5 @@
-﻿using Modules.UI.MVPPassiveView.Runtime.Views;
+﻿using GameCore.Presentation.Abstract;
+using Modules.UI.MVPPassiveView.Runtime.Views;
 using TMPro;
 using UnityEngine;
 

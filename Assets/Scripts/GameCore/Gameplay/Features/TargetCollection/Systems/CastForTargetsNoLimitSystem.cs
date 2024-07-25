@@ -4,11 +4,12 @@ using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Physic;
 using GameCore.Gameplay.Features.AttackFeature.Components;
 using GameCore.Gameplay.Features.Common.Components;
+using GameCore.Gameplay.Features.TargetCollection.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using VContainer;
 
-namespace Code.Gameplay.Features.TargetCollection.Systems
+namespace GameCore.Gameplay.Features.TargetCollection.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

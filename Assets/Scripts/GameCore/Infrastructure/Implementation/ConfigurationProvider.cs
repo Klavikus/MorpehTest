@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using GameCore.Gameplay.Features.AbilitiesFeature;
-using GameCore.Gameplay.Features.AbilitiesFeature.Configs;
+using GameCore.Domain.Configs;
+using GameCore.Domain.Enums;
 using GameCore.Infrastructure.Abstraction;
 using GameCore.Infrastructure.Implementation.AssetManagement;
 using Qw1nt.Runtime.AddressablesContentController.Common;

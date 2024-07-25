@@ -1,7 +1,8 @@
+using GameCore.Gameplay.Features.Lifetime.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace Code.Gameplay.Features.Lifetime.Systems
+namespace GameCore.Gameplay.Features.Lifetime.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

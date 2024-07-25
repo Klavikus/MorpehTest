@@ -1,7 +1,7 @@
-using Code.Gameplay.Features.Lifetime.Systems;
 using GameCore.Gameplay.Common;
+using GameCore.Gameplay.Features.Lifetime.Systems;
 
-namespace Code.Gameplay.Features.Lifetime
+namespace GameCore.Gameplay.Features.Lifetime
 {
     public sealed class DeathFeature : Feature
     {

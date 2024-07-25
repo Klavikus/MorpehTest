@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GameCore.Presentation.Abstract;
 using GameCore.Presentation.Implementation;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
 using R3;

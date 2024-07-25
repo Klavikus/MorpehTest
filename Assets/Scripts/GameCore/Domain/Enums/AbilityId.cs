@@ -1,4 +1,4 @@
-﻿namespace GameCore.Gameplay.Features.AbilitiesFeature
+﻿namespace GameCore.Domain.Enums
 {
     public enum AbilityId
     {

@@ -1,7 +1,8 @@
+using GameCore.Gameplay.Features.TargetCollection.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace Code.Gameplay.Features.TargetCollection.Systems
+namespace GameCore.Gameplay.Features.TargetCollection.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

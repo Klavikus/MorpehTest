@@ -1,6 +1,7 @@
-﻿using Scellecs.Morpeh;
+﻿using GameCore.Gameplay.Features.TargetCollection.Components;
+using Scellecs.Morpeh;
 
-namespace Code.Gameplay.Features.TargetCollection
+namespace GameCore.Gameplay.Features.TargetCollection
 {
     public static class TargetCollectionEntityExtensions
     {

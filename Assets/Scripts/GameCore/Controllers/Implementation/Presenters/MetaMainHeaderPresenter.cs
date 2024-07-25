@@ -1,7 +1,7 @@
 ﻿using System;
 using GameCore.Controllers.Implementation.UseCases;
 using GameCore.Domain.Models;
-using GameCore.Infrastructure.Implementation.Factories;
+using GameCore.Infrastructure.Abstraction.Factories;
 using GameCore.Presentation.Implementation;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
 

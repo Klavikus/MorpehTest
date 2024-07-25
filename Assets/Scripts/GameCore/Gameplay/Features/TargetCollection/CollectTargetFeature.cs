@@ -1,7 +1,7 @@
-﻿using Code.Gameplay.Features.TargetCollection.Systems;
-using GameCore.Gameplay.Common;
+﻿using GameCore.Gameplay.Common;
+using GameCore.Gameplay.Features.TargetCollection.Systems;
 
-namespace Code.Gameplay.Features.TargetCollection
+namespace GameCore.Gameplay.Features.TargetCollection
 {
     public class CollectTargetFeature : Feature
     {

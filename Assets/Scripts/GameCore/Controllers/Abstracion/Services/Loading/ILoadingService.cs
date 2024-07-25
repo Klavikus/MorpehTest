@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
 using VContainer;
 
-namespace GameCore.Controllers.Implementation.Services.Loading
+namespace GameCore.Controllers.Abstracion.Services.Loading
 {
     public interface ILoadingService
     {

@@ -1,8 +1,9 @@
 ﻿using System;
+using GameCore.Domain.Enums;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace GameCore.Gameplay.Features.AbilitiesFeature.Configs
+namespace GameCore.Domain.Configs
 {
     [Serializable]
     public class AbilityLevel

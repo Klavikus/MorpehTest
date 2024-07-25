@@ -1,6 +1,6 @@
 using Modules.UI.MVPPassiveView.Runtime.Views;
 
-namespace GameCore.Presentation.Implementation
+namespace GameCore.Presentation.Abstract
 {
     public interface ICountView<in T> : IView
         where T : struct

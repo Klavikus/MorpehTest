@@ -1,4 +1,4 @@
-﻿using GameCore.Gameplay.Features.AbilitiesFeature.Configs;
+﻿using GameCore.Domain.Configs;
 using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

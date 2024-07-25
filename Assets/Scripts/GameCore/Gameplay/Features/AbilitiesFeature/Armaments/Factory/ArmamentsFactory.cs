@@ -1,5 +1,6 @@
-﻿using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Components;
-using GameCore.Gameplay.Features.AbilitiesFeature.Configs;
+﻿using GameCore.Domain.Configs;
+using GameCore.Domain.Enums;
+using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Components;
 using GameCore.Gameplay.Features.ViewFeature.Components;
 using GameCore.Infrastructure.Abstraction;
 using Scellecs.Morpeh;

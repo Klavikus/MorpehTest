@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using GameCore.Controllers.Abstracion.Services.Loading;
 using GameCore.Controllers.Implementation.Services.Loading;
 using GameCore.Infrastructure.Abstraction;
 using Modules.Infrastructure.Interfaces.GameFsm;
