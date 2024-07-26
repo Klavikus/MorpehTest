@@ -15,6 +15,6 @@ namespace GameCore.Infrastructure.Abstraction
         AssetReference PlayerRegistrar { get; }
         AssetReference EnemyRegistrar { get; }
         SceneData GetLevelConfig(int selectedLevelId);
-        AbilityLevel GetAbilityLevel(AbilityId abilityId, int level);
+        object GetAbilityLevel(AbilityId abilityId, int level);
     }
 }

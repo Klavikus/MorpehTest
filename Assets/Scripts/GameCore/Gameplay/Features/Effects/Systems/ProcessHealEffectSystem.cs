@@ -1,4 +1,4 @@
-﻿using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Components;
+﻿using GameCore.Gameplay.Features.Armaments.Components;
 using GameCore.Gameplay.Features.Effects.Components;
 using GameCore.Gameplay.Features.Lifetime.Components;
 using Scellecs.Morpeh;

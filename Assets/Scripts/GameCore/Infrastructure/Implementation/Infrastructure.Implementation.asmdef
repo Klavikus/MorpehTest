@@ -16,7 +16,8 @@
         "Presentation.Abstraction",
         "Presentation.Implementation",
         "Controllers.Abstraction",
-        "Domain"
+        "Domain",
+        "Gameplay.Features"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

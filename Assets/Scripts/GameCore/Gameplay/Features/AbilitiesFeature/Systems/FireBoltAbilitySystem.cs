@@ -1,10 +1,11 @@
 ﻿using GameCore.Domain.Enums;
 using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory;
 using GameCore.Gameplay.Features.AbilitiesFeature.Components;
+using GameCore.Gameplay.Features.Armaments.Factory;
 using GameCore.Gameplay.Features.Common.Components;
 using GameCore.Gameplay.Features.Cooldowns;
 using GameCore.Gameplay.Features.Cooldowns.Components;
+using GameCore.Gameplay.Features.Effects.Components;
 using GameCore.Gameplay.Features.MovingFeature.Components;
 using GameCore.Gameplay.Features.PlayerFeature.Components;
 using GameCore.Gameplay.Features.UnitFeature.Components;
@@ -72,8 +73,7 @@ namespace GameCore.Gameplay.Features.AbilitiesFeature.Systems
                     Value = (FirstAvailableTarget().GetComponent<TransformComponent>().Transform.position -
                              hero.GetComponent<TransformComponent>().Transform.position).normalized
                 });
-                // .AddProducerId(hero.Id)
-                // .With(x => x.isMoving = true);
+                armament.SetComponent(new ProducerId {Value = hero.ID});
 
                 ability.PutOnCooldown(2f);
             }

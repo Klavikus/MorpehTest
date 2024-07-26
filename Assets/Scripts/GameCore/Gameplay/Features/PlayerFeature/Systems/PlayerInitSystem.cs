@@ -2,6 +2,7 @@
 using GameCore.Domain.Configs;
 using GameCore.Domain.Enums;
 using GameCore.Gameplay.Common;
+using GameCore.Gameplay.Features.AbilitiesFeature;
 using GameCore.Gameplay.Features.AbilitiesFeature.Components;
 using GameCore.Gameplay.Features.Common;
 using GameCore.Gameplay.Features.Common.Extensions;
@@ -58,10 +59,10 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Systems
             _gameplayCamera.FocusTo(view.transform);
 
             var ability = World.CreateEntity();
-            AbilityLevel abilityLevel = _configurationProvider.GetAbilityLevel(AbilityId.FireBolt, 1);
+            AbilityLevel abilityLevel = (AbilityLevel) _configurationProvider.GetAbilityLevel(AbilityId.FireBolt, 1);
 
             ability.SetComponent(new AbilityIdComponent {Value = AbilityId.FireBolt});
-            ability.SetComponent(new Cooldown() {Value = abilityLevel.Cooldown});
+            ability.SetComponent(new Cooldown {Value = abilityLevel.Cooldown});
 
             ability.PutOnCooldown(abilityLevel.Cooldown);
             // CreateEntity.Empty()

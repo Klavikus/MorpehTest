@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using GameCore.Domain.Configs;
+using System.Linq;
 using GameCore.Domain.Configs.Setups;
 using GameCore.Domain.Enums;
 using GameCore.Gameplay.Common.Components;
-using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Components;
+using GameCore.Gameplay.Features.AbilitiesFeature;
+using GameCore.Gameplay.Features.Armaments.Components;
 using GameCore.Gameplay.Features.Common.Components;
 using GameCore.Gameplay.Features.Common.Extensions;
 using GameCore.Gameplay.Features.MovingFeature.Components;
@@ -14,7 +15,7 @@ using Scellecs.Morpeh;
 using UnityEngine;
 using LayerMask = GameCore.Gameplay.Features.TargetCollection.Components.LayerMask;
 
-namespace GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory
+namespace GameCore.Gameplay.Features.Armaments.Factory
 {
     public class ArmamentsFactory : IArmamentsFactory
     {
@@ -27,7 +28,8 @@ namespace GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory
 
         public Entity CreateFireBolt(int level, Vector3 at, Entity entity)
         {
-            AbilityLevel abilityLevel = _configurationProvider.GetAbilityLevel(AbilityId.FireBolt, level);
+            AbilityLevel abilityLevel =
+                (AbilityLevel) _configurationProvider.GetAbilityLevel(AbilityId.FireBolt, level);
             ProjectileSetup setup = abilityLevel.ProjectileSetup;
 
             entity.SetComponent(new ViewPathComponent {Path = abilityLevel.ViewPrefab.AssetGUID});
@@ -42,6 +44,14 @@ namespace GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory
             entity.SetComponent(new WorldPosition {Value = at});
             entity.AddComponent<ArmamentTag>();
             entity.AddComponent<CreateRequest>();
+
+            entity
+                .With(
+                    x => x.SetComponent(new EffectSetups {Value = abilityLevel.EffectSetups.ToList()}),
+                    when: !abilityLevel.EffectSetups.IsNullOrEmpty())
+                .With(
+                    x => x.SetComponent(new StatusSetups {Value = abilityLevel.StatusSetups.ToList()}),
+                    when: !abilityLevel.StatusSetups.IsNullOrEmpty());
 
             return entity;
         }

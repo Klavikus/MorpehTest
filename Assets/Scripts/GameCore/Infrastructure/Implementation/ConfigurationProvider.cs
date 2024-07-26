@@ -3,6 +3,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using GameCore.Domain.Configs;
 using GameCore.Domain.Enums;
+using GameCore.Gameplay.Features.AbilitiesFeature;
 using GameCore.Infrastructure.Abstraction;
 using GameCore.Infrastructure.Implementation.AssetManagement;
 using Qw1nt.Runtime.AddressablesContentController.Common;
@@ -53,7 +54,7 @@ namespace GameCore.Infrastructure.Implementation
         public SceneData GetLevelConfig(int selectedLevelId) =>
             _sceneDataById[selectedLevelId];
 
-        public AbilityLevel GetAbilityLevel(AbilityId abilityId, int level) =>
+        public object GetAbilityLevel(AbilityId abilityId, int level) =>
             _abilityLevelById[abilityId];
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Scellecs.Morpeh;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory
+namespace GameCore.Gameplay.Features.Armaments.Factory
 {
     public interface IArmamentsFactory
     {

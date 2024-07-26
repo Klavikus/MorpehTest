@@ -1,10 +1,12 @@
 ﻿using System;
 using GameCore.Domain.Configs.Setups;
 using GameCore.Domain.Enums;
+using GameCore.Gameplay.Features.Effects;
+using GameCore.Gameplay.Features.Statuses;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace GameCore.Domain.Configs
+namespace GameCore.Gameplay.Features.AbilitiesFeature
 {
     [Serializable]
     public class AbilityLevel
@@ -16,5 +18,7 @@ namespace GameCore.Domain.Configs
 
         [field: SerializeField] public AssetReference ViewPrefab { get; private set; }
         [field: SerializeField] public ProjectileSetup ProjectileSetup { get; private set; }
+        [field: SerializeField] public EffectSetup[] EffectSetups { get; private set; }
+        [field: SerializeField] public StatusSetup[] StatusSetups { get; private set; }
     }
 }

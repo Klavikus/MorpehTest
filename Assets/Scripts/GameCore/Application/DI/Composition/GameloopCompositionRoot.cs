@@ -5,10 +5,11 @@ using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Collisions;
 using GameCore.Gameplay.Common.Physic;
 using GameCore.Gameplay.Features.AbilitiesFeature;
-using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory;
 using GameCore.Gameplay.Features.AnimationFeature;
+using GameCore.Gameplay.Features.Armaments.Factory;
 using GameCore.Gameplay.Features.Common.Destruct;
 using GameCore.Gameplay.Features.Cooldowns;
+using GameCore.Gameplay.Features.EffectApplication;
 using GameCore.Gameplay.Features.Effects;
 using GameCore.Gameplay.Features.Effects.Factory;
 using GameCore.Gameplay.Features.InputFeature;
@@ -17,6 +18,9 @@ using GameCore.Gameplay.Features.MovingFeature;
 using GameCore.Gameplay.Features.PlayerFeature;
 using GameCore.Gameplay.Features.PlayerFeature.Factories;
 using GameCore.Gameplay.Features.StatsApplierFeature;
+using GameCore.Gameplay.Features.Statuses;
+using GameCore.Gameplay.Features.Statuses.Applier;
+using GameCore.Gameplay.Features.Statuses.Factory;
 using GameCore.Gameplay.Features.TargetCollection;
 using GameCore.Gameplay.Features.UnitFeature;
 using GameCore.Gameplay.Features.UnitFeature.Factories;
@@ -49,6 +53,8 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);
             containerBuilder.Register<IArmamentsFactory, ArmamentsFactory>(Lifetime.Singleton);
             containerBuilder.Register<IEffectFactory, EffectFactory>(Lifetime.Singleton);
+            containerBuilder.Register<IStatusFactory, StatusFactory>(Lifetime.Singleton);
+            containerBuilder.Register<IStatusApplier, StatusApplier>(Lifetime.Singleton);
             containerBuilder.Register<PlayerBuilder>(Lifetime.Singleton);
             containerBuilder.Register<UnitFactory>(Lifetime.Singleton);
 
@@ -60,22 +66,31 @@ namespace GameCore.Application.DI.Composition
             _world = World.Create();
             _world.UpdateByUnity = true;
 
+            
+            _world.AddFeature<ViewFeature>(sceneResolver);
+            
             _world.AddFeature<InputFeature>(sceneResolver);
+            
             _world.AddFeature<PlayerFeature>(sceneResolver);
+            _world.AddFeature<DeathFeature>(sceneResolver);
+            _world.AddFeature<UnitFeature>(sceneResolver);
 
             _world.AddFeature<CooldownFeature>(sceneResolver);
             _world.AddFeature<AbilitiesFeature>(sceneResolver);
 
-            _world.AddFeature<UnitFeature>(sceneResolver);
-            _world.AddFeature<ViewFeature>(sceneResolver);
-            _world.AddFeature<StatsApplierFeature>(sceneResolver);
-            _world.AddFeature<MoveFeature>(sceneResolver);
-            _world.AddFeature<AnimationFeature>(sceneResolver);
             _world.AddFeature<CollectTargetFeature>(sceneResolver);
-            _world.AddFeature<EffectFeature>(sceneResolver);
-            _world.AddFeature<DeathFeature>(sceneResolver);
-            _world.AddFeature<ProcessDestructedFeature>(sceneResolver);
+       
+            _world.AddFeature<EffectApplicationFeature>(sceneResolver);
 
+            _world.AddFeature<StatsApplierFeature>(sceneResolver);
+            _world.AddFeature<AnimationFeature>(sceneResolver);
+            _world.AddFeature<StatusFeature>(sceneResolver);
+            _world.AddFeature<EffectFeature>(sceneResolver);
+
+            _world.AddFeature<MoveFeature>(sceneResolver);
+
+            _world.AddFeature<ProcessDestructedFeature>(sceneResolver);
+            
             sceneResolver.ConstructView<GameplayMainView, GameplayPresenter>();
         }
 

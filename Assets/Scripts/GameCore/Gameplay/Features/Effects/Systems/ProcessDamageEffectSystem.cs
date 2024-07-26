@@ -1,5 +1,5 @@
 ﻿using GameCore.Gameplay.Common.Components;
-using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Components;
+using GameCore.Gameplay.Features.Armaments.Components;
 using GameCore.Gameplay.Features.Effects.Components;
 using GameCore.Gameplay.Features.Lifetime.Components;
 using Scellecs.Morpeh;
@@ -35,6 +35,9 @@ namespace GameCore.Gameplay.Features.Effects.Systems
                 effect.AddComponent<ProcessedTag>();
 
                 if (target.Has<DeadTag>())
+                    continue;
+
+                if (target.Has<CurrentHp>() == false)
                     continue;
 
                 ref var currentHp = ref target.GetComponent<CurrentHp>();
