@@ -9,6 +9,8 @@ using GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory;
 using GameCore.Gameplay.Features.AnimationFeature;
 using GameCore.Gameplay.Features.Common.Destruct;
 using GameCore.Gameplay.Features.Cooldowns;
+using GameCore.Gameplay.Features.Effects;
+using GameCore.Gameplay.Features.Effects.Factory;
 using GameCore.Gameplay.Features.InputFeature;
 using GameCore.Gameplay.Features.Lifetime;
 using GameCore.Gameplay.Features.MovingFeature;
@@ -46,6 +48,7 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.Register<IPhysicsService, PhysicsService>(Lifetime.Singleton);
             containerBuilder.Register<IEntityViewFactory, EntityViewFactory>(Lifetime.Singleton);
             containerBuilder.Register<IArmamentsFactory, ArmamentsFactory>(Lifetime.Singleton);
+            containerBuilder.Register<IEffectFactory, EffectFactory>(Lifetime.Singleton);
             containerBuilder.Register<PlayerBuilder>(Lifetime.Singleton);
             containerBuilder.Register<UnitFactory>(Lifetime.Singleton);
 
@@ -69,6 +72,7 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<MoveFeature>(sceneResolver);
             _world.AddFeature<AnimationFeature>(sceneResolver);
             _world.AddFeature<CollectTargetFeature>(sceneResolver);
+            _world.AddFeature<EffectFeature>(sceneResolver);
             _world.AddFeature<DeathFeature>(sceneResolver);
             _world.AddFeature<ProcessDestructedFeature>(sceneResolver);
 

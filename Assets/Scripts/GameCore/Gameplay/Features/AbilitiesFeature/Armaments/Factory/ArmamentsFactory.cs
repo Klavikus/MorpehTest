@@ -35,6 +35,7 @@ namespace GameCore.Gameplay.Features.AbilitiesFeature.Armaments.Factory
             entity.SetComponent(new MoveSpeedComponent {Value = setup.Speed});
             entity.SetComponent(new Radius {Value = setup.ContactRadius});
             entity.SetComponent(new TargetsBuffer {Value = new List<EntityId>(16)});
+            entity.SetComponent(new ProcessedTargetsBuffer {Value = new List<EntityId>(16)});
             entity.SetComponent(new LayerMask {Value = CollisionLayer.Enemy.AsMask()});
             entity.SetComponent(new ReadyToCollectTargets());
             entity.SetComponent(new CollectingTargetsContinuously());

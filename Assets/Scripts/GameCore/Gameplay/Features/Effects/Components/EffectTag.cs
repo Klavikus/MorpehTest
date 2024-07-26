@@ -1,14 +1,13 @@
-﻿using System;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace GameCore.Gameplay.Common.Components
+namespace GameCore.Gameplay.Features.Effects.Components
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
     [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    [Serializable]
-    public struct CreateRequest : IComponent
+    [System.Serializable]
+    public struct EffectTag : IComponent
     {
     }
 }
