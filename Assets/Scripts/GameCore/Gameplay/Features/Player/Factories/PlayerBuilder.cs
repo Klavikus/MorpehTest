@@ -8,7 +8,7 @@ namespace GameCore.Gameplay.Features.Player.Factories
         public Entity Build(World world)
         {
             var entity = world.CreateEntity();
-            entity.AddComponent<Components.Player>();
+            entity.AddComponent<Components.PlayerControl>();
             entity.AddComponent<MoveDirectionValue>();
             entity.AddComponent<RotationValue>();
             entity.AddComponent<MoveWithRotation>();

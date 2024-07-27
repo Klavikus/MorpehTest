@@ -13,7 +13,7 @@ namespace GameCore.Gameplay.Features.Player.Registrars
 
         public override void RegisterComponents(Entity gameEntity)
         {
-            gameEntity.AddComponent<Components.Player>();
+            gameEntity.AddComponent<Components.PlayerControl>();
             ref var transformComponent = ref gameEntity.AddComponent<TransformValue>();
             transformComponent.Value = transform;
             gameEntity.AddComponent<MoveDirectionValue>();
@@ -27,8 +27,8 @@ namespace GameCore.Gameplay.Features.Player.Registrars
 
         public override void UnregisterComponents(Entity gameEntity)
         {
-            if (gameEntity.Has<Components.Player>())
-                gameEntity.RemoveComponent<Components.Player>();
+            if (gameEntity.Has<Components.PlayerControl>())
+                gameEntity.RemoveComponent<Components.PlayerControl>();
 
             if (gameEntity.Has<TransformValue>())
                 gameEntity.RemoveComponent<TransformValue>();

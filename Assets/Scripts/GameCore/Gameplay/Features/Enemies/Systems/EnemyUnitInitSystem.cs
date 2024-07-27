@@ -38,7 +38,7 @@ namespace GameCore.Gameplay.Features.Units.Systems
 
         public async void OnAwake()
         {
-            var entity = _unitFactory.Build(World);
+            var entity = _unitFactory.CreateDefaultUnit(World);
 
             var view = await _entityViewFactory.CreateForEntityAsync(
                 entity,

@@ -39,7 +39,7 @@ namespace GameCore.Gameplay.Features.Abilities.Systems
                 .Build();
 
             _heroes = World.Filter
-                .With<Player.Components.Player>()
+                .With<Player.Components.PlayerControl>()
                 .With<TransformValue>()
                 .Build();
 

@@ -1,5 +1,6 @@
 ﻿using GameCore.Gameplay.Common.View.Components;
 using GameCore.Gameplay.Features.Movement.Components;
+using GameCore.Gameplay.Features.Player.Components;
 using GameCore.Gameplay.Features.Units.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
@@ -25,7 +26,7 @@ namespace GameCore.Gameplay.Features.Units.Systems
                 .Build();
 
             _players = World.Filter
-                .With<Player.Components.Player>()
+                .With<PlayerControl>()
                 .With<TransformValue>()
                 .Build();
         }

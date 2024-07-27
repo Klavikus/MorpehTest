@@ -18,7 +18,7 @@ namespace GameCore.Gameplay.Features.Player.Systems
         public void OnAwake()
         {
             _inputs = World.Filter.With<PlayerInputComponent>().Build();
-            _players = World.Filter.With<Components.Player>().Build();
+            _players = World.Filter.With<Components.PlayerControl>().Build();
         }
 
         public void OnUpdate(float deltaTime)

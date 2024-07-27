@@ -7,8 +7,6 @@ namespace GameCore.Gameplay.Features.Units
     {
         public UnitFeature()
         {
-            AddInitializer<EnemyUnitInitSystem>();
-            AddSystem<ChaseTargetSetterSystem>();
             AddSystem<ChaseTargetSystem>();
             AddSystem<UnitDeathSystem>();
             AddSystem<ChaseCleanupSystem>();

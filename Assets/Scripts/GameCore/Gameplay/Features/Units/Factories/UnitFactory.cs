@@ -6,7 +6,7 @@ namespace GameCore.Gameplay.Features.Units.Factories
 {
     public class UnitFactory
     {
-        public Entity Build(World world)
+        public Entity CreateDefaultUnit(World world)
         {
             var entity = world.CreateEntity();
             entity.AddComponent<Unit>();

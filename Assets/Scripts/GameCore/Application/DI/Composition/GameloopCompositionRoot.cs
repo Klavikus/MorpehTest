@@ -14,6 +14,7 @@ using GameCore.Gameplay.Features.Cooldowns;
 using GameCore.Gameplay.Features.EffectApplication;
 using GameCore.Gameplay.Features.Effects;
 using GameCore.Gameplay.Features.Effects.Factory;
+using GameCore.Gameplay.Features.Enemies;
 using GameCore.Gameplay.Features.Input;
 using GameCore.Gameplay.Features.Lifetime;
 using GameCore.Gameplay.Features.Movement;
@@ -70,10 +71,11 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<ViewFeature>(sceneResolver);
             
             _world.AddFeature<InputFeature>(sceneResolver);
-            
+
             _world.AddFeature<PlayerFeature>(sceneResolver);
-            _world.AddFeature<DeathFeature>(sceneResolver);
+            _world.AddFeature<EnemyFeature>(sceneResolver);
             _world.AddFeature<UnitFeature>(sceneResolver);
+            _world.AddFeature<DeathFeature>(sceneResolver);
 
             _world.AddFeature<CooldownFeature>(sceneResolver);
             _world.AddFeature<AbilitiesFeature>(sceneResolver);
