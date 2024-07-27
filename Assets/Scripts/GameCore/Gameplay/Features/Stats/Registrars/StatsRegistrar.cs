@@ -1,8 +1,8 @@
 using System.Linq;
 using GameCore.Domain.Configs;
 using GameCore.Domain.Enums;
+using GameCore.Gameplay.Common.View.Registrars;
 using GameCore.Gameplay.Features.Stats.Components;
-using GameCore.Gameplay.Features.ViewFeature.Registrars;
 using Scellecs.Morpeh;
 using UnityEngine;
 

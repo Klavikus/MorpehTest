@@ -1,6 +1,6 @@
 ﻿using GameCore.Gameplay.Common;
+using GameCore.Gameplay.Common.Extensions;
 using GameCore.Gameplay.Features.Armaments.Components;
-using GameCore.Gameplay.Features.Common.Extensions;
 using GameCore.Gameplay.Features.Effects.Components;
 using GameCore.Gameplay.Features.Statuses;
 using GameCore.Gameplay.Features.Statuses.Applier;

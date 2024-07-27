@@ -1,7 +1,7 @@
 ﻿using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.MovingFeature.Systems;
+using GameCore.Gameplay.Features.Movement.Systems;
 
-namespace GameCore.Gameplay.Features.MovingFeature
+namespace GameCore.Gameplay.Features.Movement
 {
     public class MoveFeature : Feature
     {

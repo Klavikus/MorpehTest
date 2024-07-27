@@ -1,8 +1,7 @@
 ﻿using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.AnimationFeature.Systems;
-using GameCore.Gameplay.Features.Common;
+using GameCore.Gameplay.Features.Animation.Systems;
 
-namespace GameCore.Gameplay.Features.AnimationFeature
+namespace GameCore.Gameplay.Features.Animation
 {
     public class AnimationFeature : Feature
     {

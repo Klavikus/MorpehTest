@@ -1,18 +1,18 @@
 ﻿using GameCore.Domain.Common;
 using GameCore.Domain.Configs;
 using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.Common.Extensions;
+using GameCore.Gameplay.Common.Extensions;
+using GameCore.Gameplay.Common.View.Factory;
 using GameCore.Gameplay.Features.Lifetime.Components;
-using GameCore.Gameplay.Features.StatsApplierFeature.Components;
+using GameCore.Gameplay.Features.StatsApplier.Components;
 using GameCore.Gameplay.Features.TargetCollection.Components;
-using GameCore.Gameplay.Features.UnitFeature.Factories;
-using GameCore.Gameplay.Features.ViewFeature.Factory;
+using GameCore.Gameplay.Features.Units.Factories;
 using GameCore.Infrastructure.Abstraction;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using VContainer;
 
-namespace GameCore.Gameplay.Features.UnitFeature.Systems
+namespace GameCore.Gameplay.Features.Units.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

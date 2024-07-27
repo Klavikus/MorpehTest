@@ -1,8 +1,7 @@
 ﻿using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.Common;
-using GameCore.Gameplay.Features.PlayerFeature.Systems;
+using GameCore.Gameplay.Features.Player.Systems;
 
-namespace GameCore.Gameplay.Features.PlayerFeature
+namespace GameCore.Gameplay.Features.Player
 {
     public class PlayerFeature : Feature
     {

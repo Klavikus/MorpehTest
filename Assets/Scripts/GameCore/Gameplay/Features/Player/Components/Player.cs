@@ -2,7 +2,7 @@ using System;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace GameCore.Gameplay.Features.PlayerFeature.Components
+namespace GameCore.Gameplay.Features.Player.Components
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

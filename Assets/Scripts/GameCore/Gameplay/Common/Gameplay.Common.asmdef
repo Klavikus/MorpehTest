@@ -4,7 +4,11 @@
     "references": [
         "Cinemachine",
         "VContainer",
-        "Scellecs.Morpeh"
+        "Scellecs.Morpeh",
+        "AddressablesContentController",
+        "UniTask",
+        "UniTask.Addressables",
+        "Unity.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,7 +1,7 @@
 ﻿using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace GameCore.Gameplay.Features.InputFeature.Systems
+namespace GameCore.Gameplay.Features.Input.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

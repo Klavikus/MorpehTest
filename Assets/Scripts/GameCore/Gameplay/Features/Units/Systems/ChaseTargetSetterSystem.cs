@@ -1,11 +1,10 @@
-﻿using GameCore.Gameplay.Features.Common.Components;
-using GameCore.Gameplay.Features.MovingFeature.Components;
-using GameCore.Gameplay.Features.PlayerFeature.Components;
-using GameCore.Gameplay.Features.UnitFeature.Components;
+﻿using GameCore.Gameplay.Common.View.Components;
+using GameCore.Gameplay.Features.Movement.Components;
+using GameCore.Gameplay.Features.Units.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace GameCore.Gameplay.Features.UnitFeature.Systems
+namespace GameCore.Gameplay.Features.Units.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
@@ -26,7 +25,7 @@ namespace GameCore.Gameplay.Features.UnitFeature.Systems
                 .Build();
 
             _players = World.Filter
-                .With<Player>()
+                .With<Player.Components.Player>()
                 .With<TransformValue>()
                 .Build();
         }

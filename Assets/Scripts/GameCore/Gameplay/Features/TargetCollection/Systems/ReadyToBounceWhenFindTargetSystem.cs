@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using GameCore.Gameplay.Features.AbilitiesFeature.Components;
+using GameCore.Gameplay.Features.Abilities.Components;
 using GameCore.Gameplay.Features.TargetCollection.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;

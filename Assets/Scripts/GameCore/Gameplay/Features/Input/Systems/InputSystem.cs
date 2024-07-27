@@ -1,8 +1,7 @@
 ﻿using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
-using UnityEngine;
 
-namespace GameCore.Gameplay.Features.InputFeature.Systems
+namespace GameCore.Gameplay.Features.Input.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
@@ -24,8 +23,8 @@ namespace GameCore.Gameplay.Features.InputFeature.Systems
 
             ref var input = ref entity.AddComponent<PlayerInputComponent>();
 
-            input.Horizontal = Input.GetAxisRaw(s_horizontal);
-            input.Vertical = Input.GetAxisRaw(s_vertical);
+            input.Horizontal = UnityEngine.Input.GetAxisRaw(s_horizontal);
+            input.Vertical = UnityEngine.Input.GetAxisRaw(s_vertical);
         }
 
         public void Dispose()

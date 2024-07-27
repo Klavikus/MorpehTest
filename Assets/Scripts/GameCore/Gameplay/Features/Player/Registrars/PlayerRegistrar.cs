@@ -1,13 +1,11 @@
-using GameCore.Gameplay.Features.AnimationFeature;
-using GameCore.Gameplay.Features.AnimationFeature.Components;
-using GameCore.Gameplay.Features.Common.Components;
-using GameCore.Gameplay.Features.MovingFeature.Components;
-using GameCore.Gameplay.Features.PlayerFeature.Components;
-using GameCore.Gameplay.Features.ViewFeature.Registrars;
+using GameCore.Gameplay.Common.View.Components;
+using GameCore.Gameplay.Common.View.Registrars;
+using GameCore.Gameplay.Features.Animation.Components;
+using GameCore.Gameplay.Features.Movement.Components;
 using Scellecs.Morpeh;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Features.PlayerFeature.Registrars
+namespace GameCore.Gameplay.Features.Player.Registrars
 {
     public class PlayerRegistrar : EntityComponentRegistrar
     {
@@ -15,7 +13,7 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Registrars
 
         public override void RegisterComponents(Entity gameEntity)
         {
-            gameEntity.AddComponent<Player>();
+            gameEntity.AddComponent<Components.Player>();
             ref var transformComponent = ref gameEntity.AddComponent<TransformValue>();
             transformComponent.Value = transform;
             gameEntity.AddComponent<MoveDirectionValue>();
@@ -29,8 +27,8 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Registrars
 
         public override void UnregisterComponents(Entity gameEntity)
         {
-            if (gameEntity.Has<Player>())
-                gameEntity.RemoveComponent<Player>();
+            if (gameEntity.Has<Components.Player>())
+                gameEntity.RemoveComponent<Components.Player>();
 
             if (gameEntity.Has<TransformValue>())
                 gameEntity.RemoveComponent<TransformValue>();

@@ -1,11 +1,11 @@
-﻿using GameCore.Gameplay.Features.Common.Components;
-using GameCore.Gameplay.Features.MovingFeature.Components;
-using GameCore.Gameplay.Features.UnitFeature.Components;
+﻿using GameCore.Gameplay.Common.View.Components;
+using GameCore.Gameplay.Features.Movement.Components;
+using GameCore.Gameplay.Features.Units.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Features.UnitFeature.Systems
+namespace GameCore.Gameplay.Features.Units.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

@@ -1,11 +1,10 @@
-using GameCore.Gameplay.Features.InputFeature;
-using GameCore.Gameplay.Features.MovingFeature.Components;
-using GameCore.Gameplay.Features.PlayerFeature.Components;
+using GameCore.Gameplay.Features.Input;
+using GameCore.Gameplay.Features.Movement.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Features.PlayerFeature.Systems
+namespace GameCore.Gameplay.Features.Player.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
@@ -19,7 +18,7 @@ namespace GameCore.Gameplay.Features.PlayerFeature.Systems
         public void OnAwake()
         {
             _inputs = World.Filter.With<PlayerInputComponent>().Build();
-            _players = World.Filter.With<Player>().Build();
+            _players = World.Filter.With<Components.Player>().Build();
         }
 
         public void OnUpdate(float deltaTime)

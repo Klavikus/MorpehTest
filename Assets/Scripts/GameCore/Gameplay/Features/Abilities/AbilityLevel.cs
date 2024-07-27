@@ -6,7 +6,7 @@ using GameCore.Gameplay.Features.Statuses;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace GameCore.Gameplay.Features.AbilitiesFeature
+namespace GameCore.Gameplay.Features.Abilities
 {
     [Serializable]
     public class AbilityLevel

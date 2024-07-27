@@ -44,8 +44,8 @@ namespace GameCore.Gameplay.Features.Effects.Systems
 
                 currentHp.Value -= effect.GetComponent<EffectValue>().Value;
 
-                if (target.Has<DamageTakerAnimatorComponent>())
-                    target.GetComponent<DamageTakerAnimatorComponent>().Value.PlayDamageTaken();
+                if (target.Has<DamageTakerAnimatorValue>())
+                    target.GetComponent<DamageTakerAnimatorValue>().Value.PlayDamageTaken();
             }
         }
 

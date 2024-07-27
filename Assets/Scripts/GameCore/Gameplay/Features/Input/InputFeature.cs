@@ -1,7 +1,7 @@
 ﻿using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.InputFeature.Systems;
+using GameCore.Gameplay.Features.Input.Systems;
 
-namespace GameCore.Gameplay.Features.InputFeature
+namespace GameCore.Gameplay.Features.Input
 {
     public class InputFeature : Feature
     {

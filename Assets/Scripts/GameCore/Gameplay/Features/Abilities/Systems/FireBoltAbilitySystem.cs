@@ -1,18 +1,17 @@
 ﻿using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.AbilitiesFeature.Components;
+using GameCore.Gameplay.Common.View.Components;
+using GameCore.Gameplay.Features.Abilities.Components;
 using GameCore.Gameplay.Features.Armaments.Factory;
-using GameCore.Gameplay.Features.Common.Components;
 using GameCore.Gameplay.Features.Cooldowns;
 using GameCore.Gameplay.Features.Cooldowns.Components;
 using GameCore.Gameplay.Features.Effects.Components;
-using GameCore.Gameplay.Features.MovingFeature.Components;
-using GameCore.Gameplay.Features.PlayerFeature.Components;
-using GameCore.Gameplay.Features.UnitFeature.Components;
+using GameCore.Gameplay.Features.Movement.Components;
+using GameCore.Gameplay.Features.Units.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using VContainer;
 
-namespace GameCore.Gameplay.Features.AbilitiesFeature.Systems
+namespace GameCore.Gameplay.Features.Abilities.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
@@ -40,7 +39,7 @@ namespace GameCore.Gameplay.Features.AbilitiesFeature.Systems
                 .Build();
 
             _heroes = World.Filter
-                .With<Player>()
+                .With<Player.Components.Player>()
                 .With<TransformValue>()
                 .Build();
 

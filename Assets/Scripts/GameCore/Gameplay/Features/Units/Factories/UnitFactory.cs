@@ -1,8 +1,8 @@
-﻿using GameCore.Gameplay.Features.MovingFeature.Components;
-using GameCore.Gameplay.Features.UnitFeature.Components;
+﻿using GameCore.Gameplay.Features.Movement.Components;
+using GameCore.Gameplay.Features.Units.Components;
 using Scellecs.Morpeh;
 
-namespace GameCore.Gameplay.Features.UnitFeature.Factories
+namespace GameCore.Gameplay.Features.Units.Factories
 {
     public class UnitFactory
     {

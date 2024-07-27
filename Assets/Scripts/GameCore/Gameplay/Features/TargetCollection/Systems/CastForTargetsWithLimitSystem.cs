@@ -1,7 +1,7 @@
 ﻿using System;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Physic;
-using GameCore.Gameplay.Features.Common.Components;
+using GameCore.Gameplay.Common.View.Components;
 using GameCore.Gameplay.Features.TargetCollection.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;

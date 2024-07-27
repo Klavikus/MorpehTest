@@ -1,5 +1,5 @@
 ﻿using System;
-using GameCore.Gameplay.Features.Common.Extensions;
+using GameCore.Gameplay.Common.Extensions;
 using GameCore.Gameplay.Features.Effects.Components;
 using GameCore.Gameplay.Features.Statuses.Components;
 using Scellecs.Morpeh;

@@ -1,9 +1,9 @@
-using GameCore.Gameplay.Features.AnimationFeature.Components;
+using GameCore.Gameplay.Features.Animation.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
 
-namespace GameCore.Gameplay.Features.AnimationFeature.Systems
+namespace GameCore.Gameplay.Features.Animation.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

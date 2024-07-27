@@ -1,11 +1,11 @@
 ﻿using GameCore.Domain.Enums;
-using GameCore.Gameplay.Features.MovingFeature.Components;
+using GameCore.Gameplay.Features.Movement.Components;
 using GameCore.Gameplay.Features.Stats.Components;
-using GameCore.Gameplay.Features.StatsApplierFeature.Components;
+using GameCore.Gameplay.Features.StatsApplier.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace GameCore.Gameplay.Features.StatsApplierFeature.Systems
+namespace GameCore.Gameplay.Features.StatsApplier.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

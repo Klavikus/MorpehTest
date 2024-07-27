@@ -1,8 +1,7 @@
 ﻿using GameCore.Gameplay.Common;
-using GameCore.Gameplay.Features.Common;
-using GameCore.Gameplay.Features.StatsApplierFeature.Systems;
+using GameCore.Gameplay.Features.StatsApplier.Systems;
 
-namespace GameCore.Gameplay.Features.StatsApplierFeature
+namespace GameCore.Gameplay.Features.StatsApplier
 {
     public class StatsApplierFeature : Feature
     {

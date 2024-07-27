@@ -1,5 +1,5 @@
 ﻿using GameCore.Gameplay.Features.Effects.Components;
-using GameCore.Gameplay.Features.StatsApplierFeature.Components;
+using GameCore.Gameplay.Features.StatsApplier.Components;
 using GameCore.Gameplay.Features.Statuses.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
