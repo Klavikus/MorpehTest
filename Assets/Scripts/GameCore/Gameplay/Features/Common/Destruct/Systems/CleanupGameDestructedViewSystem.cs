@@ -18,8 +18,8 @@ namespace GameCore.Gameplay.Features.Common.Destruct.Systems
         public void OnAwake()
         {
             _entities = World.Filter
-                .With<DestructedTag>()
-                .With<ViewComponent>()
+                .With<Destructed>()
+                .With<ViewValue>()
                 .Build();
         }
 
@@ -27,8 +27,8 @@ namespace GameCore.Gameplay.Features.Common.Destruct.Systems
         {
             foreach (Entity entity in _entities)
             {
-                entity.GetComponent<ViewComponent>();
-                var view = entity.GetComponent<ViewComponent>().View;
+                entity.GetComponent<ViewValue>();
+                var view = entity.GetComponent<ViewValue>().Value;
                 view.Release();
                 Object.Destroy(view.GameObject);
             }

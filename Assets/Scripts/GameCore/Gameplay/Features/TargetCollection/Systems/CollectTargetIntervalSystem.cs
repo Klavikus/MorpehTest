@@ -16,9 +16,9 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         public void OnAwake()
         {
             _entities = World.Filter
-                .With<TargetsBuffer>()
-                .With<CollectTargetsInterval>()
-                .With<CollectTargetsTimer>()
+                .With<TargetsBufferValue>()
+                .With<CollectTargetsIntervalValue>()
+                .With<CollectTargetsTimerValue>()
                 .Build();
         }
 
@@ -26,13 +26,13 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         {
             foreach (Entity entity in _entities)
             {
-                ref var collectTargetsTimer = ref entity.GetComponent<CollectTargetsTimer>();
+                ref var collectTargetsTimer = ref entity.GetComponent<CollectTargetsTimerValue>();
                 collectTargetsTimer.Value -= deltaTime;
 
                 if (collectTargetsTimer.Value <= 0)
                 {
                     entity.AddComponent<ReadyToCollectTargets>();
-                    collectTargetsTimer.Value = entity.GetComponent<CollectTargetsInterval>().Value;
+                    collectTargetsTimer.Value = entity.GetComponent<CollectTargetsIntervalValue>().Value;
                 }
             }
         }

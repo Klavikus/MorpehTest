@@ -16,7 +16,7 @@ namespace GameCore.Gameplay.Features.Common.Destruct.Systems
         public void OnAwake()
         {
             _entities = World.Filter
-                .With<SelfDestructTimer>()
+                .With<SelfDestructTimerValue>()
                 .Build();
         }
 
@@ -24,7 +24,7 @@ namespace GameCore.Gameplay.Features.Common.Destruct.Systems
         {
             foreach (Entity entity in _entities)
             {
-                ref var selfDestructTimer = ref entity.GetComponent<SelfDestructTimer>();
+                ref var selfDestructTimer = ref entity.GetComponent<SelfDestructTimerValue>();
 
                 if (selfDestructTimer.Value > 0)
                 {
@@ -32,8 +32,8 @@ namespace GameCore.Gameplay.Features.Common.Destruct.Systems
                 }
                 else
                 {
-                    entity.RemoveComponent<SelfDestructTimer>();
-                    entity.AddComponent<DestructedTag>();
+                    entity.RemoveComponent<SelfDestructTimerValue>();
+                    entity.AddComponent<Destructed>();
                 }
             }
         }

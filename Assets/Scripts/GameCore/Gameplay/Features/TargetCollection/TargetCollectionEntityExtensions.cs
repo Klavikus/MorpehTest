@@ -7,14 +7,14 @@ namespace GameCore.Gameplay.Features.TargetCollection
     {
         public static Entity RemoveTargetCollectionComponents(this Entity entity)
         {
-            if (entity.Has<TargetsBuffer>())
-                entity.RemoveComponent<TargetsBuffer>();
+            if (entity.Has<TargetsBufferValue>())
+                entity.RemoveComponent<TargetsBufferValue>();
           
-            if (entity.Has<CollectTargetsInterval>())
-                entity.RemoveComponent<CollectTargetsInterval>();
+            if (entity.Has<CollectTargetsIntervalValue>())
+                entity.RemoveComponent<CollectTargetsIntervalValue>();
           
-            if (entity.Has<CollectTargetsTimer>())
-                entity.RemoveComponent<CollectTargetsTimer>();
+            if (entity.Has<CollectTargetsTimerValue>())
+                entity.RemoveComponent<CollectTargetsTimerValue>();
            
             if (entity.Has<ReadyToCollectTargets>())
                 entity.RemoveComponent<ReadyToCollectTargets>();

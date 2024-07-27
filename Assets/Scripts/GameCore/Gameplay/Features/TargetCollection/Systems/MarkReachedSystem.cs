@@ -16,7 +16,7 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         public void OnAwake()
         {
             _entities = World.Filter
-                .With<TargetsBuffer>()
+                .With<TargetsBufferValue>()
                 .Without<Reached>()
                 .Build();
         }
@@ -25,7 +25,7 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         {
             foreach (Entity entity in _entities)
             {
-                if (entity.GetComponent<TargetsBuffer>().Value.Count > 0)
+                if (entity.GetComponent<TargetsBufferValue>().Value.Count > 0)
                     entity.AddComponent<Reached>();
             }
         }

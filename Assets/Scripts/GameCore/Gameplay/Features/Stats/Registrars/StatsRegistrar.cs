@@ -14,7 +14,7 @@ namespace GameCore.Gameplay.Features.Stats.Registrars
 
         public override void RegisterComponents(Entity gameEntity)
         {
-            var stats = new StatsContainerComponent
+            var stats = new StatsContainerValue
             {
                 Base = new StatsContainer(),
                 Current = new StatsContainer()
@@ -33,8 +33,8 @@ namespace GameCore.Gameplay.Features.Stats.Registrars
 
         public override void UnregisterComponents(Entity gameEntity)
         {
-            if (gameEntity.Has<StatsContainerComponent>())
-                gameEntity.RemoveComponent<StatsContainerComponent>();
+            if (gameEntity.Has<StatsContainerValue>())
+                gameEntity.RemoveComponent<StatsContainerValue>();
         }
     }
 }

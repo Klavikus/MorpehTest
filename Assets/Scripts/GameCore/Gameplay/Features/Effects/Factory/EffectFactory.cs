@@ -24,11 +24,11 @@ namespace GameCore.Gameplay.Features.Effects.Factory
         private Entity CreateDamage(World world, EntityId producerId, EntityId targetId, float value)
         {
             var entity = world.CreateEntity();
-            entity.AddComponent<EffectTag>();
-            entity.AddComponent<DamageEffectTag>();
+            entity.AddComponent<Effect>();
+            entity.AddComponent<DamageEffect>();
             entity.SetComponent(new EffectValue {Value = value});
-            entity.SetComponent(new ProducerId {Value = producerId});
-            entity.SetComponent(new TargetId {Value = targetId});
+            entity.SetComponent(new ProducerIdValue {Value = producerId});
+            entity.SetComponent(new TargetIdValue {Value = targetId});
 
             return entity;
         }
@@ -36,11 +36,11 @@ namespace GameCore.Gameplay.Features.Effects.Factory
         private Entity CreateHeal(World world, EntityId producerId, EntityId targetId, float value)
         {
             var entity = world.CreateEntity();
-            entity.AddComponent<EffectTag>();
-            entity.AddComponent<HealEffectTag>();
+            entity.AddComponent<Effect>();
+            entity.AddComponent<HealEffect>();
             entity.SetComponent(new EffectValue {Value = value});
-            entity.SetComponent(new ProducerId {Value = producerId});
-            entity.SetComponent(new TargetId {Value = targetId});
+            entity.SetComponent(new ProducerIdValue {Value = producerId});
+            entity.SetComponent(new TargetIdValue {Value = targetId});
 
             return entity;
         }

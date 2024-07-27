@@ -18,12 +18,12 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
         public void OnAwake()
         {
             _statuses = World.Filter
-                .With<StatusTag>()
-                .With<FreezeTag>()
-                .With<ProducerId>()
-                .With<TargetId>()
+                .With<Status>()
+                .With<Freeze>()
+                .With<ProducerIdValue>()
+                .With<TargetIdValue>()
                 .With<EffectValue>()
-                .Without<AffectedTag>()
+                .Without<Affected>()
                 .Build();
         }
 
@@ -34,11 +34,11 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
                 var entity = World.CreateEntity();
 
                 entity.AddComponent<SpeedApplySelfRequest>();
-                entity.SetComponent(new TargetId {Value = status.GetComponent<TargetId>().Value});
-                entity.SetComponent(new ProducerId {Value = status.GetComponent<ProducerId>().Value});
+                entity.SetComponent(new TargetIdValue {Value = status.GetComponent<TargetIdValue>().Value});
+                entity.SetComponent(new ProducerIdValue {Value = status.GetComponent<ProducerIdValue>().Value});
                 entity.SetComponent(new EffectValue {Value = status.GetComponent<EffectValue>().Value});
-                entity.SetComponent(new ApplierStatusLink {Value = status.ID});
-                entity.AddComponent<AffectedTag>();
+                entity.SetComponent(new ApplierStatusLinkValue {Value = status.ID});
+                entity.AddComponent<Affected>();
             }
         }
 

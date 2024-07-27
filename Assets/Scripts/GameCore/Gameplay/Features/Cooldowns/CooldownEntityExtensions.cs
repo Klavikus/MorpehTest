@@ -8,13 +8,13 @@ namespace GameCore.Gameplay.Features.Cooldowns
     {
         public static Entity PutOnCooldown(this Entity entity)
         {
-            if (entity.Has<Cooldown>())
+            if (entity.Has<CooldownValue>())
                 return entity;
 
             entity.RemoveComponent<CooldownUp>();
 
-            ref var cooldownLeft = ref entity.GetOrAdd<CooldownLeft>();
-            cooldownLeft.Value = entity.GetComponent<Cooldown>().Value;
+            ref var cooldownLeft = ref entity.GetOrAdd<CooldownLeftValue>();
+            cooldownLeft.Value = entity.GetComponent<CooldownValue>().Value;
 
             return entity;
         }
@@ -23,10 +23,10 @@ namespace GameCore.Gameplay.Features.Cooldowns
         {
             entity.RemoveComponent<CooldownUp>();
 
-            ref var cooldownComponent = ref entity.GetOrAdd<Cooldown>();
+            ref var cooldownComponent = ref entity.GetOrAdd<CooldownValue>();
             cooldownComponent.Value = cooldown;
 
-            ref var cooldownLeft = ref entity.GetOrAdd<CooldownLeft>();
+            ref var cooldownLeft = ref entity.GetOrAdd<CooldownLeftValue>();
             cooldownLeft.Value = cooldown;
 
             return entity;

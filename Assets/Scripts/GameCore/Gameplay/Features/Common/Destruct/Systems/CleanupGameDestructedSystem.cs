@@ -16,7 +16,7 @@ namespace GameCore.Gameplay.Features.Common.Destruct.Systems
         public void OnAwake()
         {
             _entities = World.Filter
-                .With<DestructedTag>()
+                .With<Destructed>()
                 .Build();
         }
 

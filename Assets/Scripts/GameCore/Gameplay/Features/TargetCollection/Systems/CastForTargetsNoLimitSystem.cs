@@ -2,7 +2,6 @@
 using System.Linq;
 using GameCore.Gameplay.Common;
 using GameCore.Gameplay.Common.Physic;
-using GameCore.Gameplay.Features.AttackFeature.Components;
 using GameCore.Gameplay.Features.Common.Components;
 using GameCore.Gameplay.Features.Lifetime.Components;
 using GameCore.Gameplay.Features.TargetCollection.Components;
@@ -31,11 +30,11 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         {
             _ready = World.Filter
                 .With<ReadyToCollectTargets>()
-                .With<TargetsBuffer>()
-                .With<TransformComponent>()
-                .With<Radius>()
-                .With<LayerMask>()
-                .Without<TargetLimit>()
+                .With<TargetsBufferValue>()
+                .With<TransformValue>()
+                .With<RadiusValue>()
+                .With<LayerMaskValue>()
+                .Without<TargetLimitValue>()
                 .Build();
         }
 
@@ -47,7 +46,7 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         {
             foreach (Entity entity in _ready)
             {
-                ref var targetsBuffer = ref entity.GetComponent<TargetsBuffer>();
+                ref var targetsBuffer = ref entity.GetComponent<TargetsBufferValue>();
                 targetsBuffer.Value.AddRange(TargetsInRadius(entity));
 
                 if (entity.Has<CollectingTargetsContinuously>() == false)
@@ -58,10 +57,10 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         private IEnumerable<EntityId> TargetsInRadius(Entity entity) =>
             _physicsService
                 .CircleCast(
-                    entity.GetComponent<TransformComponent>().Transform.position,
-                    entity.GetComponent<Radius>().Value,
-                    entity.GetComponent<LayerMask>().Value)
-                .Where(x => x.Has<DeadTag>() == false)
+                    entity.GetComponent<TransformValue>().Value.position,
+                    entity.GetComponent<RadiusValue>().Value,
+                    entity.GetComponent<LayerMaskValue>().Value)
+                .Where(x => x.Has<Dead>() == false)
                 .Select(x => x.ID);
     }
 }

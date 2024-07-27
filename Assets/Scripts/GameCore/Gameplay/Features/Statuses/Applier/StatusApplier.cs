@@ -26,18 +26,18 @@ namespace GameCore.Gameplay.Features.Statuses.Applier
 
             foreach (Entity possibleStatus in possibleStatuses)
             {
-                if (possibleStatus.GetComponent<StatusTypeIdComponent>().Value != statusSetup.StatusTypeId ||
-                    possibleStatus.GetComponent<TargetId>().Value != targetId)
+                if (possibleStatus.GetComponent<StatusTypeIdValue>().Value != statusSetup.StatusTypeId ||
+                    possibleStatus.GetComponent<TargetIdValue>().Value != targetId)
                     continue;
 
-                ref var timeLeft = ref possibleStatus.GetOrAdd<TimeLeft>();
+                ref var timeLeft = ref possibleStatus.GetOrAdd<TimeLeftValue>();
                 timeLeft.Value = statusSetup.Duration;
 
                 return possibleStatus;
             }
 
             return _statusFactory.Create(world, statusSetup, producerId, targetId)
-                .With(x => x.AddComponent<AppliedTag>());
+                .With(x => x.AddComponent<Applied>());
         }
     }
 }

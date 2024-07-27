@@ -16,9 +16,9 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
         public void OnAwake()
         {
             _statuses = World.Filter
-                .With<Duration>()
-                .With<StatusTag>()
-                .With<TimeLeft>()
+                .With<DurationValue>()
+                .With<Status>()
+                .With<TimeLeftValue>()
                 .Build();
         }
 
@@ -26,14 +26,14 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
         {
             foreach (Entity status in _statuses)
             {
-                if (status.GetComponent<TimeLeft>().Value >= 0)
+                if (status.GetComponent<TimeLeftValue>().Value >= 0)
                 {
-                    ref var timeLeft = ref status.GetComponent<TimeLeft>();
+                    ref var timeLeft = ref status.GetComponent<TimeLeftValue>();
                     timeLeft.Value -= deltaTime;
                 }
                 else
                 {
-                    status.AddComponent<UnappliedTag>();
+                    status.AddComponent<Unapplied>();
                 }
             }
         }

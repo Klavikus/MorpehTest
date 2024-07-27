@@ -43,26 +43,26 @@ namespace GameCore.Gameplay.Features.Statuses.Factory
 
             return status
                 .With(x => x.SetComponent(new EffectValue {Value = statusSetup.Value}), when: statusSetup.Value != 0)
-                .With(x => x.SetComponent(new Duration {Value = statusSetup.Duration}), when: statusSetup.Duration > 0)
-                .With(x => x.SetComponent(new TimeLeft {Value = statusSetup.Duration}), when: statusSetup.Duration > 0)
-                .With(x => x.SetComponent(new Period {Value = statusSetup.Period}), when: statusSetup.Period > 0)
-                .With(x => x.SetComponent(new TimeSinceLastTick {Value = 0}), when: statusSetup.Period > 0)
-                .With(x => x.AddComponent<StatusTag>());
+                .With(x => x.SetComponent(new DurationValue {Value = statusSetup.Duration}), when: statusSetup.Duration > 0)
+                .With(x => x.SetComponent(new TimeLeftValue {Value = statusSetup.Duration}), when: statusSetup.Duration > 0)
+                .With(x => x.SetComponent(new PeriodValue {Value = statusSetup.Period}), when: statusSetup.Period > 0)
+                .With(x => x.SetComponent(new TimeSinceLastTickValue {Value = 0}), when: statusSetup.Period > 0)
+                .With(x => x.AddComponent<Status>());
         }
 
         private Entity CreatePoisonStatus(Entity status, EntityId producerId, EntityId targetId) =>
             status
-                .With(x => x.SetComponent(new StatusTypeIdComponent {Value = StatusTypeId.Poison}))
-                .With(x => x.SetComponent(new ProducerId {Value = producerId}))
-                .With(x => x.SetComponent(new TargetId {Value = targetId}))
-                .With(x => x.AddComponent<PoisonTag>());
+                .With(x => x.SetComponent(new StatusTypeIdValue {Value = StatusTypeId.Poison}))
+                .With(x => x.SetComponent(new ProducerIdValue {Value = producerId}))
+                .With(x => x.SetComponent(new TargetIdValue {Value = targetId}))
+                .With(x => x.AddComponent<Poison>());
 
         private Entity CreateFreezeStatus(Entity status, EntityId producerId, EntityId targetId) =>
             status
-                .With(x => x.SetComponent(new StatusTypeIdComponent {Value = StatusTypeId.Freeze}))
-                .With(x => x.SetComponent(new ProducerId {Value = producerId}))
-                .With(x => x.SetComponent(new TargetId {Value = targetId}))
-                .With(x => x.AddComponent<FreezeTag>());
+                .With(x => x.SetComponent(new StatusTypeIdValue {Value = StatusTypeId.Freeze}))
+                .With(x => x.SetComponent(new ProducerIdValue {Value = producerId}))
+                .With(x => x.SetComponent(new TargetIdValue {Value = targetId}))
+                .With(x => x.AddComponent<Freeze>());
 
         //     private Entity CreatePoisonEnchantStatus(Entity status, EntityId producerId, EntityId targetId) =>
         //         CreateEntity.Empty()

@@ -17,8 +17,8 @@ namespace GameCore.Gameplay.Features.Effects.Systems
         public void OnAwake()
         {
             _effects = World.Filter
-                .With<EffectTag>()
-                .With<ProcessedTag>()
+                .With<Effect>()
+                .With<Processed>()
                 .Build();
         }
 

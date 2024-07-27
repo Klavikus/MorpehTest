@@ -16,9 +16,9 @@ namespace GameCore.Gameplay.Features.Lifetime.Systems
         public void OnAwake()
         {
             _entities = World.Filter
-                .With<CurrentHp>()
-                .With<MaxHp>()
-                .Without<DeadTag>()
+                .With<CurrentHpValue>()
+                .With<MaxHpValue>()
+                .Without<Dead>()
                 .Build();
         }
 
@@ -26,11 +26,11 @@ namespace GameCore.Gameplay.Features.Lifetime.Systems
         {
             foreach (Entity entity in _entities)
             {
-                if (entity.GetComponent<CurrentHp>().Value > 0)
+                if (entity.GetComponent<CurrentHpValue>().Value > 0)
                     continue;
 
-                entity.AddComponent<DeadTag>();
-                entity.AddComponent<ProcessingDeathTag>();
+                entity.AddComponent<Dead>();
+                entity.AddComponent<ProcessingDeath>();
             }
         }
 

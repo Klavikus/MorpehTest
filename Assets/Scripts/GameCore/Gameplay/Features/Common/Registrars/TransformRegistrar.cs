@@ -8,14 +8,14 @@ namespace GameCore.Gameplay.Features.Common.Registrars
     {
         public override void RegisterComponents(Entity gameEntity)
         {
-            ref var transformComponent = ref gameEntity.AddComponent<TransformComponent>();
-            transformComponent.Transform = transform;
+            ref var transformComponent = ref gameEntity.AddComponent<TransformValue>();
+            transformComponent.Value = transform;
         }
 
         public override void UnregisterComponents(Entity gameEntity)
         {
-            if (gameEntity.Has<TransformComponent>())
-                gameEntity.RemoveComponent<TransformComponent>();
+            if (gameEntity.Has<TransformValue>())
+                gameEntity.RemoveComponent<TransformValue>();
         }
     }
 }

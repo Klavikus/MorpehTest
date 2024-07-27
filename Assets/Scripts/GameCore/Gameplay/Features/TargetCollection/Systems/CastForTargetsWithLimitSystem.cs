@@ -30,12 +30,12 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         {
             _ready = World.Filter
                 .With<ReadyToCollectTargets>()
-                .With<TargetLimit>()
-                .With<TargetsBuffer>()
-                .With<ProcessedTargetsBuffer>()
-                .With<TransformComponent>()
-                .With<Radius>()
-                .With<LayerMask>()
+                .With<TargetLimitValue>()
+                .With<TargetsBufferValue>()
+                .With<ProcessedTargetsBufferValue>()
+                .With<TransformValue>()
+                .With<RadiusValue>()
+                .With<LayerMaskValue>()
                 .Build();
         }
 
@@ -44,15 +44,15 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
             foreach (Entity entity in _ready)
             {
                 for (int i = 0;
-                     i < Math.Min(TargetCountInRadius(entity), entity.GetComponent<TargetLimit>().Value);
+                     i < Math.Min(TargetCountInRadius(entity), entity.GetComponent<TargetLimitValue>().Value);
                      i++)
                 {
                     EntityId targetId = _targetCastBuffer[i].ID;
 
                     if (AlreadyProcessed(entity, targetId) == false)
                     {
-                        entity.GetComponent<TargetsBuffer>().Value.Add(targetId);
-                        entity.GetComponent<ProcessedTargetsBuffer>().Value.Add(targetId);
+                        entity.GetComponent<TargetsBufferValue>().Value.Add(targetId);
+                        entity.GetComponent<ProcessedTargetsBufferValue>().Value.Add(targetId);
                     }
                 }
 
@@ -69,12 +69,12 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         private int TargetCountInRadius(Entity entity) =>
             _physicsService
                 .CircleCastNonAlloc(
-                    entity.GetComponent<TransformComponent>().Transform.position,
-                    entity.GetComponent<Radius>().Value,
-                    entity.GetComponent<LayerMask>().Value,
+                    entity.GetComponent<TransformValue>().Value.position,
+                    entity.GetComponent<RadiusValue>().Value,
+                    entity.GetComponent<LayerMaskValue>().Value,
                     _targetCastBuffer);
 
         private bool AlreadyProcessed(Entity entity, EntityId targetId) =>
-            entity.GetComponent<ProcessedTargetsBuffer>().Value.Contains(targetId);
+            entity.GetComponent<ProcessedTargetsBufferValue>().Value.Contains(targetId);
     }
 }

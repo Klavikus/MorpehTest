@@ -19,9 +19,9 @@ namespace GameCore.Gameplay.Features.Effects.Systems
         public void OnAwake()
         {
             _effects = World.Filter
-                .With<DamageEffectTag>()
+                .With<DamageEffect>()
                 .With<EffectValue>()
-                .With<TargetId>()
+                .With<TargetIdValue>()
                 .Build();
         }
 
@@ -29,18 +29,18 @@ namespace GameCore.Gameplay.Features.Effects.Systems
         {
             foreach (Entity effect in _effects)
             {
-                if (World.TryGetEntity(effect.GetComponent<TargetId>().Value, out Entity target) == false)
+                if (World.TryGetEntity(effect.GetComponent<TargetIdValue>().Value, out Entity target) == false)
                     continue;
 
-                effect.AddComponent<ProcessedTag>();
+                effect.AddComponent<Processed>();
 
-                if (target.Has<DeadTag>())
+                if (target.Has<Dead>())
                     continue;
 
-                if (target.Has<CurrentHp>() == false)
+                if (target.Has<CurrentHpValue>() == false)
                     continue;
 
-                ref var currentHp = ref target.GetComponent<CurrentHp>();
+                ref var currentHp = ref target.GetComponent<CurrentHpValue>();
 
                 currentHp.Value -= effect.GetComponent<EffectValue>().Value;
 

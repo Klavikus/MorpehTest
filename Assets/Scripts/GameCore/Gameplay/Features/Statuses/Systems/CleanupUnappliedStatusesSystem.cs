@@ -17,15 +17,15 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
         public void OnAwake()
         {
             _statuses = World.Filter
-                .With<StatusTag>()
-                .With<UnappliedTag>()
+                .With<Status>()
+                .With<Unapplied>()
                 .Build();
         }
 
         public void OnUpdate(float deltaTime)
         {
             foreach (Entity status in _statuses) 
-                status.AddComponent<DestructedTag>();
+                status.AddComponent<Destructed>();
         }
 
         public void Dispose()

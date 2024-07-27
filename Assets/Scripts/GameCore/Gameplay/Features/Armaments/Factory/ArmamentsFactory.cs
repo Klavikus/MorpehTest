@@ -13,7 +13,6 @@ using GameCore.Gameplay.Features.ViewFeature.Components;
 using GameCore.Infrastructure.Abstraction;
 using Scellecs.Morpeh;
 using UnityEngine;
-using LayerMask = GameCore.Gameplay.Features.TargetCollection.Components.LayerMask;
 
 namespace GameCore.Gameplay.Features.Armaments.Factory
 {
@@ -32,25 +31,25 @@ namespace GameCore.Gameplay.Features.Armaments.Factory
                 (AbilityLevel) _configurationProvider.GetAbilityLevel(AbilityId.FireBolt, level);
             ProjectileSetup setup = abilityLevel.ProjectileSetup;
 
-            entity.SetComponent(new ViewPathComponent {Path = abilityLevel.ViewPrefab.AssetGUID});
-            entity.SetComponent(new SelfDestructTimer {Value = setup.Lifetime});
-            entity.SetComponent(new MoveSpeedComponent {Value = setup.Speed});
-            entity.SetComponent(new Radius {Value = setup.ContactRadius});
-            entity.SetComponent(new TargetsBuffer {Value = new List<EntityId>(16)});
-            entity.SetComponent(new ProcessedTargetsBuffer {Value = new List<EntityId>(16)});
-            entity.SetComponent(new LayerMask {Value = CollisionLayer.Enemy.AsMask()});
+            entity.SetComponent(new ViewPathValue {Value = abilityLevel.ViewPrefab.AssetGUID});
+            entity.SetComponent(new SelfDestructTimerValue {Value = setup.Lifetime});
+            entity.SetComponent(new MoveSpeedValue {Value = setup.Speed});
+            entity.SetComponent(new RadiusValue {Value = setup.ContactRadius});
+            entity.SetComponent(new TargetsBufferValue {Value = new List<EntityId>(16)});
+            entity.SetComponent(new ProcessedTargetsBufferValue {Value = new List<EntityId>(16)});
+            entity.SetComponent(new LayerMaskValue {Value = CollisionLayer.Enemy.AsMask()});
             entity.SetComponent(new ReadyToCollectTargets());
             entity.SetComponent(new CollectingTargetsContinuously());
-            entity.SetComponent(new WorldPosition {Value = at});
-            entity.AddComponent<ArmamentTag>();
+            entity.SetComponent(new WorldPositionValue {Value = at});
+            entity.AddComponent<Armament>();
             entity.AddComponent<CreateRequest>();
 
             entity
                 .With(
-                    x => x.SetComponent(new EffectSetups {Value = abilityLevel.EffectSetups.ToList()}),
+                    x => x.SetComponent(new EffectSetupsValue {Value = abilityLevel.EffectSetups.ToList()}),
                     when: !abilityLevel.EffectSetups.IsNullOrEmpty())
                 .With(
-                    x => x.SetComponent(new StatusSetups {Value = abilityLevel.StatusSetups.ToList()}),
+                    x => x.SetComponent(new StatusSetupsValue {Value = abilityLevel.StatusSetups.ToList()}),
                     when: !abilityLevel.StatusSetups.IsNullOrEmpty());
 
             return entity;

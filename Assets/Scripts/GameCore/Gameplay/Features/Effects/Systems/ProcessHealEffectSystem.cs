@@ -19,9 +19,9 @@ namespace GameCore.Gameplay.Features.Effects.Systems
         public void OnAwake()
         {
             _effects = World.Filter
-                .With<HealEffectTag>()
+                .With<HealEffect>()
                 .With<EffectValue>()
-                .With<TargetId>()
+                .With<TargetIdValue>()
                 .Build();
         }
 
@@ -29,20 +29,20 @@ namespace GameCore.Gameplay.Features.Effects.Systems
         {
             foreach (Entity effect in _effects)
             {
-                if (World.TryGetEntity(effect.GetComponent<TargetId>().Value, out Entity target) == false)
+                if (World.TryGetEntity(effect.GetComponent<TargetIdValue>().Value, out Entity target) == false)
                     continue;
 
-                effect.AddComponent<ProcessedTag>();
+                effect.AddComponent<Processed>();
 
-                if (target.Has<DeadTag>())
+                if (target.Has<Dead>())
                     continue;
 
-                if (target.Has<MaxHp>() && target.Has<CurrentHp>())
+                if (target.Has<MaxHpValue>() && target.Has<CurrentHpValue>())
                 {
                     float newValue = Mathf.Min(
-                        target.GetComponent<CurrentHp>().Value + effect.GetComponent<EffectValue>().Value,
-                        target.GetComponent<MaxHp>().Value);
-                    ref var currentHp = ref target.GetComponent<CurrentHp>();
+                        target.GetComponent<CurrentHpValue>().Value + effect.GetComponent<EffectValue>().Value,
+                        target.GetComponent<MaxHpValue>().Value);
+                    ref var currentHp = ref target.GetComponent<CurrentHpValue>();
                     currentHp.Value = newValue;
                 }
             }

@@ -18,9 +18,9 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         public void OnAwake()
         {
             _bouncer = World.Filter
-                .With<Bounce>()
-                .With<TargetsBuffer>()
-                .With<PreviousTarget>()
+                .With<BounceValue>()
+                .With<TargetsBufferValue>()
+                .With<PreviousTargetValue>()
                 .Without<ReadyToBounce>()
                 .Build();
         }
@@ -29,11 +29,11 @@ namespace GameCore.Gameplay.Features.TargetCollection.Systems
         {
             foreach (Entity bouncer in _bouncer)
             {
-                if (bouncer.GetComponent<TargetsBuffer>().Value.Count > 0)
+                if (bouncer.GetComponent<TargetsBufferValue>().Value.Count > 0)
                 {
                     bouncer.AddComponent<ReadyToBounce>();
-                    ref var previousTarget = ref bouncer.GetComponent<PreviousTarget>();
-                    previousTarget.Value = bouncer.GetComponent<TargetsBuffer>().Value.Last();
+                    ref var previousTarget = ref bouncer.GetComponent<PreviousTargetValue>();
+                    previousTarget.Value = bouncer.GetComponent<TargetsBufferValue>().Value.Last();
                 }
             }
         }

@@ -28,16 +28,16 @@ namespace GameCore.Gameplay.Features.EffectApplication.Systems
         public void OnAwake()
         {
             _entities = World.Filter
-                .With<TargetsBuffer>()
-                .With<EffectSetups>()
+                .With<TargetsBufferValue>()
+                .With<EffectSetupsValue>()
                 .Build();
         }
 
         public void OnUpdate(float deltaTime)
         {
             foreach (Entity entity in _entities)
-            foreach (EntityId targetId in entity.GetComponent<TargetsBuffer>().Value)
-            foreach (EffectSetup setup in entity.GetComponent<EffectSetups>().Value)
+            foreach (EntityId targetId in entity.GetComponent<TargetsBufferValue>().Value)
+            foreach (EffectSetup setup in entity.GetComponent<EffectSetupsValue>().Value)
             {
                 _effectFactory.Create(World, setup, ProducerId(entity), targetId);
             }
@@ -48,6 +48,6 @@ namespace GameCore.Gameplay.Features.EffectApplication.Systems
         }
 
         private static EntityId ProducerId(Entity entity) =>
-            entity.Has<ProducerId>() ? entity.GetComponent<ProducerId>().Value : entity.ID;
+            entity.Has<ProducerIdValue>() ? entity.GetComponent<ProducerIdValue>().Value : entity.ID;
     }
 }

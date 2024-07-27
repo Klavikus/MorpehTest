@@ -18,13 +18,13 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
         public void OnAwake()
         {
             _statuses = World.Filter
-                .With<StatusTag>()
-                .With<UnappliedTag>()
+                .With<Status>()
+                .With<Unapplied>()
                 .Build();
 
             _entities = World.Filter
-                .With<ApplierStatusLink>()
-                .Without<DestructedTag>()
+                .With<ApplierStatusLinkValue>()
+                .Without<Destructed>()
                 .Build();
         }
 
@@ -33,8 +33,8 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
             foreach (Entity status in _statuses)
             foreach (Entity entity in _entities)
             {
-                if (entity.GetComponent<ApplierStatusLink>().Value == status.ID)
-                    entity.AddComponent<DestructedTag>();
+                if (entity.GetComponent<ApplierStatusLinkValue>().Value == status.ID)
+                    entity.AddComponent<Destructed>();
             }
         }
 

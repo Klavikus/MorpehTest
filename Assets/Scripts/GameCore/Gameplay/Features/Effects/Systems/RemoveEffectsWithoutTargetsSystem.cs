@@ -16,8 +16,8 @@ namespace GameCore.Gameplay.Features.Effects.Systems
         public void OnAwake()
         {
             _effects = World.Filter
-                .With<EffectTag>()
-                .With<TargetId>()
+                .With<Effect>()
+                .With<TargetIdValue>()
                 .Build();
         }
 
@@ -25,7 +25,7 @@ namespace GameCore.Gameplay.Features.Effects.Systems
         {
             foreach (Entity effect in _effects)
             {
-                if (World.TryGetEntity(effect.GetComponent<TargetId>().Value, out Entity target) == false)
+                if (World.TryGetEntity(effect.GetComponent<TargetIdValue>().Value, out Entity target) == false)
                     continue;
 
                 if (target.IsNullOrDisposed())

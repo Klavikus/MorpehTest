@@ -18,10 +18,10 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
 
         private Filter _statuses;
         private Stash<EffectValue> _effectValueStash;
-        private Stash<Period> _periodStash;
-        private Stash<TimeSinceLastTick> _timeSinceLastTickStash;
-        private Stash<ProducerId> _producerIdStash;
-        private Stash<TargetId> _targetIdStash;
+        private Stash<PeriodValue> _periodStash;
+        private Stash<TimeSinceLastTickValue> _timeSinceLastTickStash;
+        private Stash<ProducerIdValue> _producerIdStash;
+        private Stash<TargetIdValue> _targetIdStash;
 
         public World World { get; set; }
 
@@ -33,19 +33,19 @@ namespace GameCore.Gameplay.Features.Statuses.Systems
         public void OnAwake()
         {
             _statuses = World.Filter
-                .With<StatusTag>()
+                .With<Status>()
                 .With<EffectValue>()
-                .With<Period>()
-                .With<TimeSinceLastTick>()
-                .With<ProducerId>()
-                .With<TargetId>()
+                .With<PeriodValue>()
+                .With<TimeSinceLastTickValue>()
+                .With<ProducerIdValue>()
+                .With<TargetIdValue>()
                 .Build();
 
             _effectValueStash = World.GetStash<EffectValue>();
-            _periodStash = World.GetStash<Period>();
-            _timeSinceLastTickStash = World.GetStash<TimeSinceLastTick>();
-            _producerIdStash = World.GetStash<ProducerId>();
-            _targetIdStash = World.GetStash<TargetId>();
+            _periodStash = World.GetStash<PeriodValue>();
+            _timeSinceLastTickStash = World.GetStash<TimeSinceLastTickValue>();
+            _producerIdStash = World.GetStash<ProducerIdValue>();
+            _targetIdStash = World.GetStash<TargetIdValue>();
         }
 
         public void OnUpdate(float deltaTime)
