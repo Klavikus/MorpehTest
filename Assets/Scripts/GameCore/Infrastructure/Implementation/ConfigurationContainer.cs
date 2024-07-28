@@ -1,5 +1,6 @@
-﻿using GameCore.Domain.Configs;
+﻿using GameCore.Domain.Dto;
 using GameCore.Gameplay.Features.Abilities;
+using GameCore.Presentation.Implementation;
 using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -17,6 +18,8 @@ namespace GameCore.Infrastructure.Implementation
         [field: SerializeField] public SceneData[] LevelsSceneData { get; private set; }
         [field: SerializeField] public AssetReference PlayerRegistrar { get; private set; }
         [field: SerializeField] public AssetReference EnemyRegistrar { get; private set; }
+        [field: SerializeField] public HeroSelector HeroSelectorPrefab { get; private set; }
         [field: SerializeField] public AbilityLevel[] AbilityLevels { get; private set; }
+        [field: SerializeField] public HeroDto[] HeroData { get; private set; }
     }
 }

@@ -8,13 +8,14 @@
         "Domain",
         "DAL.Runtime",
         "Presentation.Abstraction",
+        "Presentation.Implementation",
         "LastSynapse.Modules.Infrastructure",
         "LastSynapse.Modules.MVPPassiveView.Runtime",
         "LastSynapse.Modules.Common.WindowFsm.Runtime",
         "Infrastructure.Abstraction",
         "AddressablesContentController",
-        "Presentation.Implementation",
-        "VContainer"
+        "VContainer",
+        "Unity.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

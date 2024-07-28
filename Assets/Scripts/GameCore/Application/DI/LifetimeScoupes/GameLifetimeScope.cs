@@ -85,6 +85,7 @@ namespace GameCore.Application.DI.LifetimeScoupes
                         typeof(PlayerLevel),
                         typeof(PlayerCurrency),
                         typeof(LevelSelection),
+                        typeof(HeroSelection),
                     };
                     IData gameData = new GameData(dataTypes);
                     IDataContext dataContext = new SimpleRuntimeDataContext(gameData);

@@ -43,6 +43,7 @@ namespace GameCore.Application.DI.Composition
         [SerializeField] private GameplayMainView _gameplayMainView;
 
         private World _world;
+        private IObjectResolver _sceneResolver;
 
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
@@ -64,12 +65,12 @@ namespace GameCore.Application.DI.Composition
 
         public override void OnResolve(IObjectResolver sceneResolver)
         {
+            _sceneResolver = sceneResolver;
             _world = World.Create();
             _world.UpdateByUnity = true;
 
-            
             _world.AddFeature<ViewFeature>(sceneResolver);
-            
+
             _world.AddFeature<InputFeature>(sceneResolver);
 
             _world.AddFeature<PlayerFeature>(sceneResolver);
@@ -81,7 +82,7 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<AbilitiesFeature>(sceneResolver);
 
             _world.AddFeature<CollectTargetFeature>(sceneResolver);
-       
+
             _world.AddFeature<EffectApplicationFeature>(sceneResolver);
 
             _world.AddFeature<StatsApplierFeature>(sceneResolver);
@@ -92,7 +93,7 @@ namespace GameCore.Application.DI.Composition
             _world.AddFeature<MoveFeature>(sceneResolver);
 
             _world.AddFeature<ProcessDestructedFeature>(sceneResolver);
-            
+
             sceneResolver.ConstructView<GameplayMainView, GameplayPresenter>();
         }
 

@@ -1,4 +1,5 @@
-﻿using GameCore.Controllers.Abstracion.Services;
+﻿using System;
+using GameCore.Controllers.Abstracion.Services;
 using GameCore.Controllers.Implementation;
 using GameCore.Controllers.Implementation.Presenters;
 using GameCore.Controllers.Implementation.Presenters.Panels;
@@ -27,12 +28,16 @@ namespace GameCore.Application.DI.Composition
         [SerializeField] private MetaMainHeaderView _metaMainHeaderView;
         [SerializeField] private BarView _levelBarView;
 
+        [SerializeField] private HeroListPanelView _heroListPanelView;
+
         public override void OnRegister(IContainerBuilder containerBuilder)
         {
             RegisterWindowFsm(containerBuilder);
 
             containerBuilder.Register<IPanelAccessService, PanelAccessService>(Lifetime.Singleton);
+            containerBuilder.Register<IViewFactory, IDisposable, ViewFactory>(Lifetime.Singleton);
             containerBuilder.Register<IViewBuilder, ViewBuilder>(Lifetime.Singleton);
+            containerBuilder.Register<IHeroSelectionService, HeroSelectionService>(Lifetime.Singleton);
 
             containerBuilder.BindViewWithPresenter<IPanelSwitchView, EnumPanelSwitchPresenter>(_panelSwitchView);
 
@@ -42,6 +47,8 @@ namespace GameCore.Application.DI.Composition
             containerBuilder.BindViewWithPresenter<ITalentsPanelView, TalentsPanelPresenter>(_talentsPanelView);
             containerBuilder.BindViewWithPresenter<ITowerPanelView, TowerPanelPresenter>(_towerPanelView);
             containerBuilder.BindViewWithPresenter<MetaMainHeaderView, MetaMainHeaderPresenter>(_metaMainHeaderView);
+
+            containerBuilder.BindViewWithPresenter<IHeroListPanelView, HeroListPanelPresenter>(_heroListPanelView);
         }
 
         public override void OnResolve(IObjectResolver sceneResolver)
@@ -54,6 +61,7 @@ namespace GameCore.Application.DI.Composition
             sceneResolver.ConstructView<ITalentsPanelView, TalentsPanelPresenter>();
             sceneResolver.ConstructView<ITowerPanelView, TowerPanelPresenter>();
             sceneResolver.ConstructView<MetaMainHeaderView, MetaMainHeaderPresenter>();
+            sceneResolver.ConstructView<IHeroListPanelView, HeroListPanelPresenter>();
         }
 
         private void RegisterWindowFsm(IContainerBuilder builder)

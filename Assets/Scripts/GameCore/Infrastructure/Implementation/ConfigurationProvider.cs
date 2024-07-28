@@ -2,13 +2,16 @@
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using GameCore.Domain.Configs;
+using GameCore.Domain.Dto;
 using GameCore.Domain.Enums;
 using GameCore.Gameplay.Features.Abilities;
 using GameCore.Infrastructure.Abstraction;
 using GameCore.Infrastructure.Implementation.AssetManagement;
+using GameCore.Presentation.Implementation;
 using Qw1nt.Runtime.AddressablesContentController.Common;
 using Qw1nt.Runtime.AddressablesContentController.Core;
 using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace GameCore.Infrastructure.Implementation
@@ -33,6 +36,8 @@ namespace GameCore.Infrastructure.Implementation
         public AssetReference LoadingScreenViewReference => _configurationContainer.LoadingScreenViewReference;
         public AssetReference PlayerRegistrar => _configurationContainer.PlayerRegistrar;
         public AssetReference EnemyRegistrar => _configurationContainer.EnemyRegistrar;
+        public GameObject HeroSelector => _configurationContainer.HeroSelectorPrefab.gameObject;
+        public HeroDto[] HeroData => _configurationContainer.HeroData;
         public AbilityLevel[] AbilityLevels => _configurationContainer.AbilityLevels;
 
         public async UniTask Initialize()

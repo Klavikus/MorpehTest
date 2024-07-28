@@ -8,5 +8,6 @@
         FightPanel = 3,
         TalentsPanel = 4,
         TowerPanel = 5,
+        HeroListPanel = 6,
     }
 }
