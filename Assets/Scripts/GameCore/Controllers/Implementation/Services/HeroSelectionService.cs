@@ -6,14 +6,17 @@ namespace GameCore.Controllers.Implementation.Services
 {
     public class HeroSelectionService : IHeroSelectionService
     {
-        private HeroDto _currentFocused;
-
         public event Action<HeroDto> Focused;
+        public HeroDto FocusedOn { get; private set; }
 
         public void FocusOn(HeroDto heroDto)
         {
+            if (FocusedOn == heroDto)
+                return;
+
             Debug.Log($"Selected {heroDto.Id}");
-            _currentFocused = heroDto;
+
+            FocusedOn = heroDto;
             Focused?.Invoke(heroDto);
         }
     }

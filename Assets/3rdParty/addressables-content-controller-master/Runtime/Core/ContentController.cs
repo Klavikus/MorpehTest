@@ -92,6 +92,8 @@ namespace Qw1nt.Runtime.AddressablesContentController.Core
             var resultOperation = new ContentOperation<T>(assetReference.AssetGUID, OperationType.Loading, operation);
             _operationsTracker.Track(resultOperation);
 
+            _cache.Add(assetReference.AssetGUID, resultOperation);
+
             return resultOperation;
         }
 
@@ -106,6 +108,7 @@ namespace Qw1nt.Runtime.AddressablesContentController.Core
 
             var resultOperation = new ContentOperation<T>(path, OperationType.Loading, operation);
             _operationsTracker.Track(resultOperation);
+            _cache.Add(path, resultOperation);
 
             return resultOperation;
         }

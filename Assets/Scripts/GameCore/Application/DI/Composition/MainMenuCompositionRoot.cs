@@ -1,5 +1,4 @@
-﻿using System;
-using GameCore.Controllers.Abstracion.Services;
+﻿using GameCore.Controllers.Abstracion.Services;
 using GameCore.Controllers.Implementation;
 using GameCore.Controllers.Implementation.Presenters;
 using GameCore.Controllers.Implementation.Presenters.Panels;
@@ -35,7 +34,7 @@ namespace GameCore.Application.DI.Composition
             RegisterWindowFsm(containerBuilder);
 
             containerBuilder.Register<IPanelAccessService, PanelAccessService>(Lifetime.Singleton);
-            containerBuilder.Register<IViewFactory, IDisposable, ViewFactory>(Lifetime.Singleton);
+            containerBuilder.Register<IViewFactory, ViewFactory>(Lifetime.Singleton);
             containerBuilder.Register<IViewBuilder, ViewBuilder>(Lifetime.Singleton);
             containerBuilder.Register<IHeroSelectionService, HeroSelectionService>(Lifetime.Singleton);
 

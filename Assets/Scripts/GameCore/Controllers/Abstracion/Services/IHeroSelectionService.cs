@@ -7,5 +7,6 @@ namespace GameCore.Controllers.Implementation.Services
     {
         void FocusOn(HeroDto heroDto);
         event Action<HeroDto> Focused;
+        HeroDto FocusedOn { get; }
     }
 }
