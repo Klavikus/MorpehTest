@@ -27,7 +27,8 @@ namespace Modules.DAL.Tests
         {
             _dataMock = new Mock<IData>();
             _dataMock.Setup(d => d.ContainedTypes).Returns(new[] {typeof(TestEntity1)});
-            _dataContext = new JsonPrefsDataContext(_dataMock.Object, TestKey);
+            JsonSerializer jsonSerializer = new(_dataMock.Object.ContainedTypes.Concat(new[] {typeof(GameDataDto)}));
+            _dataContext = new JsonPrefsDataContext(_dataMock.Object, TestKey, jsonSerializer);
         }
 
         [TearDown]

@@ -1,5 +1,4 @@
 ﻿using System;
-using GameCore.Domain.Dto;
 using GameCore.Domain.JsonConverters;
 using Newtonsoft.Json;
 using R3;
@@ -7,8 +6,7 @@ using R3;
 namespace GameCore.Domain.Models
 {
     [Serializable]
-    [JsonConverter(typeof(ModelJsonConverter<PlayerLevelDto>))]
-    public class PlayerLevel : BaseEntity, ISerializable<PlayerLevelDto>
+    public class PlayerLevel : BaseEntity
     {
         public static string DefaultId = nameof(PlayerLevel);
 
@@ -20,10 +18,18 @@ namespace GameCore.Domain.Models
             ExpToLevelup = new ReactiveProperty<int>(100);
         }
 
+        [JsonConverter(typeof(ReactivePropertyConverter))]
         public ReactiveProperty<int> CurrentLevel { get; private set; }
+
+        [JsonConverter(typeof(ReactivePropertyConverter))]
         public ReactiveProperty<int> MaxLevel { get; private set; }
+
+        [JsonConverter(typeof(ReactivePropertyConverter))]
         public ReactiveProperty<int> CurrentExp { get; private set; }
+
+        [JsonConverter(typeof(ReactivePropertyConverter))]
         public ReactiveProperty<int> ExpToLevelup { get; private set; }
+
         public bool MaxLevelReached => CurrentLevel.Value == MaxLevel.Value;
 
         public void LevelUp()
@@ -49,25 +55,6 @@ namespace GameCore.Domain.Models
                 CurrentExp.Value -= ExpToLevelup.Value;
                 LevelUp();
             }
-        }
-
-        public PlayerLevelDto Serialize()
-        {
-            return new PlayerLevelDto
-            {
-                CurrentLevel = CurrentExp.Value,
-                MaxLevel = MaxLevel.Value,
-                CurrentExp = CurrentExp.Value,
-                ExpToLevelup = ExpToLevelup.Value
-            };
-        }
-
-        public void Deserialize(PlayerLevelDto dto)
-        {
-            CurrentLevel.Value = dto.CurrentLevel;
-            MaxLevel.Value = dto.MaxLevel;
-            CurrentExp.Value = dto.CurrentExp;
-            ExpToLevelup.Value = dto.ExpToLevelup;
         }
     }
 }

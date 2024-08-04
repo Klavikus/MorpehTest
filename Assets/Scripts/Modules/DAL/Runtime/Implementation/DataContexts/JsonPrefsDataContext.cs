@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Cysharp.Threading.Tasks;
 using Modules.DAL.Runtime.Abstract.Data;
 using Modules.DAL.Runtime.Abstract.Serialization;
@@ -13,10 +12,10 @@ namespace Modules.DAL.Runtime.Implementation.DataContexts
         private readonly string _key;
         private readonly IJsonSerializer _jsonSerializer;
 
-        public JsonPrefsDataContext(IData data, string key) : base(data)
+        public JsonPrefsDataContext(IData data, string key, IJsonSerializer jsonSerializer) : base(data)
         {
             _key = key;
-            _jsonSerializer = new JsonSerializer(data.ContainedTypes.Concat(new[] {typeof(GameDataDto)}));
+            _jsonSerializer = jsonSerializer ?? throw new ArgumentNullException(nameof(jsonSerializer));
         }
 
         public override async UniTask Load()

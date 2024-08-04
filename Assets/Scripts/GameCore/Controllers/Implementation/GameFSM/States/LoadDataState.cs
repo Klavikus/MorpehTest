@@ -2,6 +2,8 @@
 using Cysharp.Threading.Tasks;
 using GameCore.Controllers.Abstracion.Services.Loading;
 using GameCore.Controllers.Implementation.Services.Loading;
+using GameCore.Controllers.Implementation.UseCases;
+using GameCore.Controllers.Implementation.UseCases.Progress;
 using GameCore.Infrastructure.Abstraction;
 using Modules.Infrastructure.Interfaces.GameFsm;
 
@@ -12,15 +14,18 @@ namespace GameCore.Controllers.Implementation.GameFSM.States
         private readonly IGameStateMachine _gameStateMachine;
         private readonly ILoadingService _loadingService;
         private readonly IConfigurationProvider _configurationProvider;
+        private readonly LoadProgressUseCase _loadProgressUseCase;
 
         public LoadDataState(
             IGameStateMachine gameStateMachine,
             ILoadingService loadingService,
-            IConfigurationProvider configurationProvider)
+            IConfigurationProvider configurationProvider,
+            LoadProgressUseCase loadProgressUseCase)
         {
             _gameStateMachine = gameStateMachine;
             _loadingService = loadingService;
             _configurationProvider = configurationProvider;
+            _loadProgressUseCase = loadProgressUseCase;
         }
 
         public async void Enter()
@@ -33,20 +38,14 @@ namespace GameCore.Controllers.Implementation.GameFSM.States
                     progress.Report(1);
                 },
                 "Load configs 1");
+
             _loadingService.AddToQueue(async (progress) =>
                 {
                     progress.Report(0);
-                    await new TestLoading().Load(1);
+                    await _loadProgressUseCase.Execute();
                     progress.Report(1);
                 },
-                "Load configs 2");
-            _loadingService.AddToQueue(async (progress) =>
-                {
-                    progress.Report(0);
-                    await new TestLoading().Load(1);
-                    progress.Report(1);
-                },
-                "Load configs 3");
+                "Load progress");
 
             await _loadingService.Load();
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using GameCore.Domain.Dto;
 using GameCore.Domain.Enums;
 using GameCore.Domain.JsonConverters;
 using Newtonsoft.Json;
@@ -9,8 +8,7 @@ using R3;
 namespace GameCore.Domain.Models
 {
     [Serializable]
-    [JsonConverter(typeof(ModelJsonConverter<PlayerCurrencyDto>))]
-    public class PlayerCurrency : BaseEntity, ISerializable<PlayerCurrencyDto>
+    public class PlayerCurrency : BaseEntity
     {
         public static string DefaultId = nameof(PlayerCurrency);
 
@@ -28,7 +26,10 @@ namespace GameCore.Domain.Models
             };
         }
 
+        [JsonConverter(typeof(ReactivePropertyConverter))]
         public ReactiveProperty<int> Soft { get; private set; }
+
+        [JsonConverter(typeof(ReactivePropertyConverter))]
         public ReactiveProperty<int> Hard { get; private set; }
 
         public void Add(int amount, CurrencyType currencyType)
@@ -45,21 +46,6 @@ namespace GameCore.Domain.Models
                 throw new Exception($"Can't {nameof(Remove)} with amount < 0!");
 
             _currencyByType[currencyType].Value -= amount;
-        }
-
-        public PlayerCurrencyDto Serialize()
-        {
-            return new PlayerCurrencyDto
-            {
-                Soft = Soft.Value,
-                Hard = Hard.Value,
-            };
-        }
-
-        public void Deserialize(PlayerCurrencyDto dto)
-        {
-            Soft.Value = dto.Soft;
-            Hard.Value = dto.Hard;
         }
     }
 }

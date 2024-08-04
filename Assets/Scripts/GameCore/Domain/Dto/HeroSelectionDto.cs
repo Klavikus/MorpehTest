@@ -7,4 +7,5 @@ namespace GameCore.Domain.Dto
     {
         public int SelectedId;
     }
+
 }

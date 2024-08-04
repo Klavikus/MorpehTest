@@ -3,6 +3,7 @@ using GameCore.Controllers.Abstracion.Services;
 using GameCore.Controllers.Implementation.Services;
 using GameCore.Controllers.Implementation.UseCases;
 using GameCore.Controllers.Implementation.UseCases.HeroSelection;
+using GameCore.Controllers.Implementation.UseCases.Progress;
 using GameCore.Domain.Dto;
 using GameCore.Domain.Enums;
 using GameCore.Infrastructure.Abstraction;
@@ -15,6 +16,7 @@ namespace GameCore.Controllers.Implementation.Presenters.Panels
     {
         private readonly GetSelectedHeroIdUseCase _getSelectedHeroIdUseCase;
         private readonly SetSelectedHeroIdUseCase _setSelectedHeroIdUseCase;
+        private readonly SaveProgressToLocalUseCase _saveProgressToLocalUseCase;
         private readonly IConfigurationProvider _configurationProvider;
         private readonly IHeroSelectionService _heroSelectionService;
         private readonly IViewFactory _viewFactory;
@@ -23,6 +25,7 @@ namespace GameCore.Controllers.Implementation.Presenters.Panels
         public HeroListPanelPresenter(
             GetSelectedHeroIdUseCase getSelectedHeroIdIdUseCase,
             SetSelectedHeroIdUseCase setSelectedHeroIdUseCase,
+            SaveProgressToLocalUseCase saveProgressToLocalUseCase,
             IConfigurationProvider configurationProvider,
             IHeroSelectionService heroSelectionService,
             IViewFactory viewFactory,
@@ -32,6 +35,7 @@ namespace GameCore.Controllers.Implementation.Presenters.Panels
         {
             _getSelectedHeroIdUseCase = getSelectedHeroIdIdUseCase;
             _setSelectedHeroIdUseCase = setSelectedHeroIdUseCase;
+            _saveProgressToLocalUseCase = saveProgressToLocalUseCase;
             _configurationProvider = configurationProvider;
             _heroSelectionService = heroSelectionService;
             _viewFactory = viewFactory;
@@ -58,6 +62,7 @@ namespace GameCore.Controllers.Implementation.Presenters.Panels
         {
             _viewFactory.CreateHeroModelView(heroDto, _view.HeroModelContainer);
             _setSelectedHeroIdUseCase.Execute(heroDto.Id);
+            _saveProgressToLocalUseCase.Execute();
         }
     }
 }

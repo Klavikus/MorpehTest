@@ -1,5 +1,4 @@
 ﻿using System;
-using GameCore.Domain.Dto;
 using GameCore.Domain.JsonConverters;
 using Newtonsoft.Json;
 using R3;
@@ -7,8 +6,7 @@ using R3;
 namespace GameCore.Domain.Models
 {
     [Serializable]
-    [JsonConverter(typeof(ModelJsonConverter<LevelSelectionDto>))]
-    public class LevelSelection : BaseEntity, ISerializable<LevelSelectionDto>
+    public class LevelSelection : BaseEntity
     {
         public static string DefaultId = nameof(LevelSelection);
 
@@ -17,6 +15,7 @@ namespace GameCore.Domain.Models
             SelectedId = new ReactiveProperty<int>(0);
         }
 
+        [JsonConverter(typeof(ReactivePropertyConverter))]
         public ReactiveProperty<int> SelectedId { get; private set; }
 
         public void Select(int levelId)
@@ -25,19 +24,6 @@ namespace GameCore.Domain.Models
                 throw new Exception($"Can't {nameof(Select)} level with id:'{levelId}'!");
 
             SelectedId.Value = levelId;
-        }
-
-        public LevelSelectionDto Serialize()
-        {
-            return new LevelSelectionDto
-            {
-                SelectedId = SelectedId.Value,
-            };
-        }
-
-        public void Deserialize(LevelSelectionDto dto)
-        {
-            SelectedId.Value = dto.SelectedId;
         }
     }
 }

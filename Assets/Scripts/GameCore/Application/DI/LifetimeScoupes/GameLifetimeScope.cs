@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using GameCore.Controllers.Abstracion.Services.Loading;
 using GameCore.Controllers.Implementation.GameFSM;
 using GameCore.Controllers.Implementation.GameFSM.States;
@@ -6,6 +7,7 @@ using GameCore.Controllers.Implementation.Services;
 using GameCore.Controllers.Implementation.Services.Loading;
 using GameCore.Controllers.Implementation.UseCases;
 using GameCore.Controllers.Implementation.UseCases.HeroSelection;
+using GameCore.Controllers.Implementation.UseCases.Progress;
 using GameCore.Domain.Models;
 using GameCore.Infrastructure.Abstraction;
 using GameCore.Infrastructure.Abstraction.AssetManagement;
@@ -20,12 +22,14 @@ using Modules.DAL.Runtime.Implementation.Data;
 using Modules.DAL.Runtime.Implementation.Data.Entities;
 using Modules.DAL.Runtime.Implementation.DataContexts;
 using Modules.DAL.Runtime.Implementation.Repositories;
+using Modules.DAL.Runtime.Implementation.Serialization;
 using Modules.Infrastructure.Implementation.DI;
 using Modules.Infrastructure.Interfaces.GameFsm;
 using Qw1nt.Runtime.AddressablesContentController.Common;
 using Qw1nt.Runtime.AddressablesContentController.Core;
 using Qw1nt.Runtime.Shared.AddressablesContentController.Interfaces;
 using Qw1nt.Runtime.Shared.AddressablesContentController.SceneManagement;
+using R3;
 using VContainer;
 using VContainer.Unity;
 
@@ -58,6 +62,8 @@ namespace GameCore.Application.DI.LifetimeScoupes
             builder.Register<GetSelectedHeroUseCase>(Lifetime.Singleton);
             builder.Register<GetSelectedHeroIdUseCase>(Lifetime.Singleton);
             builder.Register<SetSelectedHeroIdUseCase>(Lifetime.Singleton);
+            builder.Register<LoadProgressUseCase>(Lifetime.Singleton);
+            builder.Register<SaveProgressToLocalUseCase>(Lifetime.Singleton);
 
             RegisterProgressRepository(builder);
 
@@ -92,7 +98,11 @@ namespace GameCore.Application.DI.LifetimeScoupes
                         typeof(HeroSelection),
                     };
                     IData gameData = new GameData(dataTypes);
-                    IDataContext dataContext = new SimpleRuntimeDataContext(gameData);
+                    JsonSerializer jsonSerializer =
+                        new(gameData.ContainedTypes.Concat(new[] {typeof(GameDataDto), typeof(ReactiveProperty<int>)}));
+
+                    IDataContext dataContext =
+                        new JsonPrefsDataContext(gameData, nameof(JsonPrefsDataContext), jsonSerializer);
 
                     return new CompositeRepository(dataContext, dataTypes);
                 },
