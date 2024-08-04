@@ -59,6 +59,8 @@ namespace GameCore.Application.DI.LifetimeScoupes
             builder.Register<GetPlayerCurrencyUseCase>(Lifetime.Singleton);
             builder.Register<AddPlayerExpUseCase>(Lifetime.Singleton);
             builder.Register<GetLevelSelectionUseCase>(Lifetime.Singleton);
+            builder.Register<GetSelectedLevelIdUseCase>(Lifetime.Singleton);
+            builder.Register<SetSelectedLevelIdUseCase>(Lifetime.Singleton);
             builder.Register<GetSelectedHeroUseCase>(Lifetime.Singleton);
             builder.Register<GetSelectedHeroIdUseCase>(Lifetime.Singleton);
             builder.Register<SetSelectedHeroIdUseCase>(Lifetime.Singleton);

@@ -11,23 +11,22 @@ namespace GameCore.Controllers.Implementation.Services
     {
         private readonly IGameStateMachine _gameStateMachine;
         private readonly IConfigurationProvider _configurationProvider;
-        private readonly GetLevelSelectionUseCase _getLevelSelectionUseCase;
+        private readonly GetSelectedLevelIdUseCase _getSelectedLevelIdUseCase;
 
         public LevelLoadingService(
             IGameStateMachine gameStateMachine,
             IConfigurationProvider configurationProvider,
-            GetLevelSelectionUseCase getLevelSelectionUseCase)
+            GetSelectedLevelIdUseCase getSelectedLevelIdUseCase)
         {
             _gameStateMachine = gameStateMachine;
             _configurationProvider = configurationProvider;
-            _getLevelSelectionUseCase = getLevelSelectionUseCase;
+            _getSelectedLevelIdUseCase = getSelectedLevelIdUseCase;
         }
 
         public void StartSelected()
         {
-            LevelSelection levelSelection = _getLevelSelectionUseCase.Execute();
+            int selectedLevelId = _getSelectedLevelIdUseCase.Execute();
 
-            int selectedLevelId = levelSelection.SelectedId.CurrentValue;
             SceneData sceneData = _configurationProvider.GetLevelConfig(selectedLevelId);
 
             _gameStateMachine.Enter<GameLoopState, SceneData>(sceneData);
