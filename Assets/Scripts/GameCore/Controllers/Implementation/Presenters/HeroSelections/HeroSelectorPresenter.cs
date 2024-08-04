@@ -1,7 +1,6 @@
-﻿using GameCore.Controllers.Abstracion.Services;
-using GameCore.Controllers.Implementation.Services;
+﻿using System;
+using GameCore.Controllers.Abstracion.Services;
 using GameCore.Domain.Dto;
-using GameCore.Presentation.Implementation;
 using GameCore.Presentation.Implementation.HeroSelection;
 using Modules.UI.MVPPassiveView.Runtime.Presenters;
 
@@ -27,28 +26,27 @@ namespace GameCore.Controllers.Implementation.Presenters.HeroSelections
         {
             _view.SelectButton.onClick.AddListener(OnSelectButtonClicked);
             _view.Avatar.sprite = _heroDto.Avatar;
+            _heroSelectionService.Focused += OnHeroFocused;
+            OnHeroFocused(_heroSelectionService.FocusedOn);
         }
 
         public void Disable()
         {
             _view.SelectButton.onClick.RemoveListener(OnSelectButtonClicked);
+            _heroSelectionService.Focused -= OnHeroFocused;
         }
 
         private void OnSelectButtonClicked()
         {
             _heroSelectionService.FocusOn(_heroDto);
+        }
 
-            // HeroView[] heroViews = _heroButton.PrefabContainer.GetComponentsInChildren<HeroView>();
-            //
-            // for (var i = 0; i < heroViews.Length; i++)
-            // {
-            //     HeroView heroView = heroViews[i];
-            //     Object.Destroy(heroView.gameObject);
-            // }
-            //
-            // var contentOperation = await _contentController.LoadAsync<GameObject>(_heroDto.Reference);
-            //
-            // Object.Instantiate(contentOperation.GetResult(), _heroButton.PrefabContainer);
+        private void OnHeroFocused(HeroDto heroDto)
+        {
+            if (heroDto == null)
+                throw new ArgumentNullException(nameof(heroDto));
+
+            _view.SelectionBorder.enabled = _heroDto.Id == heroDto.Id;
         }
     }
 }

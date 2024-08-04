@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using GameCore.Controllers.Abstracion.Services;
-using GameCore.Controllers.Implementation.Services;
-using GameCore.Controllers.Implementation.UseCases;
 using GameCore.Controllers.Implementation.UseCases.HeroSelection;
 using GameCore.Controllers.Implementation.UseCases.Progress;
 using GameCore.Domain.Dto;
@@ -20,6 +18,7 @@ namespace GameCore.Controllers.Implementation.Presenters.Panels
         private readonly IConfigurationProvider _configurationProvider;
         private readonly IHeroSelectionService _heroSelectionService;
         private readonly IViewFactory _viewFactory;
+
         private readonly IHeroListPanelView _view;
 
         public HeroListPanelPresenter(
@@ -44,13 +43,13 @@ namespace GameCore.Controllers.Implementation.Presenters.Panels
 
         protected override void OnAfterEnable()
         {
-            _viewFactory.CreateHeroButtons(_view.HeroSelectorContainer);
-            _view.CloseButton.onClick.AddListener(WindowFsm.CloseCurrentWindow);
-
             _heroSelectionService.Focused += OnHeroFocused;
 
             int selectedHeroId = _getSelectedHeroIdUseCase.Execute();
             _heroSelectionService.FocusOn(_configurationProvider.HeroData.First(x => x.Id == selectedHeroId));
+
+            _viewFactory.CreateHeroButtons(_view.HeroSelectorContainer);
+            _view.CloseButton.onClick.AddListener(WindowFsm.CloseCurrentWindow);
         }
 
         protected override void OnAfterDisable()
