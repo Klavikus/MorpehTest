@@ -16,7 +16,7 @@ namespace GameCore.Domain.Models
         }
 
         [JsonConverter(typeof(ReactivePropertyConverter))]
-        public ReactiveProperty<int> SelectedId;
+        public ReactiveProperty<int> SelectedId { get; private set; }
 
         public void Select(int id)
         {

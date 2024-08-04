@@ -72,7 +72,7 @@ namespace Modules.DAL.Runtime.Implementation.Serialization
                         {
                             KnownTypes = _knownTypes
                         },
-                        Formatting = Formatting.None,
+                        Formatting = Formatting.Indented,
                     });
                 }
             }

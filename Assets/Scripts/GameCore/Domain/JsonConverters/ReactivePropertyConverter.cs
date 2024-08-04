@@ -1,6 +1,7 @@
 using System;
 using Newtonsoft.Json;
 using R3;
+using UnityEngine;
 
 namespace GameCore.Domain.JsonConverters
 {
@@ -8,7 +9,7 @@ namespace GameCore.Domain.JsonConverters
     {
         public override void WriteJson(JsonWriter writer, ReactiveProperty<int> value, JsonSerializer serializer)
         {
-            writer.WriteValue(value.CurrentValue);
+            writer.WriteValue(value.Value);
         }
 
         public override ReactiveProperty<int> ReadJson(
@@ -19,6 +20,13 @@ namespace GameCore.Domain.JsonConverters
             JsonSerializer serializer)
         {
             int value = reader.Value != null ? Convert.ToInt32(reader.Value) : 0;
+
+            if (hasExistingValue)
+            {
+                existingValue.Value = value;
+
+                return existingValue;
+            }
 
             return new ReactiveProperty<int>(value);
         }
