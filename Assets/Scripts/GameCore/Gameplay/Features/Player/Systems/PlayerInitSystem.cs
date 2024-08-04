@@ -1,4 +1,7 @@
-﻿using GameCore.Domain.Common;
+﻿using System.Linq;
+using GameCore.Controllers.Implementation.UseCases;
+using GameCore.Controllers.Implementation.UseCases.HeroSelection;
+using GameCore.Domain.Common;
 using GameCore.Domain.Configs;
 using GameCore.Domain.Enums;
 using GameCore.Gameplay.Common;
@@ -28,6 +31,7 @@ namespace GameCore.Gameplay.Features.Player.Systems
         private GameplayCamera _gameplayCamera;
         private Point _spawnPoint;
         private PlayerBuilder _playerBuilder;
+        private GetSelectedHeroIdUseCase _getSelectedHeroIdUseCase;
 
         public World World { get; set; }
 
@@ -38,15 +42,19 @@ namespace GameCore.Gameplay.Features.Player.Systems
             _gameplayCamera = objectResolver.Resolve<GameplayCamera>();
             _spawnPoint = objectResolver.Resolve<GameplaySceneConfig>().StartPoint;
             _playerBuilder = objectResolver.Resolve<PlayerBuilder>();
+            _getSelectedHeroIdUseCase = objectResolver.Resolve<GetSelectedHeroIdUseCase>();
         }
 
         public async void OnAwake()
         {
             var entity = _playerBuilder.Build(World);
 
+            var heroId = _getSelectedHeroIdUseCase.Execute();
+            var heroReference = _configurationProvider.HeroData.First(x => x.Id == heroId).Reference;
+
             var view = await _entityViewFactory.CreateForEntityAsync(
                 entity,
-                _configurationProvider.PlayerRegistrar.AssetGUID,
+                heroReference.AssetGUID,
                 _spawnPoint.Position,
                 _spawnPoint.Rotation);
 

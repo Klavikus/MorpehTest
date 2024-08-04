@@ -5,7 +5,7 @@ using GameCore.Gameplay.Features.Units.Components;
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
 
-namespace GameCore.Gameplay.Features.Units.Systems
+namespace GameCore.Gameplay.Features.Enemies.Systems
 {
     [Il2CppSetOption(Option.NullChecks, false)]
     [Il2CppSetOption(Option.ArrayBoundsChecks, false)]

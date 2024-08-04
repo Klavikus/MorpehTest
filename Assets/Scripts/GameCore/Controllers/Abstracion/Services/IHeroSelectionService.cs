@@ -1,7 +1,7 @@
 using System;
 using GameCore.Domain.Dto;
 
-namespace GameCore.Controllers.Implementation.Services
+namespace GameCore.Controllers.Abstracion.Services
 {
     public interface IHeroSelectionService
     {

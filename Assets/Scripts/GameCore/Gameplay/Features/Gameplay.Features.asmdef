@@ -11,7 +11,8 @@
         "AddressablesContentController",
         "UniTask",
         "UniTask.Addressables",
-        "Extensions"
+        "Extensions",
+        "Controllers.Implementation"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

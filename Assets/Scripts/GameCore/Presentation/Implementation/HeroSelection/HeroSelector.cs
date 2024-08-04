@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameCore.Presentation.Implementation
+namespace GameCore.Presentation.Implementation.HeroSelection
 {
     public class HeroSelector : ViewBase
     {

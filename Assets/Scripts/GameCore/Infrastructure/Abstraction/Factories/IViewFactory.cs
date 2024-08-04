@@ -1,7 +1,7 @@
 using GameCore.Domain.Dto;
 using UnityEngine;
 
-namespace GameCore.Infrastructure.Implementation.Factories
+namespace GameCore.Infrastructure.Abstraction.Factories
 {
     public interface IViewFactory
     {

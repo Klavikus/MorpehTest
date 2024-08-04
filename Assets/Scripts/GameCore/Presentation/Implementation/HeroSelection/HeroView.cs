@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GameCore.Presentation.Implementation
+namespace GameCore.Presentation.Implementation.HeroSelection
 {
     public class HeroView : MonoBehaviour
     {

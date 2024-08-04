@@ -1,10 +1,8 @@
 ﻿using System;
 using Scellecs.Morpeh;
-#if ENABLE_IL2CPP
-    using Unity.IL2CPP.CompilerServices;
-#endif
+using Unity.IL2CPP.CompilerServices;
 
-namespace NAMESPACE
+namespace GameCore.Gameplay.Features.AI.Components
 {
     /// <summary>
     /// Указывает что Unit управляется через AI.

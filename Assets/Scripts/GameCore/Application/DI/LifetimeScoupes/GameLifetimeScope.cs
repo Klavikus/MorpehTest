@@ -5,6 +5,7 @@ using GameCore.Controllers.Implementation.GameFSM.States;
 using GameCore.Controllers.Implementation.Services;
 using GameCore.Controllers.Implementation.Services.Loading;
 using GameCore.Controllers.Implementation.UseCases;
+using GameCore.Controllers.Implementation.UseCases.HeroSelection;
 using GameCore.Domain.Models;
 using GameCore.Infrastructure.Abstraction;
 using GameCore.Infrastructure.Abstraction.AssetManagement;
@@ -54,6 +55,9 @@ namespace GameCore.Application.DI.LifetimeScoupes
             builder.Register<GetPlayerCurrencyUseCase>(Lifetime.Singleton);
             builder.Register<AddPlayerExpUseCase>(Lifetime.Singleton);
             builder.Register<GetLevelSelectionUseCase>(Lifetime.Singleton);
+            builder.Register<GetSelectedHeroUseCase>(Lifetime.Singleton);
+            builder.Register<GetSelectedHeroIdUseCase>(Lifetime.Singleton);
+            builder.Register<SetSelectedHeroIdUseCase>(Lifetime.Singleton);
 
             RegisterProgressRepository(builder);
 
