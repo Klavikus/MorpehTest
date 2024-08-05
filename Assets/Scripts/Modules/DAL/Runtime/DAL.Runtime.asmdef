@@ -2,11 +2,7 @@
     "name": "DAL.Runtime",
     "rootNamespace": "",
     "references": [
-        "UniTask",
-        "GUID:ec7a9467ca663804b8928da66470f540",
-        "GUID:4e29ddf49d8875349bab0013e1a34352",
-        "GUID:8861a9a17190da64f939267ad98101ce",
-        "GUID:1b96a4e6a3e98a54fbfe7bdf57f1e7b7"
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
